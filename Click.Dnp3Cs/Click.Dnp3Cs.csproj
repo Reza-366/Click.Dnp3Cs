@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01DFE4C4-0453-4094-B890-D6E50738E8B5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Click.Dnp3Cs</RootNamespace>
+    <AssemblyName>Click.Dnp3Cs</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dnp3\ConversionGlobals.cs" />
+    <Compile Include="Dnp3\DefineConstants.cs" />
+    <Compile Include="Dnp3\exe4cpp\asio\AsioTimer.cs" />
+    <Compile Include="Dnp3\exe4cpp\asio\BasicExecutor.cs" />
+    <Compile Include="Dnp3\exe4cpp\asio\StrandExecutor.cs" />
+    <Compile Include="Dnp3\exe4cpp\asio\ThreadPool.cs" />
+    <Compile Include="Dnp3\exe4cpp\IExecutor.cs" />
+    <Compile Include="Dnp3\exe4cpp\ISteadyTimeSource.cs" />
+    <Compile Include="Dnp3\exe4cpp\ITimer.cs" />
+    <Compile Include="Dnp3\exe4cpp\MockExecutor.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\address.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\basic_waitable_timer.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\detail.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\io_context.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\io_service.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\serial_port.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\serial_port_base.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\socket.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\strand.cs" />
+    <Compile Include="Dnp3\exe4cpp\myasio\wrap_handler.cs" />
+    <Compile Include="Dnp3\exe4cpp\Timer.cs" />
+    <Compile Include="Dnp3\exe4cpp\Typedefs.cs" />
+    <Compile Include="Dnp3\opendnp3.APDUHeaderParser.cs" />
+    <Compile Include="Dnp3\opendnp3.CommandSet.cs" />
+    <Compile Include="Dnp3\opendnp3.CommandSetOps.cs" />
+    <Compile Include="Dnp3\opendnp3.CRC.cs" />
+    <Compile Include="Dnp3\opendnp3.DecoderImpl.cs" />
+    <Compile Include="Dnp3\opendnp3.DNP3Manager.cs" />
+    <Compile Include="Dnp3\opendnp3.EmptyResponseTask.cs" />
+    <Compile Include="Dnp3\opendnp3.EventLists.cs" />
+    <Compile Include="Dnp3\opendnp3.EventWriting.cs" />
+    <Compile Include="Dnp3\opendnp3.Group51Var1.cs" />
+    <Compile Include="Dnp3\opendnp3.Group51Var2.cs" />
+    <Compile Include="Dnp3\opendnp3.Group52Var1.cs" />
+    <Compile Include="Dnp3\opendnp3.Group52Var2.cs" />
+    <Compile Include="Dnp3\opendnp3.LANTimeSyncTask.cs" />
+    <Compile Include="Dnp3\opendnp3.LinkContext.cs" />
+    <Compile Include="Dnp3\opendnp3.LinkFrame.cs" />
+    <Compile Include="Dnp3\opendnp3.LinkSession.cs" />
+    <Compile Include="Dnp3\opendnp3.MContext.cs" />
+    <Compile Include="Dnp3\opendnp3.MeasurementHandler.cs" />
+    <Compile Include="Dnp3\opendnp3.OContext.cs" />
+    <Compile Include="Dnp3\opendnp3.PollTaskBase.cs" />
+    <Compile Include="Dnp3\opendnp3.RestartOperationTask.cs" />
+    <Compile Include="Dnp3\opendnp3.WriteHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\app\AnalogCommandEvent.cs" />
+    <Compile Include="Dnp3\opendnp3\app\AnalogOutput.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDUBuilders.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDUHeader.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDULogging.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDURequest.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDUResponse.cs" />
+    <Compile Include="Dnp3\opendnp3\app\APDUWrapper.cs" />
+    <Compile Include="Dnp3\opendnp3\app\AppConstants.cs" />
+    <Compile Include="Dnp3\opendnp3\app\AppControlField.cs" />
+    <Compile Include="Dnp3\opendnp3\app\AppSeqNum.cs" />
+    <Compile Include="Dnp3\opendnp3\app\BaseMeasurementTypes.cs" />
+    <Compile Include="Dnp3\opendnp3\app\BinaryCommandEvent.cs" />
+    <Compile Include="Dnp3\opendnp3\app\BitfieldRangeWriteIterator.cs" />
+    <Compile Include="Dnp3\opendnp3\app\ClassField.cs" />
+    <Compile Include="Dnp3\opendnp3\app\ControlRelayOutputBlock.cs" />
+    <Compile Include="Dnp3\opendnp3\app\CountWriteIterator.cs" />
+    <Compile Include="Dnp3\opendnp3\app\DNP3Serializer.cs" />
+    <Compile Include="Dnp3\opendnp3\app\DNPTime.cs" />
+    <Compile Include="Dnp3\opendnp3\app\DownSampling.cs" />
+    <Compile Include="Dnp3\opendnp3\app\EventCells.cs" />
+    <Compile Include="Dnp3\opendnp3\app\EventTriggers.cs" />
+    <Compile Include="Dnp3\opendnp3\app\EventType.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Flags.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Functions.cs" />
+    <Compile Include="Dnp3\opendnp3\app\GroupVariationID.cs" />
+    <Compile Include="Dnp3\opendnp3\app\GroupVariationRecord.cs" />
+    <Compile Include="Dnp3\opendnp3\app\HeaderWriter.cs" />
+    <Compile Include="Dnp3\opendnp3\app\IINField.cs" />
+    <Compile Include="Dnp3\opendnp3\app\IINValue.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Indexed.cs" />
+    <Compile Include="Dnp3\opendnp3\app\IVariableLength.cs" />
+    <Compile Include="Dnp3\opendnp3\app\MeasurementFactory.cs" />
+    <Compile Include="Dnp3\opendnp3\app\MeasurementInfo.cs" />
+    <Compile Include="Dnp3\opendnp3\app\MeasurementTypes.cs" />
+    <Compile Include="Dnp3\opendnp3\app\MeasurementTypeSpecs.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Message.cs" />
+    <Compile Include="Dnp3\opendnp3\app\OctetData.cs" />
+    <Compile Include="Dnp3\opendnp3\app\OctetString.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\APDUHeaderParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\APDUParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\BitReader.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\BufferedCollection.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\Collections.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\CountIndexParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\CountParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\DNPTimeParsing.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\IAPDUHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\ICollection.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\IWhiteList.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\NumParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\ObjectHeaderParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\ParseResult.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\ParserSettings.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\PrefixFields.cs" />
+    <Compile Include="Dnp3\opendnp3\app\parsing\RangeParser.cs" />
+    <Compile Include="Dnp3\opendnp3\app\PrefixedWriteIterator.cs" />
+    <Compile Include="Dnp3\opendnp3\app\QualityFlags.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Range.cs" />
+    <Compile Include="Dnp3\opendnp3\app\RangeWriteIterator.cs" />
+    <Compile Include="Dnp3\opendnp3\app\SequenceInfo.cs" />
+    <Compile Include="Dnp3\opendnp3\app\Serializer.cs" />
+    <Compile Include="Dnp3\opendnp3\app\TxBuffer.cs" />
+    <Compile Include="Dnp3\opendnp3\app\WriteConversions.cs" />
+    <Compile Include="Dnp3\opendnp3\app\WriteConversionTemplates.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\ASIOSerialHelpers.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\ChannelRetry.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\DNP3Channel.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IAsyncChannel.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IChannel.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IChannelCallbacks.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IChannelListener.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IListener.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IOHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IOpenDelayStrategy.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IPEndpoint.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\IPEndpointsList.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\LoggingConnectionCondition.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\PrintingChannelListener.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\SerialChannel.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\SerialIOHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\SerialSettings.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\SocketHelpers.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TCPClient.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TCPClientIOHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TCPServer.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TCPServerIOHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TCPSocketChannel.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\TLSConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\UDPClient.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\UDPClientIOHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\channel\UDPSocketChannel.cs" />
+    <Compile Include="Dnp3\opendnp3\ConsoleLogger.cs" />
+    <Compile Include="Dnp3\opendnp3\decoder\Decoder.cs" />
+    <Compile Include="Dnp3\opendnp3\decoder\DecoderImpl.cs" />
+    <Compile Include="Dnp3\opendnp3\decoder\IDecoderCallbacks.cs" />
+    <Compile Include="Dnp3\opendnp3\decoder\Indent.cs" />
+    <Compile Include="Dnp3\opendnp3\decoder\LoggingHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\DNP3Manager.cs" />
+    <Compile Include="Dnp3\opendnp3\DNP3ManagerImpl.cs" />
+    <Compile Include="Dnp3\opendnp3\ErrorCodes.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\AnalogOutputStatusQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\AnalogQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\AssignClassType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\Attributes.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\BinaryOutputStatusQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\BinaryQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\ChannelState.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\CommandPointState.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\CommandStatus.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\CommandStatusSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\CounterQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\DoubleBit.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\DoubleBitBinaryQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\DoubleBitSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventAnalogOutputStatusVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventAnalogVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventBinaryOutputStatusVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventBinaryVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventCounterVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventDoubleBinaryVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventFrozenCounterVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventMode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventOctetStringVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\EventSecurityStatVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FlagsType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FlagsTypeSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FlowControl.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FlowControlSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FrozenCounterQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FunctionCode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\FunctionCodeSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\GroupVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\GroupVariationSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\IndexQualifierMode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\IntervalUnits.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\IntervalUnitsSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\LinkFunction.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\LinkFunctionSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\LinkStatus.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\MasterTaskType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group1.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group10.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group11.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group110.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group111.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group112.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group113.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group12.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group13.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group2.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group20.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group21.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group22.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group23.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group3.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group30.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group32.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group4.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group40.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group41.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group42.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group43.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group50.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group51.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group52.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group60.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group70.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\objects\Group80.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\OperateType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\OperationType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\Parity.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\ParitySerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\PointClass.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\QualifierCode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\QualifierCodeSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\RestartMode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\RestartType.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\ServerAcceptMode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticAnalogOutputStatusVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticAnalogVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticBinaryOutputStatusVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticBinaryVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticCounterVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticDoubleBinaryVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticFrozenCounterVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticOctetStringVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticSecurityStatVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticTimeAndIntervalVariation.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StaticTypeBitmask.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StopBits.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\StopBitsSerialization.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\TaskCompletion.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\TimestampQuality.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\TimeSyncMode.cs" />
+    <Compile Include="Dnp3\opendnp3\gen\TripCloseCode.cs" />
+    <Compile Include="Dnp3\opendnp3\IResource.cs" />
+    <Compile Include="Dnp3\opendnp3\IResourceManager.cs" />
+    <Compile Include="Dnp3\opendnp3\IStack.cs" />
+    <Compile Include="Dnp3\opendnp3\LayerInterfaces.cs" />
+    <Compile Include="Dnp3\opendnp3\link\Addresses.cs" />
+    <Compile Include="Dnp3\opendnp3\link\CRC.cs" />
+    <Compile Include="Dnp3\opendnp3\link\IFrameSink.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ILinkLayer.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ILinkListener.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ILinkSession.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ILinkTx.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ITransportSegment.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkContext.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkContextPars.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkFrame.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkHeader.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkHeaderFields.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkLayer.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkLayerConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkLayerConstants.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkLayerParser.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkSession.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkStatistics.cs" />
+    <Compile Include="Dnp3\opendnp3\link\LinkTransmission.cs" />
+    <Compile Include="Dnp3\opendnp3\link\PriLinkLayerStates.cs" />
+    <Compile Include="Dnp3\opendnp3\link\SecLinkLayerStates.cs" />
+    <Compile Include="Dnp3\opendnp3\link\ShiftableBuffer.cs" />
+    <Compile Include="Dnp3\opendnp3\link\Singleton.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\ConsolePrettyPrinter.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\HexLogging.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\ILogHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\Location.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\Logger.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\LogLevels.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\LogMacros.cs" />
+    <Compile Include="Dnp3\opendnp3\logging\Strings.cs" />
+    <Compile Include="Dnp3\opendnp3\master\AssignClassTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ClearRestartTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandPointResult.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandResultCallbackT.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandSet.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandSetOps.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\CommandTaskResult.cs" />
+    <Compile Include="Dnp3\opendnp3\master\DefaultListenCallbacks.cs" />
+    <Compile Include="Dnp3\opendnp3\master\DefaultMasterApplication.cs" />
+    <Compile Include="Dnp3\opendnp3\master\DisableUnsolicitedTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\EmptyResponseTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\EnableUnsolicitedTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\EventScanTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\HeaderBuilder.cs" />
+    <Compile Include="Dnp3\opendnp3\master\HeaderConversions.cs" />
+    <Compile Include="Dnp3\opendnp3\master\HeaderInfo.cs" />
+    <Compile Include="Dnp3\opendnp3\master\HeaderTypes.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ICommandCollection.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ICommandHeader.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ICommandProcessor.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ICommandTaskResult.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IListenCallbacks.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMaster.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterApplication.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterOperations.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterScan.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterScheduler.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterSession.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IMasterTaskRunner.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IScheduleCallback.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ISessionAcceptor.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ISOEHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ITaskCallback.cs" />
+    <Compile Include="Dnp3\opendnp3\master\IUTCTimeSource.cs" />
+    <Compile Include="Dnp3\opendnp3\master\LANTimeSyncTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterContext.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterParams.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterScan.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterSchedulerBackend.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterSessionStack.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterStack.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterStackConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterTasks.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MasterTCPServer.cs" />
+    <Compile Include="Dnp3\opendnp3\master\MeasurementHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\master\PollTaskBase.cs" />
+    <Compile Include="Dnp3\opendnp3\master\PrintingCommandResultCallback.cs" />
+    <Compile Include="Dnp3\opendnp3\master\PrintingSOEHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ResponseInfo.cs" />
+    <Compile Include="Dnp3\opendnp3\master\RestartOperationResult.cs" />
+    <Compile Include="Dnp3\opendnp3\master\RestartOperationTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\ScanResult.cs" />
+    <Compile Include="Dnp3\opendnp3\master\SerialTimeSyncTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\StartupIntegrityPoll.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskBehavior.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskContext.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskId.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskInfo.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TaskPriority.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TimeSyncHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\master\TypedCommandHeader.cs" />
+    <Compile Include="Dnp3\opendnp3\master\UserPollTask.cs" />
+    <Compile Include="Dnp3\opendnp3\master\X509Info.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ApplicationIIN.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\AssignClassHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\Cell.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ClassBasedRequestHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\CommandActionAdapter.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\CommandResponseHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ConstantCommandAction.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ControlState.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\Database.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\DatabaseConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\DefaultOutstationApplication.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\DeferredRequest.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\Event.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\EventBufferConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\ASDUEventWriteHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\ClazzCount.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventBuffer.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventCollection.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventLists.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventRecord.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventSelection.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventState.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventStorage.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventTypeImpl.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventUpdate.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventWriters.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\EventWriting.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\IEventType.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\IEventWriteHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\List.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\TypedEventRecord.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\event\TypedStorage.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\FreezeRequestHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IClassAssigner.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ICommandAction.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ICommandHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IDnpTimeSource.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IEventReceiver.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IEventRecorder.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IEventSelector.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IINHelpers.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IOutstation.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IOutstationApplication.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IResponseLoader.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IStaticSelector.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\IUpdateHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\MeasurementConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\NumRetries.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OctetStringSerializer.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationChannelStates.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationContext.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationParams.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationSeqNum.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationStack.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationStackConfig.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\OutstationStates.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ParsedRequest.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ReadHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\RequestHistory.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\ResponseContext.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\SimpleCommandHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\StaticDataCell.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\StaticDataMap.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\StaticTypeBitfield.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\StaticWriters.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\TimeSyncState.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\UpdateBuilder.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\Updates.cs" />
+    <Compile Include="Dnp3\opendnp3\outstation\WriteHandler.cs" />
+    <Compile Include="Dnp3\opendnp3\ResourceManager.cs" />
+    <Compile Include="Dnp3\opendnp3\SequenceNum.cs" />
+    <Compile Include="Dnp3\opendnp3\StackBase.cs" />
+    <Compile Include="Dnp3\opendnp3\StackStatistics.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportConstants.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportHeader.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportLayer.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportRx.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportSeqNum.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportStack.cs" />
+    <Compile Include="Dnp3\opendnp3\transport\TransportTx.cs" />
+    <Compile Include="Dnp3\opendnp3\util\Buffer.cs" />
+    <Compile Include="Dnp3\opendnp3\util\StaticOnly.cs" />
+    <Compile Include="Dnp3\opendnp3\util\TimeDuration.cs" />
+    <Compile Include="Dnp3\opendnp3\util\Timestamp.cs" />
+    <Compile Include="Dnp3\opendnp3\util\Uncopyable.cs" />
+    <Compile Include="Dnp3\opendnp3\util\UTCTimestamp.cs" />
+    <Compile Include="Dnp3\ParsOutstation.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\Array.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\ArrayView.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\Buffer.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\HasLength.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\Pair.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\RSeq.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\SequenceTypes.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\Settable.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\StaticBuffer.cs" />
+    <Compile Include="Dnp3\ser4cpp\container\WSeq.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\BigEndian.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\DoubleFloat.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\EndianHelpers.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\FloatByteOrder.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\LittleEndian.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\SerializationTemplates.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\SingleFloat.cs" />
+    <Compile Include="Dnp3\ser4cpp\serialization\UInt48Type.cs" />
+    <Compile Include="Dnp3\ser4cpp\util\Comparisons.cs" />
+    <Compile Include="Dnp3\ser4cpp\util\HexConversions.cs" />
+    <Compile Include="Dnp3\ser4cpp\util\Uncopyable.cs" />
+    <Compile Include="Dnp3\TangibleArrays.cs" />
+    <Compile Include="Dnp3\TangibleStringFunctions.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
