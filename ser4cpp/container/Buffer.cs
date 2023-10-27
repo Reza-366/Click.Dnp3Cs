@@ -29,39 +29,55 @@ using System.Threading.Tasks;
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+
+
 namespace ser4cpp
 {
 
-/** 
- * Inherited classes will not have default copy/assignment.
-*/
-public class Uncopyable : System.IDisposable
+//C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
+//ORIGINAL LINE: class Buffer : public HasLength</*size_t*/int>, private Uncopyable
+//C++ TO C# CONVERTER TASK: Multiple inheritance is not available in C#:
+public class Buffer : HasLength //</*size_t*/int>, Uncopyable
 {
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	Uncopyable() = default;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	Uncopyable(Uncopyable&&) = default;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	virtual ~Uncopyable() = default;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	Uncopyable& operator =(Uncopyable&&) = default;
+	public Buffer() 
+			: base(0)
+	{
+	}
 
-	// prevent these functions
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	Uncopyable(const Uncopyable&) = delete;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	Uncopyable& operator =(const Uncopyable&) = delete;
-}
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+//	~Buffer() = default;
 
-public class StaticOnly
-{
-	// prevent these functions
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	StaticOnly() = delete;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	StaticOnly(const StaticOnly&) = delete;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	StaticOnly& operator =(const StaticOnly&) = delete;
+	public Buffer(int length) 
+			: base(length)
+	{
+		this.bytes =new byte[length];
+	}
+
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+//	Buffer(Buffer&&) = default;
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+//	Buffer& operator =(Buffer&&) = default;
+
+	// initialize with the exact length and contents
+	public Buffer(in RSeq input) 
+			: this(input.length())
+	{
+		this.as_wslice().copy_from(input);
+	}
+
+//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+//ORIGINAL LINE: inline RSeq as_rslice() const
+	public RSeq as_rslice()
+	{
+		return new RSeq(this.bytes, this.length());
+	}
+
+	public WSeq as_wslice()
+	{
+		return new WSeq(this.bytes, this.length());
+	}
+
+	private byte[] bytes= new byte[0];
 }
 
 }

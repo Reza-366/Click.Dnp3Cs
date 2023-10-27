@@ -43,7 +43,7 @@ public class SingleFloat : StaticOnly
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert(sizeof(float) == 4, "Unexpected length of single float");
 
-	public static bool read_from(rseq_t input, ref float @out)
+	public static bool read_from(RSeq input, ref float @out)
 	{
 		uint value = new uint();
 		if (uint.read_from(input, value))
@@ -55,7 +55,7 @@ public class SingleFloat : StaticOnly
 		return false;
 	}
 
-	public static bool write_to(wseq_t dest, float value)
+	public static bool write_to(WSeq dest, float value)
 	{
 		if (dest.length() < size)
 		{

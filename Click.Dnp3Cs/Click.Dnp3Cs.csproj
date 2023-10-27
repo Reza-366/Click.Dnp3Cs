@@ -478,27 +478,6 @@
     <Compile Include="DnpOutstation\opendnp3\util\Uncopyable.cs" />
     <Compile Include="DnpOutstation\opendnp3\util\UTCTimestamp.cs" />
     <Compile Include="DnpOutstation\ParsOutstation.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\Array.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\ArrayView.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\Buffer.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\HasLength.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\Pair.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\RSeq.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\SequenceTypes.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\Settable.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\StaticBuffer.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\container\WSeq.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\BigEndian.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\DoubleFloat.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\EndianHelpers.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\FloatByteOrder.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\LittleEndian.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\SerializationTemplates.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\SingleFloat.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\serialization\UInt48Type.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\util\Comparisons.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\util\HexConversions.cs" />
-    <Compile Include="DnpOutstation\ser4cpp\util\Uncopyable.cs" />
     <Compile Include="DnpOutstation\size_t.cs" />
     <Compile Include="DnpOutstation\TangibleArrays.cs" />
     <Compile Include="DnpOutstation\TangibleStringFunctions.cs" />
@@ -531,6 +510,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ser4cpp\ser4cpp.csproj">
+      <Project>{6da17956-c723-4563-8364-5646aba6a6be}</Project>
+      <Name>ser4cpp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

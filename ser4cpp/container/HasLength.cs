@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -31,10 +32,51 @@ using System.Threading.Tasks;
 
 namespace ser4cpp
 {
+    //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+    //ORIGINAL LINE: template <class L>
+    public class HasLength
+    {
+        protected BitArray bitArray= new BitArray(0);
+        //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+        //ORIGINAL LINE: inline L length() const
+        public int length()
+        {
+            return bitArray.Length;
+        }
 
-//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template <class L>
-public class HasLength <L>
+        //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+        //ORIGINAL LINE: inline bool is_empty() const
+        public bool is_empty()
+        {
+            return bitArray.Length == 0;
+        }
+
+        //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+        //ORIGINAL LINE: inline bool is_not_empty() const
+        public bool is_not_empty()
+        {
+            return bitArray.Length != 0;
+        }
+
+        protected HasLength()
+        {
+        }
+
+        protected HasLength(int length)
+        {
+            //this.m_length = length;
+            bitArray = new BitArray(length);
+        }
+
+        //protected int m_length = 0;
+    }
+
+
+
+#if false
+	//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+	//ORIGINAL LINE: template <class L>
+	public class HasLength <L>
 {
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: inline L length() const
@@ -68,6 +110,6 @@ public class HasLength <L>
 
 	protected L m_length = 0;
 }
-
+#endif
 }
 

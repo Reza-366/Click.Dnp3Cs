@@ -29,47 +29,44 @@ using System.Threading.Tasks;
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
 namespace ser4cpp
 {
 
-namespace serializers
+    /** 
+     * Inherited classes will not have default copy/assignment.
+*/
+    public class Uncopyable : System.IDisposable
+    {
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+        //	Uncopyable() = default;
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+        //	Uncopyable(Uncopyable&&) = default;
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+        //	virtual ~Uncopyable() = default;
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+        //	Uncopyable& operator =(Uncopyable&&) = default;
+
+        // prevent these functions
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+        //	Uncopyable(const Uncopyable&) = delete;
+        //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+        //	Uncopyable& operator =(const Uncopyable&) = delete;
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StaticOnly
 {
-
-//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template<typename T>
-
-} // namespace serializers
-
-//C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
-//ORIGINAL LINE: class EndianHelpers : private StaticOnly
-public class EndianHelpers : StaticOnly
-{
-
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
-//ORIGINAL LINE: template <class T, typename... Args>
-	public static bool read<T>(rseq_t input, T value, Args ... args)
-	{
-		return ser4cpp.serializers.Globals.read_one(input, value) && read(input, args...);
-	}
-
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
-//ORIGINAL LINE: template <class T, typename... Args>
-	public static bool write<T>(wseq_t dest, in T value, in Args ... args)
-	{
-		return ser4cpp.serializers.Globals.write_one(dest, value) && write(dest, args...);
-	}
-
-	private static bool read(rseq_t input)
-	{
-		return true;
-	}
-
-	private static bool write(wseq_t dest)
-	{
-		return true;
-	}
+	// prevent these functions
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+//	StaticOnly() = delete;
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+//	StaticOnly(const StaticOnly&) = delete;
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+//	StaticOnly& operator =(const StaticOnly&) = delete;
 }
 
-} // namespace ser4cpp
+}
 

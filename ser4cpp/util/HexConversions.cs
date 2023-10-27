@@ -67,7 +67,7 @@ public class HexConversions
 		return oss.str();
 	}
 
-	public static string to_hex(in rseq_t buffer, bool spaced = true)
+	public static string to_hex(in RSeq buffer, bool spaced = true)
 	{
 		return to_hex(buffer, buffer.length(), spaced);
 	}

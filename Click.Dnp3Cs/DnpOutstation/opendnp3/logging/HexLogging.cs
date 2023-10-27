@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ser4cpp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -36,13 +37,13 @@ namespace opendnp3
 
 //C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
 //ORIGINAL LINE: class HexLogging : private ser4cpp::StaticOnly
-public class HexLogging : ser4cpp.StaticOnly
+public static class HexLogging //: ser4cpp.StaticOnly
 {
 	private static uint max_hex_per_line = max_log_entry_size / 3;
 
-	public static void log(Logger logger, LogLevel level, in RSeq</*size_t*/int> source, char separator = ' ', uint first_row_size = max_hex_per_line, uint other_row_size = max_hex_per_line)
+	public static void log(Logger logger, LogLevel level, in RSeq source, char separator = ' ', uint first_row_size = max_hex_per_line, uint other_row_size = max_hex_per_line)
 	{
-		RSeq</*size_t*/int> copy = new RSeq</*size_t*/int>(source);
+		RSeq copy = new RSeq(source);
 		uint row = 0;
 
 		var max_first_size = ser4cpp.Globals.bounded<uint>(new uint(first_row_size), 1, new uint(max_hex_per_line));
@@ -54,12 +55,12 @@ public class HexLogging : ser4cpp.StaticOnly
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: copy = log_line(logger, level, copy, separator, row_size);
 //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
-			copy.CopyFrom(log_line(logger, new opendnp3.LogLevel(level), copy, separator, row_size));
+			copy =log_line(logger, new opendnp3.LogLevel(level.value), copy, separator, row_size);
 			++row;
 		}
 	}
 
-	private static RSeq</*size_t*/int> log_line(Logger logger, LogLevel level, in RSeq</*size_t*/int> data, char separator, uint max_row_size)
+	private static RSeq log_line(Logger logger, LogLevel level, in RSeq data, char separator, uint max_row_size)
 	{
 		string buffer = new string(new char[opendnp3.Globals.max_log_entry_size]);
 

@@ -31,90 +31,50 @@ using System.Threading.Tasks;
 
 
 
-/**
-* @brief ser4cpp header-only library namespace
-*/
 namespace ser4cpp
 {
-
-/**
-*	Represents a readonly sequence of bytes with a parameterized length type (L)
-*/
+//C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
+//ORIGINAL LINE: template </*size_t*/int LENGTH>
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template <class L>
-public class RSeq <L> : HasLength<L>
+//ORIGINAL LINE: template <typename LENGTH> requires /*size_t*/int<LENGTH>
+public sealed class StaticBuffer <LENGTH>
 {
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
-//	static_assert(std::numeric_limits<L>::is_integer&& !std::numeric_limits<L>::is_signed, "Must be an unsigned integer");
 
-	public static RSeq empty()
-	{
-		return new RSeq(null, 0);
-	}
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
+//	StaticBuffer() = default;
 
-	public RSeq()
+//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+//ORIGINAL LINE: inline RSeq as_seq() const
+	public RSeq as_seq()
 	{
-		this.HasLength<L> = 0;
-	}
-
-	public RSeq(byte buffer, L length)
-	{
-		this.HasLength<L> = length;
-		this.buffer_ = buffer;
-	}
-
-	public void make_empty()
-	{
-		this.buffer_ = null;
-		this.m_length = 0;
+		return RSeq(this.buffer, LENGTH);
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: RSeq take(L count) const
-	public RSeq take(L count)
+//ORIGINAL LINE: inline RSeq as_seq(/*size_t*/int max_size) const
+	public RSeq as_seq(/*size_t*/int max_size)
 	{
-		return new RSeq(this.buffer_, (count < this.length()) ? count : this.length());
+		return this.as_seq().take(max_size);
+	}
+
+	public WSeq as_wseq()
+	{
+		return WSeq(this.buffer, LENGTH);
+	}
+
+	public WSeq as_wseq(/*size_t*/int max_size)
+	{
+		return WSeq(this.buffer, ser4cpp.Globals.min(LENGTH, new /*size_t*/int(max_size)));
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: RSeq skip(L count) const
-	public RSeq skip(L count)
+//ORIGINAL LINE: inline /*size_t*/int length() const
+	public /*size_t*/int length()
 	{
-		var num = ser4cpp.Globals.min(this.length(), count);
-		return new RSeq(this.buffer_ + num, this.length() - num);
+		return LENGTH;
 	}
 
-	public void advance(L count)
-	{
-		var num = ser4cpp.Globals.min(this.length(), count);
-//C++ TO C# CONVERTER TASK: Pointer arithmetic on arrays is not converted:
-		this.buffer_ += num;
-		this.m_length -= num;
-	}
-
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: operator byte const* () const
-	public static implicit operator byte (RSeq ImpliedObject)
-	{
-		return ImpliedObject.buffer_;
-	}
-
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: bool equals(const RSeq& rhs) const
-	public bool equals(in RSeq rhs)
-	{
-		if (this.m_length == rhs.m_length)
-		{
-//C++ TO C# CONVERTER TASK: The memory management function 'memcmp' has no equivalent in C#:
-			return memcmp(this.buffer_, rhs.buffer_, this.m_length) == 0;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	protected byte[] buffer_ = null;
+	private byte[] buffer = Arrays.PadReferenceTypeArrayWithDefaultInstances(LENGTH, new byte[] {0});
 }
 
 }

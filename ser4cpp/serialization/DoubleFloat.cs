@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System;
+
 
 /*
  * Copyright (c) 2018, Automatak LLC
@@ -43,7 +43,7 @@ public class DoubleFloat : StaticOnly
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert(sizeof(double) == 8, "Unexpected length of double float");
 
-	public static bool read_from(rseq_t input, ref double @out)
+	public static bool read_from(RSeq input, ref double @out)
 	{
 		ulong value = new ulong();
 		if (UInt64.read_from(input, value))
@@ -55,7 +55,7 @@ public class DoubleFloat : StaticOnly
 		return false;
 	}
 
-	public static bool write_to(wseq_t dest, double value)
+	public static bool write_to(WSeq dest, double value)
 	{
 		if (dest.length() < size)
 		{

@@ -30,52 +30,46 @@ using System.Threading.Tasks;
  */
 
 
-
 namespace ser4cpp
 {
-//C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
-//ORIGINAL LINE: template </*size_t*/int LENGTH>
-//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template <typename LENGTH> requires /*size_t*/int<LENGTH>
-public sealed class StaticBuffer <LENGTH>
+
+namespace serializers
 {
 
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	StaticBuffer() = default;
+//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+//ORIGINAL LINE: template<typename T>
 
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: inline rseq_t as_seq() const
-	public rseq_t as_seq()
+} // namespace serializers
+
+//C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
+//ORIGINAL LINE: class EndianHelpers : private StaticOnly
+public class EndianHelpers : StaticOnly
+{
+
+//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
+//ORIGINAL LINE: template <class T, typename... Args>
+	public static bool read<T>(RSeq input, T value, Args ... args)
 	{
-		return rseq_t(this.buffer, LENGTH);
+		return ser4cpp.serializers.Globals.read_one(input, value) && read(input, args...);
 	}
 
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: inline rseq_t as_seq(/*size_t*/int max_size) const
-	public rseq_t as_seq(/*size_t*/int max_size)
+//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
+//ORIGINAL LINE: template <class T, typename... Args>
+	public static bool write<T>(WSeq dest, in T value, in Args ... args)
 	{
-		return this.as_seq().take(max_size);
+		return ser4cpp.serializers.Globals.write_one(dest, value) && write(dest, args...);
 	}
 
-	public wseq_t as_wseq()
+	private static bool read(RSeq input)
 	{
-		return wseq_t(this.buffer, LENGTH);
+		return true;
 	}
 
-	public wseq_t as_wseq(/*size_t*/int max_size)
+	private static bool write(WSeq dest)
 	{
-		return wseq_t(this.buffer, ser4cpp.Globals.min(LENGTH, new /*size_t*/int(max_size)));
+		return true;
 	}
-
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: inline /*size_t*/int length() const
-	public /*size_t*/int length()
-	{
-		return LENGTH;
-	}
-
-	private byte[] buffer = Arrays.PadReferenceTypeArrayWithDefaultInstances(LENGTH, new byte[] {0});
 }
 
-}
+} // namespace ser4cpp
 

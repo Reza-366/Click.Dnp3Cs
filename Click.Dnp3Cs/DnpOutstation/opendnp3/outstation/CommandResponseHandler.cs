@@ -56,7 +56,7 @@ public class CommandResponseHandler : IAPDUHandler
 		this.numSuccess = 0;
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this.maxCommands = maxCommands_;
-		this.maxCommands.CopyFrom(maxCommands_);
+		this.maxCommands.=(maxCommands_);
 		this.pWriter = pWriter_;
 	}
 

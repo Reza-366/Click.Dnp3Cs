@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+
 /*
  * Copyright (c) 2018, Automatak LLC
  * All rights reserved.
@@ -34,48 +36,88 @@ using System.Threading.Tasks;
 namespace ser4cpp
 {
 
-//C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
-//ORIGINAL LINE: class Buffer : public HasLength</*size_t*/int>, private Uncopyable
-//C++ TO C# CONVERTER TASK: Multiple inheritance is not available in C#:
-public class Buffer : HasLength</*size_t*/int>, Uncopyable
+/**
+ * Template type for a dynamically allocated array
+ */
+//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+//ORIGINAL LINE: template<class T, class W>
+public class Array <T> : HasLength, System.IDisposable
 {
-	public Buffer() : base(0)
+
+	public Array(int size)
+			:base(size)
 	{
+		this.buffer = Arrays.InitializeWithDefaultInstances<T>(size);
 	}
 
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	~Buffer() = default;
-
-	public Buffer(/*size_t*/int length) : base(length)
+	public Array()
+			:base(0)
 	{
-		this.bytes = std::make_unique<byte[]>(length);
+		this.buffer = null;
 	}
 
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	Buffer(Buffer&&) = default;
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
-//	Buffer& operator =(Buffer&&) = default;
-
-	// initialize with the exact length and contents
-	public Buffer(in rseq_t input) : this(input.length())
+	public Array(in Array copy)
+			:base(copy.Length)
 	{
-		this.as_wslice().copy_from(input);
+		this.buffer = Arrays.InitializeWithDefaultInstances<T>(copy.Length);
+		for (int i = 0; i < copy.Length; ++i)
+		{
+			buffer[i] = copy.buffer[i];
+		}
+	}
+
+	public virtual void Dispose()
+	{
+		Arrays.DeleteArray(buffer);
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: inline rseq_t as_rslice() const
-	public rseq_t as_rslice()
+//ORIGINAL LINE: ArrayView<T, W> to_view() const
+	public ArrayView<T> to_view()
 	{
-		return rseq_t(this.bytes.get(), this.length());
+		return ArrayView<T>(buffer, this.length());
 	}
 
-	public wseq_t as_wslice()
+//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+//ORIGINAL LINE: inline bool contains(W index) const
+	public bool contains(int index)
 	{
-		return wseq_t(this.bytes.get(), this.length());
+		return index < this.length();
 	}
 
-	private byte[] bytes[0];
+	public T this[int index]
+	{
+		get
+		{
+			Debug.Assert(index < this.length());
+			return buffer[index];
+		}
+		set
+		{
+			buffer[index] = value;
+		}
+	}
+
+//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+//ORIGINAL LINE: const T& operator [](W index) const
+	public T this[int index]
+	{
+		get
+		{
+			Debug.Assert(index < this.length());
+			return buffer[index];
+		}
+		set
+		{
+			buffer[index] = value;
+		}
+	}
+
+	protected T[] buffer;
+
+//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+//	Array& operator =(const Array&) = delete;
 }
 
-}
+} // namespace ser4cpp
 

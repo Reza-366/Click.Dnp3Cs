@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -32,38 +33,32 @@ using System.Threading.Tasks;
 
 
 
-// On linux (at least Ubuntu 18.10), termios defines B0
-// as a bitrate constant, making the templates compilation
-// crash. For now, we just undef it.
-#if B0
-#undef B0
-#endif
-
 namespace ser4cpp
 {
-
-public class UInt8
+#if false
+public class UInt8 
 {
-	public static bool read_from(rseq_t input, ref byte @out)
+    BitArray _array = new BitArray(8);
+	public static bool read_from(BitArray input, ref byte @out)
 	{
-		if (input.length() < size)
+		if (input.Length < size)
 		{
 			return false;
 		}
 
-		@out = read(new rseq_t(input));
+		@out = read(new RSeq(input));
 		input.advance(size);
 		return true;
 	}
 
-	public static bool write_to(wseq_t dest, byte value)
+	public static bool write_to(WSeq dest, byte value)
 	{
 		if (dest.length() < size)
 		{
 			return false;
 		}
 
-		write(new wseq_t(dest), new byte(value));
+		write(new WSeq(dest), new byte(value));
 		dest.advance(size);
 		return true;
 	}
@@ -75,7 +70,7 @@ public class UInt8
 
 	private static byte read(byte start)
 	{
-		return (start);
+		return start;
 	}
 
 	private static void write(byte start, byte value)
@@ -86,37 +81,37 @@ public class UInt8
 	}
 }
 
-//C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
-//ORIGINAL LINE: template <class T, byte B0, byte B1>
-//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template <class T, typename B0, typename B1> requires(byte<B0> && byte<B1>)
-public class Bit16 <T, B0, B1>
+	//C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
+	//ORIGINAL LINE: template <class T, byte B0, byte B1>
+	//C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+	//ORIGINAL LINE: template <class T, typename B0, typename B1> requires(byte<B0> && byte<B1>)
+	public class Bit16 <T, B0, B1>
 {
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert(sizeof(T) == 2, "bad size");
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert((B0 < sizeof(T))&& (B1 < sizeof(T))&& (B0 != B1), "bad config");
 
-	public static bool write_to(wseq_t dest, T value)
+	public static bool write_to(WSeq dest, T value)
 	{
 		if (dest.length() < size)
 		{
 			return false;
 		}
 
-		write(new wseq_t(dest), value);
+		write(new WSeq(dest), value);
 		dest.advance(size);
 		return true;
 	}
 
-	public static bool read_from(rseq_t input, ref T @out)
+	public static bool read_from(RSeq input, ref T @out)
 	{
 		if (input.length() < size)
 		{
 			return false;
 		}
 
-		@out = read(new rseq_t(input));
+		@out = read(new RSeq(input));
 		input.advance(size);
 		return true;
 	}
@@ -153,26 +148,26 @@ public class Bit32 <T, B0, B1, B2, B3>
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert((B0 < sizeof(T))&& (B1 < sizeof(T))&& (B2 < sizeof(T))&& (B3 < sizeof(T)), "bad config");
 
-	public static bool write_to(wseq_t dest, T value)
+	public static bool write_to(WSeq dest, T value)
 	{
 		if (dest.length() < size)
 		{
 			return false;
 		}
 
-		write(new wseq_t(dest), value);
+		write(new WSeq(dest), value);
 		dest.advance(size);
 		return true;
 	}
 
-	public static bool read_from(rseq_t input, ref T @out)
+	public static bool read_from(RSeq input, ref T @out)
 	{
 		if (input.length() < size)
 		{
 			return false;
 		}
 
-		@out = read(new rseq_t(input));
+		@out = read(new RSeq(input));
 		input.advance(size);
 		return true;
 	}
@@ -215,26 +210,26 @@ public class Bit64 <T, B0, B1, B2, B3, B4, B5, B6, B7>
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert((B0 < sizeof(T))&& (B1 < sizeof(T))&& (B2 < sizeof(T))&& (B3 < sizeof(T))&& (B4 < sizeof(T))&& (B5 < sizeof(T))&& (B6 < sizeof(T))&& (B7 < sizeof(T)), "bad config");
 
-	public static bool write_to(wseq_t dest, T value)
+	public static bool write_to(WSeq dest, T value)
 	{
 		if (dest.length() < size)
 		{
 			return false;
 		}
 
-		write(new wseq_t(dest), value);
+		write(new WSeq(dest), value);
 		dest.advance(size);
 		return true;
 	}
 
-	public static bool read_from(rseq_t input, ref T @out)
+	public static bool read_from(RSeq input, ref T @out)
 	{
 		if (input.length() < size)
 		{
 			return false;
 		}
 
-		@out = read(new rseq_t(input));
+		@out = read(new RSeq(input));
 		input.advance(size);
 		return true;
 	}
@@ -281,25 +276,26 @@ public class Bit64 <T, B0, B1, B2, B3, B4, B5, B6, B7>
 //C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
 //ORIGINAL LINE: template <class T, byte B0, byte B1, byte B2, byte B3, byte B4, byte B5, byte B6, byte B7>
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-//ORIGINAL LINE: template <class T, typename B0, typename B1, typename B2, typename B3, typename B4, typename B5, typename B6, typename B7> requires(byte<B0> && byte<B1> && byte<B2> && byte<B3> && byte<B4> && byte<B5> && byte<B6> && byte<B7>)
+//ORIGINAL LINE: template <class T, typename B0, typename B1, ty
+//pename B2, typename B3, typename B4, typename B5, typename B6, typename B7> requires(byte<B0> && byte<B1> && byte<B2> && byte<B3> && byte<B4> && byte<B5> && byte<B6> && byte<B7>)
 public class UBit48 <B0, B1, B2, B3, B4, B5>
 {
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to 'static_assert':
 //	static_assert((B0 < 6)&& (B1 < 6)&& (B2 < 6)&& (B3 < 6)&& (B4 < 6)&& (B5 < 6), "bad config");
 
-	public static bool read_from(rseq_t input, ref UInt48Type @out)
+	public static bool read_from(RSeq input, ref UInt48Type @out)
 	{
 		if (input.length() < size)
 		{
 			return false;
 		}
 
-		@out = read(new rseq_t(input));
+		@out = read(new RSeq(input));
 		input.advance(size);
 		return true;
 	}
 
-	public static bool write_to(wseq_t dest, UInt48Type value)
+	public static bool write_to(WSeq dest, UInt48Type value)
 	{
 		if (dest.length() < size)
 		{
@@ -308,7 +304,7 @@ public class UBit48 <B0, B1, B2, B3, B4, B5>
 
 //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
 //ORIGINAL LINE: write(dest, value);
-		write(new wseq_t(dest), new ser4cpp.UInt48Type(value));
+		write(new WSeq(dest), new ser4cpp.UInt48Type(value));
 		dest.advance(size);
 		return true;
 	}
@@ -349,6 +345,6 @@ public class UBit48 <B0, B1, B2, B3, B4, B5>
 		data[B5].CopyFrom((byte)((value >> 40) & 0xFF));
 	}
 }
-
+#endif
 }
 

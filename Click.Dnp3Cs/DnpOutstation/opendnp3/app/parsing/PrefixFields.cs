@@ -32,9 +32,10 @@ namespace opendnp3
 //ORIGINAL LINE: class PrefixFields : private StaticOnly
 public class PrefixFields : StaticOnly
 {
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
-//ORIGINAL LINE: template<typename... Args>
-	public static bool Read(ser4cpp.rseq_t input, Args ... fields)
+#if false
+		//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
+		//ORIGINAL LINE: template<typename... Args>
+		public static bool Read(ser4cpp.rseq_t input, Args ... fields)
 	{
 		if (input.length() < (sizeof...(Args) * ser4cpp.Globals.Bit16<ushort, 0, 1>.size))
 		{
@@ -145,6 +146,7 @@ public class PrefixFields : StaticOnly
 	private static void WriteFields(ser4cpp.wseq_t dest)
 	{
 	}
+#endif
 }
 
 } // namespace opendnp3

@@ -1206,7 +1206,7 @@ namespace ser4cpp.serializers
     public static class Globals
     {
         // To use LittleEndian::write(...)
-        public static bool write_one(wseq_t dest, in opendnp3.DNPTime value)
+        public static bool write_one(WSeq dest, in opendnp3.DNPTime value)
         {
             return UInt48.write_to(dest, new UInt48Type(value.value));
         }
@@ -1220,7 +1220,7 @@ namespace ser4cpp.serializers
             @out.value = (temp.Get());
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.CommandStatus value)
+        public static bool write_one(WSeq dest, in opendnp3.CommandStatus value)
         {
             return UInt8.write_to(dest, opendnp3.CommandStatusSpec.to_type(value));
         }
@@ -1232,7 +1232,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.CommandStatusSpec.from_type(new byte(tempCommandStatus));
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.DoubleBit value)
+        public static bool write_one(WSeq dest, in opendnp3.DoubleBit value)
         {
             return UInt8.write_to(dest, opendnp3.DoubleBitSpec.to_type(value));
         }
@@ -1244,7 +1244,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.DoubleBitSpec.from_type(new byte(tempDoubleBit));
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.FlagsType value)
+        public static bool write_one(WSeq dest, in opendnp3.FlagsType value)
         {
             return UInt8.write_to(dest, opendnp3.FlagsTypeSpec.to_type(value));
         }
@@ -1256,7 +1256,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.FlagsTypeSpec.from_type(tempFlagsType);
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.FlowControl value)
+        public static bool write_one(WSeq dest, in opendnp3.FlowControl value)
         {
             return UInt8.write_to(dest, opendnp3.FlowControlSpec.to_type(value));
         }
@@ -1268,7 +1268,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.FlowControlSpec.from_type(tempFlowControl);
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.FunctionCode value)
+        public static bool write_one(WSeq dest, in opendnp3.FunctionCode value)
         {
             return UInt8.write_to(dest, opendnp3.FunctionCodeSpec.to_type(value));
         }
@@ -1280,7 +1280,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.FunctionCodeSpec.from_type(new byte(tempFunctionCode));
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.GroupVariation value)
+        public static bool write_one(WSeq dest, in opendnp3.GroupVariation value)
         {
             return UInt16.write_to(dest, opendnp3.GroupVariationSpec.to_type(value));
         }
@@ -1292,7 +1292,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.GroupVariationSpec.from_type(tempGroupVariation);
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.IntervalUnits value)
+        public static bool write_one(WSeq dest, in opendnp3.IntervalUnits value)
         {
             return UInt8.write_to(dest, opendnp3.IntervalUnitsSpec.to_type(value));
         }
@@ -1304,7 +1304,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.IntervalUnitsSpec.from_type(tempIntervalUnits);
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.LinkFunction value)
+        public static bool write_one(WSeq dest, in opendnp3.LinkFunction value)
         {
             return UInt8.write_to(dest, opendnp3.LinkFunctionSpec.to_type(value));
         }
@@ -1316,7 +1316,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.LinkFunctionSpec.from_type(tempLinkFunction);
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.Parity value)
+        public static bool write_one(WSeq dest, in opendnp3.Parity value)
         {
             return UInt8.write_to(dest, opendnp3.ParitySpec.to_type(value));
         }
@@ -1328,7 +1328,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.ParitySpec.from_type(new byte(tempParity));
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.QualifierCode value)
+        public static bool write_one(WSeq dest, in opendnp3.QualifierCode value)
         {
             return UInt8.write_to(dest, opendnp3.QualifierCodeSpec.to_type(value));
         }
@@ -1340,7 +1340,7 @@ namespace ser4cpp.serializers
             @out = opendnp3.QualifierCodeSpec.from_type(new byte(tempQualifierCode));
             return result;
         }
-        public static bool write_one(wseq_t dest, in opendnp3.StopBits value)
+        public static bool write_one(WSeq dest, in opendnp3.StopBits value)
         {
             return UInt8.write_to(dest, opendnp3.StopBitsSpec.to_type(value));
         }
@@ -1408,54 +1408,54 @@ namespace ser4cpp.serializers
         //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
         //ORIGINAL LINE: template<typename T>
         //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-        //bool write_one<T>(wseq_t dest, in T value);
+        //bool write_one<T>(WSeq dest, in T value);
 
-        public static bool write_one<T>(wseq_t dest, in byte value)
+        public static bool write_one<T>(WSeq dest, in byte value)
         {
             return UInt8.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in Int16 value)
+        public static bool write_one(WSeq dest, in Int16 value)
         {
-            return Int16.write_to(dest, value);
+            return Int16..write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in ushort value)
+        public static bool write_one(WSeq dest, in ushort value)
         {
             return UInt16.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in int value)
+        public static bool write_one(WSeq dest, in int value)
         {
             return Int32.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in uint value)
+        public static bool write_one(WSeq dest, in uint value)
         {
             return uint.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in long value)
+        public static bool write_one(WSeq dest, in long value)
         {
             return Int64.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in ulong value)
+        public static bool write_one(WSeq dest, in ulong value)
         {
             return UInt64.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in UInt48Type value)
+        public static bool write_one(WSeq dest, in UInt48Type value)
         {
             return UInt48.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in double value)
+        public static bool write_one(WSeq dest, in double value)
         {
             return DoubleFloat.write_to(dest, value);
         }
 
-        public static bool write_one(wseq_t dest, in float value)
+        public static bool write_one(WSeq dest, in float value)
         {
             return SingleFloat.write_to(dest, value);
         }
@@ -1500,10 +1500,11 @@ namespace opendnp3.priority
 
 namespace ser4cpp
 {
+    /*
     public static class Globals
     {
         //C++ TO C# CONVERTER TASK: There is no equivalent in C# to templates on variables:
-        public static readonly T Bit16<T, B0, B1>.max_value = T.MaxValue;
+        public static  Bit16<T, B0, B1>.max_value = T.MaxValue;
 
         //C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
         //ORIGINAL LINE: template <class T, byte B0, byte B1>
@@ -1565,26 +1566,29 @@ namespace ser4cpp
         //ORIGINAL LINE: template <class T>
         public static T bounded<T>(T value, T minimum, T maximum)
         {
-            return Math.Min(Math.Max(value, minimum), maximum);
+            //return Math.Min(Math.Max(value, minimum), maximum);
+            throw new NotImplementedException();
         }
 
         //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
         //ORIGINAL LINE: template <class T>
         public static bool is_within_limits<T>(T value, T min, T max)
         {
-            return (value >= min) && (value <= max);
+            throw new NotImplementedException();
+            //return (value >= min) && (value <= max);
         }
 
         //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
         //ORIGINAL LINE: template <class T>
-        public static bool float_equal<T>(T a, T b, T epsillon = 1e-6)
-        {
-            T diff = a - b;
-            if (diff < 0)
-            {
-                diff = -diff;
-            }
-            return diff <= epsillon;
-        }
+        //public static bool float_equal<T>(T a, T b, T epsillon = 1e-6)
+        //{
+        //    T diff = a - b;
+        //    if (diff < 0)
+        //    {
+        //        diff = -diff;
+        //    }
+        //    return diff <= epsillon;
+        //}
     }
+    */
 }
