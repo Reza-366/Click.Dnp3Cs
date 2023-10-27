@@ -39,41 +39,9 @@ namespace exe4cpp
  */
 public sealed class Timer 
 {
-	public Timer()
-	{
-            //this.timer = new std::weak_ptr<ITimer>();
-            this.timer = this;
-        }
-
-	public Timer(ITimer timer)
-	{
-		this.timer = new exe4cpp.ITimer(timer);
-	}
-
-	public bool cancel()
-	{
-		if (auto impl = timer.@lock())
-		{
-			impl.cancel();
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	public steady_time_t expires_at()
-	{
-		if (auto impl = timer.@lock())
-		{
-			return impl.expires_at();
-		}
-		else
-		{
-			return steady_time_t.min();
-		}
-	}
+        public Timer()
+        { }
+         
 
         //private std::weak_ptr<ITimer> timer = new std::weak_ptr<ITimer>();
         private ITimer timer ;

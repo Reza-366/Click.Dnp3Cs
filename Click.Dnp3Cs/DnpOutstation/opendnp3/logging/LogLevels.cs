@@ -71,6 +71,12 @@ namespace opendnp3
             this.value = level;
         }
 
+        public LogLevel(LogLevels level)
+        {
+            this.value = (int)level;
+        }
+
+
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: LogLevel next() const
         public LogLevel next()
