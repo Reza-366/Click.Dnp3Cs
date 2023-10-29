@@ -50,9 +50,9 @@ namespace opendnp3
 
 public class CountParser
 {
-	private delegate void HandleFun(in HeaderRecord record, ushort count, in ser4cpp.rseq_t buffer, IAPDUHandler handler);
+	private delegate void HandleFun(in HeaderRecord record, ushort count, in ser4cpp.RSeq buffer, IAPDUHandler handler);
 
-	public static ParseResult ParseHeader(ser4cpp.rseq_t buffer, in NumParser numParser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
+	public static ParseResult ParseHeader(ser4cpp.RSeq buffer, in NumParser numParser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
 	{
 		ushort count = new ushort();
 		var result = numParser.ParseCount(buffer, count, pLogger);
@@ -86,8 +86,8 @@ public class CountParser
 
 	// Process the count handler against the buffer
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::rseq_t& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
-	private ParseResult Process(in HeaderRecord record, ser4cpp.rseq_t buffer, IAPDUHandler pHandler, Logger pLogger)
+//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::RSeq& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
+	private ParseResult Process(in HeaderRecord record, ser4cpp.RSeq buffer, IAPDUHandler pHandler, Logger pLogger)
 	{
 		if (buffer.length() < required_size)
 		{
@@ -116,7 +116,7 @@ public class CountParser
 		return new CountParser(count, size, InvokeCountOf<Descriptor>);
 	}
 
-	private static ParseResult ParseCountOfObjects(ser4cpp.rseq_t buffer, in HeaderRecord record, ushort count, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseCountOfObjects(ser4cpp.RSeq buffer, in HeaderRecord record, ushort count, Logger pLogger, IAPDUHandler pHandler)
 	{
 		switch (record.enumeration)
 		{
@@ -153,10 +153,10 @@ public class CountParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Descriptor>
-	private static void InvokeCountOf<Descriptor>(in HeaderRecord record, ushort count, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeCountOf<Descriptor>(in HeaderRecord record, ushort count, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
-		var read = (ser4cpp.rseq_t buffer, uint UnnamedParameter) =>
+		var read = (ser4cpp.RSeq buffer, uint UnnamedParameter) =>
 		{
 			T value = new T();
 			T.Read(buffer, value);

@@ -113,7 +113,7 @@ public partial class Group1Var2
   {
 	  return 1;
   }
-  public static bool Read(rseq_t buffer, Group1Var2 output)
+  public static bool Read(RSeq buffer, Group1Var2 output)
   {
 	return LittleEndian.read(buffer, output.flags);
   }
@@ -123,7 +123,7 @@ public partial class Group1Var2
 
   public byte flags = new byte();
 
-  public static bool ReadTarget(rseq_t buff, ref Binary output)
+  public static bool ReadTarget(RSeq buff, ref Binary output)
   {
 	Group1Var2 value = new Group1Var2();
 	if (Read(buff, value))
@@ -223,7 +223,7 @@ public partial class Group1Var2
 	  return 1;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group1Var2 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group1Var2 UnnamedParameter2);
   public static bool Write(in Group1Var2 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags);
@@ -232,7 +232,7 @@ public partial class Group1Var2
   public byte flags = new byte();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Binary UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Binary UnnamedParameter2);
   public static bool WriteTarget(in Binary value, WSeq</*size_t*/int> buff)
   {
 	return Group1Var2.Write(ConvertQ<Group1Var2, Binary>.Apply(value), buff);

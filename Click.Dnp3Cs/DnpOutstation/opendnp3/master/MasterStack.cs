@@ -117,12 +117,12 @@ public abstract class MasterStack : IMaster, ILinkSession, ILinkTx, StackBase
 		return this.tstack.link.OnLowerLayerDown();
 	}
 
-	public override bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+	public override bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 	{
 		return this.tstack.link.OnFrame(header, userdata);
 	}
 
-	public override void BeginTransmit(in RSeq</*size_t*/int> buffer, ILinkSession context)
+	public override void BeginTransmit(in RSeq/*<size_t>*/ buffer, ILinkSession context)
 	{
 		this.iohandler.BeginTransmit(this, buffer);
 	}

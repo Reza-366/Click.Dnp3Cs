@@ -212,9 +212,9 @@ namespace opendnp3
 		// additional virtual methods that can be overriden to implement secure authentication
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		virtual void OnParsedHeader(in RSeq</*size_t*/int> apdu, in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		virtual void OnParsedHeader(in RSeq/*<size_t>*/ apdu, in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 
-		public virtual void RecordLastRequest(in RSeq</*size_t*/int> apdu)
+		public virtual void RecordLastRequest(in RSeq/*<size_t>*/ apdu)
 		{
 		}
 
@@ -409,7 +409,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		void ProcessAPDU(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		void ProcessAPDU(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 
 		public bool CheckConfirmTransmit()
 		{
@@ -428,13 +428,13 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		void ProcessResponse(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		void ProcessResponse(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		void ProcessUnsolicitedResponse(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		void ProcessUnsolicitedResponse(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		void Transmit(in RSeq</*size_t*/int> data);
+//		void Transmit(in RSeq/*<size_t>*/ data);
 
 		// --- implement  IMasterTaskRunner ------
 
@@ -550,7 +550,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		TaskState OnResponseEvent(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		TaskState OnResponseEvent(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 		protected MContext.TaskState OnResponseTimeoutEvent()
 		{
 			switch (tstate)
@@ -582,7 +582,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//		TaskState OnResponse_WaitForResponse(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//		TaskState OnResponse_WaitForResponse(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 		protected MContext.TaskState OnResponseTimeout_WaitForResponse()
 		{
 			if (logger.is_enabled(opendnp3.flags.Globals.WARN))

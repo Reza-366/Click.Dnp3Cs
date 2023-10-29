@@ -31,7 +31,7 @@ namespace opendnp3
 
 public class ParsedRequest
 {
-	public ParsedRequest(in Addresses addresses, in APDUHeader header, in RSeq</*size_t*/int> objects)
+	public ParsedRequest(in Addresses addresses, in APDUHeader header, in RSeq/*<size_t>*/ objects)
 	{
 		this.addresses = new opendnp3.Addresses(addresses);
 		this.header = new opendnp3.APDUHeader(header);
@@ -42,7 +42,7 @@ public class ParsedRequest
 
 	public readonly Addresses addresses = new Addresses();
 	public readonly APDUHeader header = new APDUHeader();
-	public readonly RSeq</*size_t*/int> objects = new RSeq</*size_t*/int>();
+	public readonly RSeq/*<size_t>*/ objects = new RSeq/*<size_t>*/();
 }
 
 } // namespace opendnp3

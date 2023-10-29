@@ -66,7 +66,7 @@ public class CRC
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static ushort CalcCrc(in RSeq</*size_t*/int> view);
+//	static ushort CalcCrc(in RSeq/*<size_t>*/ view);
 
 	public static void AddCrc(byte input, /*size_t*/int length)
 	{
@@ -83,7 +83,7 @@ public class CRC
 #if FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
 		return true;
 #else
-		ser4cpp.rseq_t buffer = new ser4cpp.rseq_t(input + length, 2);
+		ser4cpp.RSeq buffer = new ser4cpp.RSeq(input + length, 2);
 		ushort crcValue = new ushort();
 		ser4cpp.Globals.Bit16<ushort, 0, 1>.read_from(buffer, crcValue);
 		return CRC.CalcCrc(input, new /*size_t*/int(length)) == crcValue;

@@ -36,68 +36,68 @@ namespace ser4cpp
 
 //C++ TO C# CONVERTER TASK: C# has no concept of 'private' inheritance:
 //ORIGINAL LINE: struct FloatByteOrder : private StaticOnly
-public class FloatByteOrder : StaticOnly
-{
-	public enum Value : byte
-	{
-		normal,
-		reverse,
-		unsupported
-	}
-
-//C++ TO C# CONVERTER NOTE: This was formerly a static local variable declaration (not allowed in C#):
-	private static Value order_order = get_byte_order();
-
-	public static Value order()
-	{
-//C++ TO C# CONVERTER NOTE: This static local variable declaration (not allowed in C#) has been moved just prior to the method:
-//		static Value order = get_byte_order();
-		return order_order;
-	}
-
-//C++ TO C# CONVERTER TASK: Unions are not supported in C#:
-//	union FloatUnion
+//public class FloatByteOrder : StaticOnly
+//{
+//	public enum Value : byte
 //	{
-//		byte bytes[4];
-//		float f;
-//	};
+//		normal,
+//		reverse,
+//		unsupported
+//	}
 
-	private static Value get_byte_order()
-	{
-		if (is_normal_byte_order())
-		{
-			return FloatByteOrder.Value.normal;
-		}
-		else if (is_reverse_byte_order())
-		{
-			return FloatByteOrder.Value.reverse;
-		}
-		else
-		{
-			return FloatByteOrder.Value.unsupported;
-		}
-	}
+////C++ TO C# CONVERTER NOTE: This was formerly a static local variable declaration (not allowed in C#):
+//	private static Value order_order = get_byte_order();
 
-	private static bool is_normal_byte_order()
-	{
-//C++ TO C# CONVERTER TASK: The following line could not be converted:
-		FloatUnion value =
-		{
-			{0x00, 0x00, 0xA0, 0xC1}
-		};
-		return (value.f == -20.0f);
-	}
+//	public static Value order()
+//	{
+////C++ TO C# CONVERTER NOTE: This static local variable declaration (not allowed in C#) has been moved just prior to the method:
+////		static Value order = get_byte_order();
+//		return order_order;
+//	}
 
-	private static bool is_reverse_byte_order()
-	{
-//C++ TO C# CONVERTER TASK: The following line could not be converted:
-		FloatUnion value =
-		{
-			{0xC1, 0xA0, 0x00, 0x00}
-		};
-		return (value.f == -20.0f);
-	}
-}
+////C++ TO C# CONVERTER TASK: Unions are not supported in C#:
+////	union FloatUnion
+////	{
+////		byte bytes[4];
+////		float f;
+////	};
+
+//	private static Value get_byte_order()
+//	{
+//		if (is_normal_byte_order())
+//		{
+//			return FloatByteOrder.Value.normal;
+//		}
+//		else if (is_reverse_byte_order())
+//		{
+//			return FloatByteOrder.Value.reverse;
+//		}
+//		else
+//		{
+//			return FloatByteOrder.Value.unsupported;
+//		}
+//	}
+
+//	private static bool is_normal_byte_order()
+//	{
+////C++ TO C# CONVERTER TASK: The following line could not be converted:
+//		FloatUnion value =
+//		{
+//			{0x00, 0x00, 0xA0, 0xC1}
+//		};
+//		return (value.f == -20.0f);
+//	}
+
+//	private static bool is_reverse_byte_order()
+//	{
+////C++ TO C# CONVERTER TASK: The following line could not be converted:
+//		FloatUnion value =
+//		{
+//			{0xC1, 0xA0, 0x00, 0x00}
+//		};
+//		return (value.f == -20.0f);
+//	}
+//}
 
 }
 

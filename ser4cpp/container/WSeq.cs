@@ -44,42 +44,42 @@ namespace ser4cpp
     public class WSeq : HasLength
     {
         //typedef object* (memfunc_t) (object*, const object*, /*size_t*/int);
+        private List<byte> _buffer = new List<byte>();
 
-	public static WSeq empty()
+        public static WSeq empty()
         {
             return new WSeq();
         }
 
         public WSeq()
-        {
-        }
+        {       }
 
-        public WSeq(byte[] buffer, int length)
-            :base(length)
+        public WSeq(byte[] buffer)
+            :base(buffer.Length)
         {
-            this.buffer_ = buffer;
+            this._buffer.AddRange(buffer);
         }
 
         public void set_all_to(byte value)
         {
-            //C++ TO C# CONVERTER TASK: The memory management function 'memset' has no equivalent in C#:
-            memset(this.buffer_, value, this.length());
+            for (int i = 0; i < this.length(); i++)
+            {
+                this._buffer[i] = value;
+            }
         }
 
         public void make_empty()
         {
-            this.buffer_ = null;
-            this.m_length = 0;
+            this._buffer = new  List<byte>();
         }
 
-        public int advance(int count)
-        {
-            var num = ser4cpp.Globals.min(count, this.length());
-            //C++ TO C# CONVERTER TASK: Pointer arithmetic on arrays is not converted:
-            this.buffer_ += num;
-            this.m_length -= num;
-            return num;
-        }
+        //public int advance(int count)
+        //{
+        //    var num = Math.Min( count, this.length());
+        //    //C++ TO C# CONVERTER TASK: Pointer arithmetic on arrays is not converted:
+        //    this._buffer += num;
+        //    return num;
+        //}
 
         public bool put(byte @byte)
         {
@@ -89,12 +89,7 @@ namespace ser4cpp
             }
             else
             {
-                //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
-                //ORIGINAL LINE: this->buffer_[0] = byte;
-                this.buffer_[0].CopyFrom(@byte);
-                //C++ TO C# CONVERTER TASK: Pointer arithmetic on arrays is not converted:
-                ++this.buffer_;
-                --this.m_length;
+                _buffer.Add(@byte);
                 return true;
             }
         }
@@ -103,65 +98,81 @@ namespace ser4cpp
         //ORIGINAL LINE: WSeq skip(/*size_t*/int count) const
         public WSeq skip(/*size_t*/int count)
         {
-            var num = ser4cpp.Globals.min(new /*size_t*/int(count), this.m_length);
-            return new WSeq(this.buffer_ + num, this.m_length - num);
+            var num = Math.Min(count, _buffer.Count);
+            //return new WSeq(this._buffer + num, this.m_length - num);
+            return new WSeq(_buffer.Skip(num).ToArray());
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: WSeq take(/*size_t*/int count) const
         public WSeq take(/*size_t*/int count)
         {
-            return new WSeq(this.buffer_, ser4cpp.Globals.min(this.m_length, new /*size_t*/int(count)));
+            //return new WSeq(this._buffer, ser4cpp.Globals.min(this.m_length, new /*size_t*/int(count)));
+            return new WSeq(this._buffer.Take(count).ToArray());
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: RSeq<L> readonly() const
         public RSeq @readonly()
         {
-            return RSeq(this.buffer_, this.length());
+            return new RSeq(this._buffer.ToArray());
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: operator byte* () const
         public static implicit operator byte(WSeq ImpliedObject)
         {
-            return ImpliedObject.buffer_;
+            //return ImpliedObject._buffer;
+            throw new NotImplementedException();
         }
 
         public RSeq copy_from(in RSeq src)
         {
-            return this.transfer_from<memcpy>(src);
+
+            //return this.transfer_from<memcpy>(src);
+            this._buffer.Clear();
+            this._buffer.AddRange(src.Array);
+            return new RSeq(src.Array);
         }
 
         public RSeq move_from(in RSeq src)
         {
-            return this.transfer_from<memmove>(src);
+            //return this.transfer_from<memmove>(src);
+            this._buffer.Clear();
+            this._buffer.AddRange(src.Array);
+            return new RSeq(src.Array);
         }
 
         //C++ TO C# CONVERTER TASK: Most C++ 'constraints' are not converted by C++ to C# Converter:
         //ORIGINAL LINE: template <memfunc_t mem_func>
         //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
         //ORIGINAL LINE: template <typename mem_func> requires memfunc_t<mem_func>
-        private RSeq transfer_from<mem_func>(in RSeq src)
+        private RSeq transfer_from(in RSeq src, Action<byte[], RSeq, int> mem_func)
         {
             if (src.length() > this.length())
             {
                 //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
                 //ORIGINAL LINE: return RSeq<L>::empty();
-                return new RSeq(RSeq.empty());
+                return new RSeq();
             }
             else
             {
                 var ret = this.@readonly().take(src.length());
-                mem_func(buffer_, src, src.length());
-                this.advance(src.length());
+                mem_func(_buffer.ToArray(), src, src.length());
+                //this.advance(src.length());
                 //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
                 //ORIGINAL LINE: return ret;
-                return new RSeq(ret);
+                return new RSeq(ret.Array);
             }
         }
+        public byte this[int index]
+        {
+            get { return _buffer[index]; }
+            set { _buffer[index] = value; }
+        }
 
-        private byte[] buffer_ = null;
+        public byte[] Array { get { return _buffer.ToArray(); } }
+
     }
 
 

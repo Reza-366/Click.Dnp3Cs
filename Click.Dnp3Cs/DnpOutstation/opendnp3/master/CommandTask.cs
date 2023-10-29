@@ -144,7 +144,7 @@ public class CommandTask : IMasterTask
 		statusResult = CommandStatus.UNDEFINED;
 	}
 
-	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 	{
 		return ValidateSingleResponse(header) ? ProcessResponse(objects) : ResponseResult.ERROR_BAD_RESPONSE;
 	}
@@ -154,7 +154,7 @@ public class CommandTask : IMasterTask
 		CommandSetOps.InvokeCallback(commands, result, this.commandCallback);
 	}
 
-	private IMasterTask.ResponseResult ProcessResponse(in ser4cpp.rseq_t objects)
+	private IMasterTask.ResponseResult ProcessResponse(in ser4cpp.RSeq objects)
 	{
 		if (functionCodes.Count == 0)
 		{

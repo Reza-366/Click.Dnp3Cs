@@ -41,39 +41,39 @@ namespace ser4cpp
  */
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class T, class W>
-public class ArrayView <T, W> : HasLength<W>
+public class ArrayView<T> : HasLength
 {
 
-	public static ArrayView<T, W> Empty()
-	{
-		return new ArrayView(null, 0);
-	}
+	//public static ArrayView<T[]> Empty()
+	//{
+	//	return new ArrayView<byte>(new T[0], 0);
+	//}
 
-	public ArrayView(T start, W size)
+	public ArrayView(T[] start, int size)
+			:base(size)
 	{
-		this.HasLength<W> = size;
 		this.m_buffer = start;
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: inline bool contains(W index) const
-	public bool contains(W index)
+	public bool contains(int index)
 	{
-		return index < this.m_length;
+		return index < this.length();
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: inline bool contains(W start, W stop) const
-	public bool contains(W start, W stop)
+	public bool contains(int start, int stop)
 	{
-		return (start < stop) && Contains(stop);
+		return (start < stop) && contains(stop);
 	}
 
-	public T this[W index]
+	public T this[int index]
 	{
 		get
 		{
-			Debug.Assert(index < this.m_length);
+			Debug.Assert(index < this.length());
 			return m_buffer[index];
 		}
 		set
@@ -84,28 +84,28 @@ public class ArrayView <T, W> : HasLength<W>
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: inline const T& operator [](W index) const
-	public T this[W index]
-	{
-		get
-		{
-			Debug.Assert(index < this.m_length);
-			return m_buffer[index];
-		}
-		set
-		{
-			m_buffer[index] = value;
-		}
-	}
+	//public T this[int index]
+	//{
+	//	get
+	//	{
+	//		Debug.Assert(index < this.length());
+	//		return m_buffer[index];
+	//	}
+	//	set
+	//	{
+	//		m_buffer[index] = value;
+	//	}
+	//}
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Action>
-	public void @foreach<Action>(in Action action)
-	{
-		for (W i = 0; i < this.m_length; ++i)
-		{
-			action(m_buffer[i]);
-		}
-	}
+	//public void @foreach<Action>(in Action action)
+	//{
+	//	for (int i = 0; i < this.length(); ++i)
+	//	{
+	//		action(m_buffer[i]);
+	//	}
+	//}
 
 
 	private T[] m_buffer;

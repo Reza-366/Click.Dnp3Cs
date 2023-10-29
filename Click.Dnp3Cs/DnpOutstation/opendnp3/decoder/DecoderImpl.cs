@@ -65,18 +65,18 @@ public static class DecoderImpl : IFrameSink
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void DecodeLPDU(in ser4cpp::rseq_t data);
+//	void DecodeLPDU(in ser4cpp::RSeq data);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void DecodeTPDU(in ser4cpp::rseq_t data);
+//	void DecodeTPDU(in ser4cpp::RSeq data);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void DecodeAPDU(in ser4cpp::rseq_t data);
+//	void DecodeAPDU(in ser4cpp::RSeq data);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static bool IsResponse(in ser4cpp::rseq_t data);
+//	static bool IsResponse(in ser4cpp::RSeq data);
 
 	/// --- Implement IFrameSink ---
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	override bool OnFrame(in LinkHeaderFields header, in ser4cpp::rseq_t userdata);
+//	override bool OnFrame(in LinkHeaderFields header, in ser4cpp::RSeq userdata);
 
 	private IDecoderCallbacks callbacks;
 	private Logger logger = new Logger();

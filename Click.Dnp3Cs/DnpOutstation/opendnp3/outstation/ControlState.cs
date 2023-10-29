@@ -38,8 +38,8 @@ public class ControlState
 //	ControlState() = default;
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: CommandStatus ValidateSelection(const AppSeqNum& seq, const Timestamp& now, const TimeDuration& timeout, const RSeq</*size_t*/int>& objects) const
-	public CommandStatus ValidateSelection(in AppSeqNum seq, in Timestamp now, in TimeDuration timeout, in RSeq</*size_t*/int> objects)
+//ORIGINAL LINE: CommandStatus ValidateSelection(const AppSeqNum& seq, const Timestamp& now, const TimeDuration& timeout, const RSeq/*<size_t>*/& objects) const
+	public CommandStatus ValidateSelection(in AppSeqNum seq, in Timestamp now, in TimeDuration timeout, in RSeq/*<size_t>*/ objects)
 	{
 		if (selected && expectedSeq.Equals(seq))
 		{
@@ -73,7 +73,7 @@ public class ControlState
 		}
 	}
 
-	public void Select(in AppSeqNum currentSeqN, in Timestamp now, in RSeq</*size_t*/int> objects)
+	public void Select(in AppSeqNum currentSeqN, in Timestamp now, in RSeq/*<size_t>*/ objects)
 	{
 		selected = true;
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:

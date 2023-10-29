@@ -95,7 +95,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 
 	/// --- implement ILinkTx ---
 
-	public void BeginTransmit(ILinkSession session, in RSeq</*size_t*/int> data)
+	public void BeginTransmit(ILinkSession session, in RSeq/*<size_t>*/ data)
 	{
 		if (this.channel != 0)
 		{
@@ -391,7 +391,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 	}
 
 	// called by the parser when a complete frame is read
-	private override bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+	private override bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 	{
 		if (this.SendToSession(header.addresses, header, userdata))
 		{
@@ -476,7 +476,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 		this.channel.BeginWrite(this.txQueue.First.Value.txdata);
 	}
 
-	private bool SendToSession(in Addresses addresses, in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+	private bool SendToSession(in Addresses addresses, in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 	{
 		bool accepted = false;
 
@@ -516,7 +516,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 			return this.addresses == addresses;
 		}
 
-		public bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+		public bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 		{
 			return this.session.OnFrame(header, userdata);
 		}
@@ -556,7 +556,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 
 	private class Transmission
 	{
-		public Transmission(in RSeq</*size_t*/int> txdata, ILinkSession session)
+		public Transmission(in RSeq/*<size_t>*/ txdata, ILinkSession session)
 		{
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this.txdata = txdata;
@@ -567,7 +567,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
 //		Transmission() = default;
 
-		public RSeq</*size_t*/int> txdata = new RSeq</*size_t*/int>();
+		public RSeq/*<size_t>*/ txdata = new RSeq/*<size_t>*/();
 		public ILinkSession session;
 	}
 

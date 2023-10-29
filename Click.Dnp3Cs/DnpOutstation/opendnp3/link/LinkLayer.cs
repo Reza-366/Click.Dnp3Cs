@@ -99,7 +99,7 @@ public sealed class LinkLayer : ILinkLayer, ILinkSession
 	// IFrameSink
 	////////////////////////////////
 
-	public override bool OnFrame(in LinkHeaderFields header, in ser4cpp.rseq_t userdata)
+	public override bool OnFrame(in LinkHeaderFields header, in ser4cpp.RSeq userdata)
 	{
 		var ret = this.ctx.OnFrame(header, userdata);
 

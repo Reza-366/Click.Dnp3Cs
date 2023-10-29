@@ -526,7 +526,7 @@ public class OContext : IUpperLayer
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void BeginTx(ushort destination, in RSeq</*size_t*/int> message);
+//	void BeginTx(ushort destination, in RSeq/*<size_t>*/ message);
 
 	private void CheckForTaskStart()
 	{
@@ -721,25 +721,25 @@ public class OContext : IUpperLayer
 	/// Handles non-read function codes that require a response. builds the response using the supplied writer.
 	/// @return An IIN field indicating the validity of the request, and to be returned in the response.
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleNonReadResponse(in APDUHeader header, in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleNonReadResponse(in APDUHeader header, in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 
 	/// Handles read function codes. May trigger an unsolicited response
 	/// @return an IIN field and a partial AppControlField (missing sequence info)
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ser4cpp::Pair<IINField, AppControlField> HandleRead(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	ser4cpp::Pair<IINField, AppControlField> HandleRead(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 
 	// ------ Function Handlers ------
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleWrite(in RSeq</*size_t*/int> objects);
+//	IINField HandleWrite(in RSeq/*<size_t>*/ objects);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleSelect(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleSelect(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleOperate(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleOperate(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleDirectOperate(in RSeq</*size_t*/int> objects, OperateType opType, HeaderWriter pWriter);
+//	IINField HandleDirectOperate(in RSeq/*<size_t>*/ objects, OperateType opType, HeaderWriter pWriter);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleDelayMeasure(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleDelayMeasure(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 	private IINField HandleRecordCurrentTime()
 	{
 		this.time.RecordCurrentTime(this.sol.seq.num, new Timestamp());
@@ -749,19 +749,19 @@ public class OContext : IUpperLayer
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleRestart(in RSeq</*size_t*/int> objects, bool isWarmRestart, HeaderWriter pWriter);
+//	IINField HandleRestart(in RSeq/*<size_t>*/ objects, bool isWarmRestart, HeaderWriter pWriter);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleAssignClass(in RSeq</*size_t*/int> objects);
+//	IINField HandleAssignClass(in RSeq/*<size_t>*/ objects);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleDisableUnsolicited(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleDisableUnsolicited(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleEnableUnsolicited(in RSeq</*size_t*/int> objects, HeaderWriter writer);
+//	IINField HandleEnableUnsolicited(in RSeq/*<size_t>*/ objects, HeaderWriter writer);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleCommandWithConstant(in RSeq</*size_t*/int> objects, HeaderWriter writer, CommandStatus status);
+//	IINField HandleCommandWithConstant(in RSeq/*<size_t>*/ objects, HeaderWriter writer, CommandStatus status);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleFreeze(in RSeq</*size_t*/int> objects);
+//	IINField HandleFreeze(in RSeq/*<size_t>*/ objects);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	IINField HandleFreezeAndClear(in RSeq</*size_t*/int> objects);
+//	IINField HandleFreezeAndClear(in RSeq/*<size_t>*/ objects);
 
 	// ------ resources --------
 	private readonly Addresses addresses = new Addresses();

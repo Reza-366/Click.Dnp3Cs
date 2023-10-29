@@ -4,21 +4,21 @@
 	public class LinkContext
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public RSeq</*size_t*/int> FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in RSeq</*size_t*/int> tpdu)
+		public RSeq/*<size_t>*/ FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in RSeq/*<size_t>*/ tpdu)
 		{
 			var buffer = this.priTxBuffer.as_wseq();
-			var output = LinkFrame.FormatUnconfirmedUserData(buffer, config.IsMaster, new ushort(addr.destination), new ushort(addr.source), new RSeq</*size_t*/int>(tpdu), logger);
+			var output = LinkFrame.FormatUnconfirmedUserData(buffer, config.IsMaster, new ushort(addr.destination), new ushort(addr.source), new RSeq/*<size_t>*/(tpdu), logger);
 			if (logger.is_enabled(opendnp3.flags.Globals.LINK_TX_HEX))
 			{
 		//C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
 		//ORIGINAL LINE: opendnp3::HexLogging::log(logger, flags::LINK_TX_HEX, output, ' ', 10, 18);
 				opendnp3.HexLogging.log(logger, new opendnp3.LogLevel(opendnp3.flags.Globals.LINK_TX_HEX), output, ' ', 10, 18);
 			};
-			return new ser4cpp.rseq_t(output);
+			return new ser4cpp.RSeq(output);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void QueueTransmit(in RSeq</*size_t*/int> buffer, bool primary)
+		public void QueueTransmit(in RSeq/*<size_t>*/ buffer, bool primary)
 		{
 			if (txMode == LinkTransmitMode.Idle)
 			{
@@ -39,7 +39,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+		public bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 		{
 			if (!isOnline)
 			{

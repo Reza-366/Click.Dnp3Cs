@@ -68,19 +68,19 @@ public class Decoder : System.IDisposable
 
 	public void DecodeLPDU(in Buffer data)
 	{
-		ser4cpp.rseq_t rseqData = new ser4cpp.rseq_t(data.data, data.length);
+		ser4cpp.RSeq rseqData = new ser4cpp.RSeq(data.data, data.length);
 		impl.DecodeLPDU(rseqData);
 	}
 
 	public void DecodeTPDU(in Buffer data)
 	{
-		ser4cpp.rseq_t rseqData = new ser4cpp.rseq_t(data.data, data.length);
+		ser4cpp.RSeq rseqData = new ser4cpp.RSeq(data.data, data.length);
 		impl.DecodeTPDU(rseqData);
 	}
 
 	public void DecodeAPDU(in Buffer data)
 	{
-		ser4cpp.rseq_t rseqData = new ser4cpp.rseq_t(data.data, data.length);
+		ser4cpp.RSeq rseqData = new ser4cpp.RSeq(data.data, data.length);
 		impl.DecodeAPDU(rseqData);
 	}
 

@@ -75,7 +75,7 @@ public sealed partial class MasterSessionStack : IMasterSession
 		stack.link.OnLowerLayerDown();
 	}
 
-	public bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+	public bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 	{
 		return stack.link.OnFrame(header, userdata);
 	}
@@ -337,7 +337,7 @@ public sealed partial class MasterSessionStack : IMasterSession
 //	void OnLowerLayerDown();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata);
+//	bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
 //	void OnTxReady();

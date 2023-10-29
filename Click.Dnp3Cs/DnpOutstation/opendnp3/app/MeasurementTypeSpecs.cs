@@ -123,9 +123,9 @@ public class OctetStringSpec : OctetStringInfo
 	public static bool IsEvent(in OctetString old_value, in OctetString new_value, in config_t config)
 	{
 		var old_value_buffer = old_value.ToBuffer();
-		RSeq</*size_t*/int> old_value_seq = new RSeq</*size_t*/int>(old_value_buffer.data, old_value_buffer.length);
+		RSeq/*<size_t>*/ old_value_seq = new RSeq/*<size_t>*/(old_value_buffer.data, old_value_buffer.length);
 		var new_value_buffer = new_value.ToBuffer();
-		RSeq</*size_t*/int> new_value_seq = new RSeq</*size_t*/int>(new_value_buffer.data, new_value_buffer.length);
+		RSeq/*<size_t>*/ new_value_seq = new RSeq/*<size_t>*/(new_value_buffer.data, new_value_buffer.length);
 		return !old_value_seq.equals(new_value_seq);
 	}
 }

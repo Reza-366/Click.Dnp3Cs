@@ -37,7 +37,7 @@ public abstract class IFrameSink : System.IDisposable
 	{
 	}
 
-	public abstract bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata);
+	public abstract bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata);
 }
 
 } // namespace opendnp3

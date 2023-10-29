@@ -49,9 +49,9 @@ namespace opendnp3
 
 public class CountIndexParser
 {
-	private delegate void HandleFun(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.rseq_t buffer, IAPDUHandler handler);
+	private delegate void HandleFun(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.RSeq buffer, IAPDUHandler handler);
 
-	public static ParseResult ParseHeader(ser4cpp.rseq_t buffer, in NumParser numparser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
+	public static ParseResult ParseHeader(ser4cpp.RSeq buffer, in NumParser numparser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
 	{
 		ushort count = new ushort();
 		var res = numparser.ParseCount(buffer, count, pLogger);
@@ -80,8 +80,8 @@ public class CountIndexParser
 
 	// Process the count handler against the buffer
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::rseq_t& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
-	private ParseResult Process(in HeaderRecord record, ser4cpp.rseq_t buffer, IAPDUHandler pHandler, Logger pLogger)
+//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::RSeq& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
+	private ParseResult Process(in HeaderRecord record, ser4cpp.RSeq buffer, IAPDUHandler pHandler, Logger pLogger)
 	{
 		if (buffer.length() < requiredSize)
 		{
@@ -119,7 +119,7 @@ public class CountIndexParser
 		return new CountIndexParser(count, SIZE, numparser, InvokeCountOfType<Type>);
 	}
 
-	private static ParseResult ParseCountOfObjects(ser4cpp.rseq_t buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseCountOfObjects(ser4cpp.RSeq buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler)
 	{
 		switch (record.enumeration)
 		{
@@ -246,7 +246,7 @@ public class CountIndexParser
 		}
 	}
 
-	private static ParseResult ParseCountOfIndices(ser4cpp.rseq_t buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseCountOfIndices(ser4cpp.RSeq buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler)
 	{
 		var SIZE = (/*size_t*/int)count * (/*size_t*/int)numparser.NumBytes();
 
@@ -264,8 +264,8 @@ public class CountIndexParser
 		{
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
 //C++ TO C# CONVERTER TASK: Only lambdas having all locals passed by reference can be converted to C#:
-//ORIGINAL LINE: auto read = [&numparser, record](ser4cpp::rseq_t& buffer, uint pos)->ushort
-			var read = (ser4cpp.rseq_t buffer, uint pos) =>
+//ORIGINAL LINE: auto read = [&numparser, record](ser4cpp::RSeq& buffer, uint pos)->ushort
+			var read = (ser4cpp.RSeq buffer, uint pos) =>
 			{
 				return new ushort(numparser.ReadNum(buffer));
 			};
@@ -278,7 +278,7 @@ public class CountIndexParser
 		return ParseResult.OK;
 	}
 
-	private static ParseResult ParseIndexPrefixedOctetData(ser4cpp.rseq_t buffer, in HeaderRecord record, in NumParser numparser, uint count, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseIndexPrefixedOctetData(ser4cpp.RSeq buffer, in HeaderRecord record, in NumParser numparser, uint count, Logger pLogger, IAPDUHandler pHandler)
 	{
 		if (record.variation == 0)
 		{
@@ -304,7 +304,7 @@ public class CountIndexParser
 
 		if (pHandler != null)
 		{
-			var read = (ser4cpp.rseq_t buffer, uint pos) =>
+			var read = (ser4cpp.RSeq buffer, uint pos) =>
 			{
 				var index = numparser.ReadNum(buffer);
 				var octetStringSlice = buffer.take(record.variation);
@@ -323,9 +323,9 @@ public class CountIndexParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Descriptor>
-	private static void InvokeCountOf<Descriptor>(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeCountOf<Descriptor>(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
-		var read = (ser4cpp.rseq_t buffer, uint UnnamedParameter) =>
+		var read = (ser4cpp.RSeq buffer, uint UnnamedParameter) =>
 		{
 			Indexed<typename Descriptor.Target> pair = new Indexed<typename Descriptor.Target>();
 			pair.index.CopyFrom(numparser.ReadNum(buffer));
@@ -339,9 +339,9 @@ public class CountIndexParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Type>
-	private static void InvokeCountOfType<Type>(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeCountOfType<Type>(in HeaderRecord record, ushort count, in NumParser numparser, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
-		var read = (ser4cpp.rseq_t buffer, uint UnnamedParameter) =>
+		var read = (ser4cpp.RSeq buffer, uint UnnamedParameter) =>
 		{
 			Indexed<Type> pair = new Indexed<Type>();
 			pair.index.CopyFrom(numparser.ReadNum(buffer));

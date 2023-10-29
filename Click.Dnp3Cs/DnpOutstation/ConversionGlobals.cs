@@ -18,7 +18,7 @@ namespace opendnp3
             return ((numBits % 8) == 0) ? numBytes : numBytes + 1;
         }
 
-        public static bool GetBit(in RSeq</*size_t*/int> buffer, /*size_t*/int position)
+        public static bool GetBit(in RSeq/*<size_t>*/ buffer, /*size_t*/int position)
         {
             /*size_t*/
             int @byte = position / 8;
@@ -35,7 +35,7 @@ namespace opendnp3
             return ((numBits % 4) == 0) ? numBytes : numBytes + 1;
         }
 
-        public static DoubleBit GetDoubleBit(in RSeq</*size_t*/int> buffer, /*size_t*/int index)
+        public static DoubleBit GetDoubleBit(in RSeq/*<size_t>*/ buffer, /*size_t*/int index)
         {
             /*size_t*/
             int byteNumber = index / 4;
@@ -816,7 +816,7 @@ namespace opendnp3
 
             return true;
         }
-        public static BufferedCollection<T, ReadFunc> CreateBufferedCollection<T, ReadFunc>(in RSeq</*size_t*/int> buffer, /*size_t*/int count, in ReadFunc readFunc)
+        public static BufferedCollection<T, ReadFunc> CreateBufferedCollection<T, ReadFunc>(in RSeq/*<size_t>*/ buffer, /*size_t*/int count, in ReadFunc readFunc)
         {
             return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
         }
@@ -1000,7 +1000,7 @@ namespace opendnp3.logging
             };
         }
 
-        public static void ParseAndLogRequestTx(Logger logger, in RSeq</*size_t*/int> apdu)
+        public static void ParseAndLogRequestTx(Logger logger, in RSeq/*<size_t>*/ apdu)
         {
             if (logger.is_enabled(opendnp3.flags.Globals.APP_HEX_TX))
             {
@@ -1027,7 +1027,7 @@ namespace opendnp3.logging
             }
         }
 
-        public static void ParseAndLogResponseTx(Logger logger, in RSeq</*size_t*/int> apdu)
+        public static void ParseAndLogResponseTx(Logger logger, in RSeq/*<size_t>*/ apdu)
         {
             if (logger.is_enabled(opendnp3.flags.Globals.APP_HEX_TX))
             {
@@ -1211,7 +1211,7 @@ namespace ser4cpp.serializers
             return UInt48.write_to(dest, new UInt48Type(value.value));
         }
 
-        public static bool read_one(rseq_t input, opendnp3.DNPTime @out)
+        public static bool read_one(RSeq input, opendnp3.DNPTime @out)
         {
             UInt48Type temp = new UInt48Type();
             bool result = UInt48.read_from(input, temp);
@@ -1225,7 +1225,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.CommandStatusSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.CommandStatus @out)
+        public static bool read_one(RSeq input, ref opendnp3.CommandStatus @out)
         {
             byte tempCommandStatus = new byte();
             bool result = UInt8.read_from(input, ref tempCommandStatus);
@@ -1237,7 +1237,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.DoubleBitSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.DoubleBit @out)
+        public static bool read_one(RSeq input, ref opendnp3.DoubleBit @out)
         {
             byte tempDoubleBit = new byte();
             bool result = UInt8.read_from(input, ref tempDoubleBit);
@@ -1249,7 +1249,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.FlagsTypeSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.FlagsType @out)
+        public static bool read_one(RSeq input, ref opendnp3.FlagsType @out)
         {
             byte tempFlagsType = new byte();
             bool result = UInt8.read_from(input, ref tempFlagsType);
@@ -1261,7 +1261,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.FlowControlSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.FlowControl @out)
+        public static bool read_one(RSeq input, ref opendnp3.FlowControl @out)
         {
             byte tempFlowControl = new byte();
             bool result = UInt8.read_from(input, ref tempFlowControl);
@@ -1273,7 +1273,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.FunctionCodeSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.FunctionCode @out)
+        public static bool read_one(RSeq input, ref opendnp3.FunctionCode @out)
         {
             byte tempFunctionCode = new byte();
             bool result = UInt8.read_from(input, ref tempFunctionCode);
@@ -1285,7 +1285,7 @@ namespace ser4cpp.serializers
             return UInt16.write_to(dest, opendnp3.GroupVariationSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.GroupVariation @out)
+        public static bool read_one(RSeq input, ref opendnp3.GroupVariation @out)
         {
             ushort tempGroupVariation = new ushort();
             bool result = UInt16.read_from(input, tempGroupVariation);
@@ -1297,7 +1297,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.IntervalUnitsSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.IntervalUnits @out)
+        public static bool read_one(RSeq input, ref opendnp3.IntervalUnits @out)
         {
             byte tempIntervalUnits = new byte();
             bool result = UInt8.read_from(input, ref tempIntervalUnits);
@@ -1309,7 +1309,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.LinkFunctionSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.LinkFunction @out)
+        public static bool read_one(RSeq input, ref opendnp3.LinkFunction @out)
         {
             byte tempLinkFunction = new byte();
             bool result = UInt8.read_from(input, ref tempLinkFunction);
@@ -1321,7 +1321,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.ParitySpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.Parity @out)
+        public static bool read_one(RSeq input, ref opendnp3.Parity @out)
         {
             byte tempParity = new byte();
             bool result = UInt8.read_from(input, ref tempParity);
@@ -1333,7 +1333,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.QualifierCodeSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.QualifierCode @out)
+        public static bool read_one(RSeq input, ref opendnp3.QualifierCode @out)
         {
             byte tempQualifierCode = new byte();
             bool result = UInt8.read_from(input, ref tempQualifierCode);
@@ -1345,7 +1345,7 @@ namespace ser4cpp.serializers
             return UInt8.write_to(dest, opendnp3.StopBitsSpec.to_type(value));
         }
 
-        public static bool read_one(rseq_t input, ref opendnp3.StopBits @out)
+        public static bool read_one(RSeq input, ref opendnp3.StopBits @out)
         {
             byte tempStopBits = new byte();
             bool result = UInt8.read_from(input, ref tempStopBits);
@@ -1353,54 +1353,54 @@ namespace ser4cpp.serializers
             return result;
         }
         //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-        //bool read_one<T>(rseq_t input, T @out);
+        //bool read_one<T>(RSeq input, T @out);
 
-        public static bool read_one<T>(rseq_t input, byte @out)
+        public static bool read_one<T>(RSeq input, byte @out)
         {
             return UInt8.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, Int16 @out)
+        public static bool read_one(RSeq input, Int16 @out)
         {
             return Int16.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, ushort @out)
+        public static bool read_one(RSeq input, ushort @out)
         {
             return UInt16.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, int @out)
+        public static bool read_one(RSeq input, int @out)
         {
             return Int32.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, uint @out)
+        public static bool read_one(RSeq input, uint @out)
         {
             return uint.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, long @out)
+        public static bool read_one(RSeq input, long @out)
         {
             return Int64().read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, ulong @out)
+        public static bool read_one(RSeq input, ulong @out)
         {
             return UInt64.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, UInt48Type @out)
+        public static bool read_one(RSeq input, UInt48Type @out)
         {
             return UInt48.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, ref double @out)
+        public static bool read_one(RSeq input, ref double @out)
         {
             return DoubleFloat.read_from(input, @out);
         }
 
-        public static bool read_one(rseq_t input, ref float @out)
+        public static bool read_one(RSeq input, ref float @out)
         {
             return SingleFloat.read_from(input, @out);
         }

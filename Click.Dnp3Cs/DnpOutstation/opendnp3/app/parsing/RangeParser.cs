@@ -49,9 +49,9 @@ namespace opendnp3
 
 public class RangeParser
 {
-	private delegate void HandleFun(in HeaderRecord record, in Range range, in ser4cpp.rseq_t buffer, IAPDUHandler handler);
+	private delegate void HandleFun(in HeaderRecord record, in Range range, in ser4cpp.RSeq buffer, IAPDUHandler handler);
 
-	public static ParseResult ParseHeader(ser4cpp.rseq_t buffer, in NumParser numparser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
+	public static ParseResult ParseHeader(ser4cpp.RSeq buffer, in NumParser numparser, in ParserSettings settings, in HeaderRecord record, Logger pLogger, IAPDUHandler pHandler)
 	{
 		Range range = new Range();
 		var res = numparser.ParseRange(buffer, range, pLogger);
@@ -82,8 +82,8 @@ public class RangeParser
 
 	// Process the range against the buffer
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::rseq_t& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
-	private ParseResult Process(in HeaderRecord record, ser4cpp.rseq_t buffer, IAPDUHandler pHandler, Logger pLogger)
+//ORIGINAL LINE: ParseResult Process(const HeaderRecord& record, ser4cpp::RSeq& buffer, IAPDUHandler* pHandler, Logger* pLogger) const
+	private ParseResult Process(in HeaderRecord record, ser4cpp.RSeq buffer, IAPDUHandler pHandler, Logger pLogger)
 	{
 		if (buffer.length() < requiredSize)
 		{
@@ -137,7 +137,7 @@ public class RangeParser
 		return new RangeParser(range, size, InvokeRangeDoubleBitfieldType<Type>);
 	}
 
-	private static ParseResult ParseRangeOfObjects(ser4cpp.rseq_t buffer, in HeaderRecord record, in Range range, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseRangeOfObjects(ser4cpp.RSeq buffer, in HeaderRecord record, in Range range, Logger pLogger, IAPDUHandler pHandler)
 	{
 		switch (record.enumeration)
 		{
@@ -223,7 +223,7 @@ public class RangeParser
 		}
 	}
 
-	private static ParseResult ParseRangeOfOctetData(ser4cpp.rseq_t buffer, in HeaderRecord record, in Range range, Logger pLogger, IAPDUHandler pHandler)
+	private static ParseResult ParseRangeOfOctetData(ser4cpp.RSeq buffer, in HeaderRecord record, in Range range, Logger pLogger, IAPDUHandler pHandler)
 	{
 		if (record.variation > 0)
 		{
@@ -241,7 +241,7 @@ public class RangeParser
 
 			if (pHandler != null)
 			{
-				var read = (ser4cpp.rseq_t buffer, uint pos) =>
+				var read = (ser4cpp.RSeq buffer, uint pos) =>
 				{
 					var octetData = buffer.take(record.variation);
 					OctetString octets = new OctetString(new Buffer(octetData, (uint)octetData.length()));
@@ -270,14 +270,14 @@ public class RangeParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Descriptor>
-	private static void InvokeRangeOf<Descriptor>(in HeaderRecord record, in Range range, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeRangeOf<Descriptor>(in HeaderRecord record, in Range range, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
 		var COUNT = range.Count();
 
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
 //C++ TO C# CONVERTER TASK: Only lambdas having all locals passed by reference can be converted to C#:
-//ORIGINAL LINE: auto read = [range](ser4cpp::rseq_t& buffer, uint pos)
-		var read = (ser4cpp.rseq_t buffer, uint pos) =>
+//ORIGINAL LINE: auto read = [range](ser4cpp::RSeq& buffer, uint pos)
+		var read = (ser4cpp.RSeq buffer, uint pos) =>
 		{
 			Descriptor.Target target = new Descriptor.Target();
 			Descriptor.ReadTarget(buffer, target);
@@ -291,11 +291,11 @@ public class RangeParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Type>
-	private static void InvokeRangeOfType<Type>(in HeaderRecord record, in Range range, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeRangeOfType<Type>(in HeaderRecord record, in Range range, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
 		var COUNT = range.Count();
 
-		var read = (ser4cpp.rseq_t buffer, uint pos) =>
+		var read = (ser4cpp.RSeq buffer, uint pos) =>
 		{
 			Type target = default(Type);
 			Type.Read(buffer, target);
@@ -309,11 +309,11 @@ public class RangeParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Type>
-	private static void InvokeRangeBitfieldType<Type>(in HeaderRecord record, in Range range, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeRangeBitfieldType<Type>(in HeaderRecord record, in Range range, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
 		var COUNT = range.Count();
 
-		var read = (ser4cpp.rseq_t buffer, uint pos) =>
+		var read = (ser4cpp.RSeq buffer, uint pos) =>
 		{
 			Type value = new Type(GetBit(buffer, pos));
 			return new opendnp3.Indexed<Type>(opendnp3.Globals.WithIndex(value, range.start + pos));
@@ -326,11 +326,11 @@ public class RangeParser
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class Type>
-	private static void InvokeRangeDoubleBitfieldType<Type>(in HeaderRecord record, in Range range, in ser4cpp.rseq_t buffer, IAPDUHandler handler)
+	private static void InvokeRangeDoubleBitfieldType<Type>(in HeaderRecord record, in Range range, in ser4cpp.RSeq buffer, IAPDUHandler handler)
 	{
 		var COUNT = range.Count();
 
-		var read = (ser4cpp.rseq_t buffer, /*size_t*/int pos) =>
+		var read = (ser4cpp.RSeq buffer, /*size_t*/int pos) =>
 		{
 			Type value = new Type(GetDoubleBit(buffer, pos));
 			return new opendnp3.Indexed<Type>(opendnp3.Globals.WithIndex(value, (ushort)(range.start + pos)));

@@ -168,7 +168,7 @@ public class LinkHeader
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: length = apBuff[LI_LENGTH];
 		length.CopyFrom(apBuff[(int)LinkHeaderIndex.LI_LENGTH]);
-		ser4cpp.rseq_t buffer = new ser4cpp.rseq_t(apBuff + LinkHeaderIndex.LI_DESTINATION, 4);
+		ser4cpp.RSeq buffer = new ser4cpp.RSeq(apBuff + LinkHeaderIndex.LI_DESTINATION, 4);
 		ser4cpp.Globals.Bit16<ushort, 0, 1>.read_from(buffer, dest);
 		ser4cpp.Globals.Bit16<ushort, 0, 1>.read_from(buffer, src);
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:

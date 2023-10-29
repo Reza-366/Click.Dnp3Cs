@@ -105,7 +105,7 @@ public sealed class ClearRestartTask : IMasterTask
 		return true;
 	}
 
-	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.rseq_t objects)
+	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.RSeq objects)
 	{
 		// we only care that the response to this has FIR/FIN
 		if (ValidateSingleResponse(response))

@@ -94,7 +94,7 @@ public partial class Group50Var1
   {
 	  return 6;
   }
-  public static bool Read(rseq_t buffer, Group50Var1 output)
+  public static bool Read(RSeq buffer, Group50Var1 output)
   {
 	return LittleEndian.read(buffer, output.time);
   }
@@ -125,7 +125,7 @@ public partial class Group50Var3
   {
 	  return 6;
   }
-  public static bool Read(rseq_t buffer, Group50Var3 output)
+  public static bool Read(RSeq buffer, Group50Var3 output)
   {
 	return LittleEndian.read(buffer, output.time);
   }
@@ -158,7 +158,7 @@ public partial class Group50Var4
   {
 	  return 11;
   }
-  public static bool Read(rseq_t buffer, Group50Var4 output)
+  public static bool Read(RSeq buffer, Group50Var4 output)
   {
 	return LittleEndian.read(buffer, output.time, output.interval, output.units);
   }
@@ -170,7 +170,7 @@ public partial class Group50Var4
   public uint interval = new uint();
   public byte units = new byte();
 
-  public static bool ReadTarget(rseq_t buff, ref TimeAndInterval output)
+  public static bool ReadTarget(RSeq buff, ref TimeAndInterval output)
   {
 	Group50Var4 value = new Group50Var4();
 	if (Read(buff, value))
@@ -254,7 +254,7 @@ public partial class Group50Var1
 	  return 6;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group50Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group50Var1 UnnamedParameter2);
   public static bool Write(in Group50Var1 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.time);
@@ -279,7 +279,7 @@ public partial class Group50Var3
 	  return 6;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group50Var3 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group50Var3 UnnamedParameter2);
   public static bool Write(in Group50Var3 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.time);
@@ -304,7 +304,7 @@ public partial class Group50Var4
 	  return 11;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group50Var4 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group50Var4 UnnamedParameter2);
   public static bool Write(in Group50Var4 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.time, arg.interval, arg.units);
@@ -315,7 +315,7 @@ public partial class Group50Var4
   public byte units = new byte();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, TimeAndInterval UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, TimeAndInterval UnnamedParameter2);
   public static bool WriteTarget(in TimeAndInterval value, WSeq</*size_t*/int> buff)
   {
 	return Group50Var4.Write(ConvertGroup50Var4.Apply(value), buff);

@@ -4,7 +4,7 @@
 	public class APDUHeaderParser
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public APDUHeaderParser.Result<APDUHeader> ParseRequest(in ser4cpp.rseq_t apdu, Logger logger)
+		public APDUHeaderParser.Result<APDUHeader> ParseRequest(in ser4cpp.RSeq apdu, Logger logger)
 		{
 			if (apdu.length() < APDUHeader.REQUEST_SIZE)
 			{
@@ -22,7 +22,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public APDUHeaderParser.Result<APDUResponseHeader> ParseResponse(in ser4cpp.rseq_t apdu, Logger logger)
+		public APDUHeaderParser.Result<APDUResponseHeader> ParseResponse(in ser4cpp.RSeq apdu, Logger logger)
 		{
 			if (apdu.length() < APDUHeader.RESPONSE_SIZE)
 			{

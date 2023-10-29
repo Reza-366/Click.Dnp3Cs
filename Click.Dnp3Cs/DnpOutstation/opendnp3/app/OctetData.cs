@@ -91,7 +91,7 @@ public class OctetData
 	public OctetData(in Buffer input)
 	{
 		this.size = input.length == 0 ? 1 : ser4cpp.Globals.min<byte>(new byte(MAX_SIZE), (byte)input.length);
-		RSeq</*size_t*/int> input_slice = new RSeq</*size_t*/int>(input.data, input.length);
+		RSeq/*<size_t>*/ input_slice = new RSeq/*<size_t>*/(input.data, input.length);
 		if (input_slice.is_not_empty())
 		{
 			WSeq</*size_t*/int> dest = new WSeq</*size_t*/int>(buffer.data(), buffer.Count);
@@ -118,7 +118,7 @@ public class OctetData
 	 */
 	public bool Set(in Buffer input)
 	{
-		RSeq</*size_t*/int> input_slice = new RSeq</*size_t*/int>(input.data, input.length);
+		RSeq/*<size_t>*/ input_slice = new RSeq/*<size_t>*/(input.data, input.length);
 		if (input_slice.is_empty())
 		{
 			this.size = 0;

@@ -109,7 +109,7 @@ public sealed class AssignClassTask : IMasterTask
 		return MasterTaskType.ASSIGN_CLASS;
 	}
 
-	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 	{
 		return ValidateNullResponse(header, objects) ? ResponseResult.OK_FINAL : ResponseResult.ERROR_BAD_RESPONSE;
 	}

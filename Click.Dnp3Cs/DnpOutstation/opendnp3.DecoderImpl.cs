@@ -6,11 +6,11 @@ namespace opendnp3
 	public class DecoderImpl
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void DecodeLPDU(in RSeq</*size_t*/int> data)
+		public void DecodeLPDU(in RSeq/*<size_t>*/ data)
 		{
 			Indent i = new Indent(callbacks);
         
-			RSeq</*size_t*/int> remaining = new RSeq</*size_t*/int>(data);
+			RSeq/*<size_t>*/ remaining = new RSeq/*<size_t>*/(data);
         
 			while (remaining.is_not_empty())
 			{
@@ -26,7 +26,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void DecodeTPDU(in RSeq</*size_t*/int> data)
+		public void DecodeTPDU(in RSeq/*<size_t>*/ data)
 		{
 			Indent i = new Indent(callbacks);
 			if (logger.is_enabled(opendnp3.flags.Globals.TRANSPORT_RX))
@@ -44,7 +44,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void DecodeAPDU(in RSeq</*size_t*/int> data)
+		public void DecodeAPDU(in RSeq/*<size_t>*/ data)
 		{
 			Indent i = new Indent(callbacks);
         
@@ -212,7 +212,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public bool IsResponse(in RSeq</*size_t*/int> data)
+		public bool IsResponse(in RSeq/*<size_t>*/ data)
 		{
 			if (data.length() < 2)
 			{
@@ -231,7 +231,7 @@ namespace opendnp3
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+		public bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 		{
 			if (header.func == LinkFunction.PRI_CONFIRMED_USER_DATA || header.func == LinkFunction.PRI_UNCONFIRMED_USER_DATA)
 			{

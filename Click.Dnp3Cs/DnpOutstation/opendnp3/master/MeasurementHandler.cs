@@ -79,7 +79,7 @@ public sealed class MeasurementHandler : IAPDUHandler, System.IDisposable
 	 * Static helper function for interpreting a response as a measurement response
 	 */
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static ParseResult ProcessMeasurements(ResponseInfo info, in ser4cpp::rseq_t objects, Logger logger, ISOEHandler pHandler);
+//	static ParseResult ProcessMeasurements(ResponseInfo info, in ser4cpp::RSeq objects, Logger logger, ISOEHandler pHandler);
 
 	// TODO
 	public override bool IsAllowed(uint headerCount, GroupVariation gv, QualifierCode qc)

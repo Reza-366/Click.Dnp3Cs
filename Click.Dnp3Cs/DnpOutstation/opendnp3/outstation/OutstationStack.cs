@@ -131,12 +131,12 @@ public static class OutstationStack : IOutstation, ILinkSession, ILinkTx, StackB
 		return this.tstack.link.OnLowerLayerDown();
 	}
 
-	public override sealed bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata)
+	public override sealed bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata)
 	{
 		return this.tstack.link.OnFrame(header, userdata);
 	}
 
-	public override sealed void BeginTransmit(in RSeq</*size_t*/int> buffer, ILinkSession context)
+	public override sealed void BeginTransmit(in RSeq/*<size_t>*/ buffer, ILinkSession context)
 	{
 		this.iohandler.BeginTransmit(this, buffer);
 	}

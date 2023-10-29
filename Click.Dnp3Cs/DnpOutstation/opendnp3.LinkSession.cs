@@ -4,13 +4,13 @@
 	public class LinkSession
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void BeginTransmit(in ser4cpp.rseq_t buffer, ILinkSession UnnamedParameter)
+		public void BeginTransmit(in ser4cpp.RSeq buffer, ILinkSession UnnamedParameter)
 		{
 			this.channel.BeginWrite(buffer);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public bool OnFrame(in LinkHeaderFields header, in ser4cpp.rseq_t userdata)
+		public bool OnFrame(in LinkHeaderFields header, in ser4cpp.RSeq userdata)
 		{
 			if (this.stack)
 			{

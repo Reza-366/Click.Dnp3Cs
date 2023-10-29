@@ -104,7 +104,7 @@ public partial class Group21Var1
   {
 	  return 5;
   }
-  public static bool Read(rseq_t buffer, Group21Var1 output)
+  public static bool Read(RSeq buffer, Group21Var1 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -115,7 +115,7 @@ public partial class Group21Var1
   public byte flags = new byte();
   public uint value = new uint();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var1 value = new Group21Var1();
 	if (Read(buff, value))
@@ -159,7 +159,7 @@ public partial class Group21Var2
   {
 	  return 3;
   }
-  public static bool Read(rseq_t buffer, Group21Var2 output)
+  public static bool Read(RSeq buffer, Group21Var2 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -170,7 +170,7 @@ public partial class Group21Var2
   public byte flags = new byte();
   public ushort value = new ushort();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var2 value = new Group21Var2();
 	if (Read(buff, value))
@@ -215,7 +215,7 @@ public partial class Group21Var5
   {
 	  return 11;
   }
-  public static bool Read(rseq_t buffer, Group21Var5 output)
+  public static bool Read(RSeq buffer, Group21Var5 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -227,7 +227,7 @@ public partial class Group21Var5
   public uint value = new uint();
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var5 value = new Group21Var5();
 	if (Read(buff, value))
@@ -274,7 +274,7 @@ public partial class Group21Var6
   {
 	  return 9;
   }
-  public static bool Read(rseq_t buffer, Group21Var6 output)
+  public static bool Read(RSeq buffer, Group21Var6 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -286,7 +286,7 @@ public partial class Group21Var6
   public ushort value = new ushort();
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var6 value = new Group21Var6();
 	if (Read(buff, value))
@@ -331,7 +331,7 @@ public partial class Group21Var9
   {
 	  return 4;
   }
-  public static bool Read(rseq_t buffer, Group21Var9 output)
+  public static bool Read(RSeq buffer, Group21Var9 output)
   {
 	return LittleEndian.read(buffer, output.value);
   }
@@ -341,7 +341,7 @@ public partial class Group21Var9
 
   public uint value = new uint();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var9 value = new Group21Var9();
 	if (Read(buff, value))
@@ -384,7 +384,7 @@ public partial class Group21Var10
   {
 	  return 2;
   }
-  public static bool Read(rseq_t buffer, Group21Var10 output)
+  public static bool Read(RSeq buffer, Group21Var10 output)
   {
 	return LittleEndian.read(buffer, output.value);
   }
@@ -394,7 +394,7 @@ public partial class Group21Var10
 
   public ushort value = new ushort();
 
-  public static bool ReadTarget(rseq_t buff, ref FrozenCounter output)
+  public static bool ReadTarget(RSeq buff, ref FrozenCounter output)
   {
 	Group21Var10 value = new Group21Var10();
 	if (Read(buff, value))
@@ -485,7 +485,7 @@ public partial class Group21Var1
 	  return 5;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var1 UnnamedParameter2);
   public static bool Write(in Group21Var1 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -495,7 +495,7 @@ public partial class Group21Var1
   public uint value = new uint();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var1.Write(ConvertQV<Group21Var1, FrozenCounter>.Apply(value), buff);
@@ -524,7 +524,7 @@ public partial class Group21Var2
 	  return 3;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var2 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var2 UnnamedParameter2);
   public static bool Write(in Group21Var2 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -534,7 +534,7 @@ public partial class Group21Var2
   public ushort value = new ushort();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var2.Write(ConvertQVandTruncate<Group21Var2, FrozenCounter>.Apply(value), buff);
@@ -563,7 +563,7 @@ public partial class Group21Var5
 	  return 11;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var5 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var5 UnnamedParameter2);
   public static bool Write(in Group21Var5 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -574,7 +574,7 @@ public partial class Group21Var5
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var5.Write(ConvertQVT<Group21Var5, FrozenCounter>.Apply(value), buff);
@@ -603,7 +603,7 @@ public partial class Group21Var6
 	  return 9;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var6 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var6 UnnamedParameter2);
   public static bool Write(in Group21Var6 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -614,7 +614,7 @@ public partial class Group21Var6
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var6.Write(ConvertQVTandTruncate<Group21Var6, FrozenCounter>.Apply(value), buff);
@@ -643,7 +643,7 @@ public partial class Group21Var9
 	  return 4;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var9 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var9 UnnamedParameter2);
   public static bool Write(in Group21Var9 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.value);
@@ -652,7 +652,7 @@ public partial class Group21Var9
   public uint value = new uint();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var9.Write(ConvertV<Group21Var9, FrozenCounter>.Apply(value), buff);
@@ -681,7 +681,7 @@ public partial class Group21Var10
 	  return 2;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group21Var10 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group21Var10 UnnamedParameter2);
   public static bool Write(in Group21Var10 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.value);
@@ -690,7 +690,7 @@ public partial class Group21Var10
   public ushort value = new ushort();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, FrozenCounter UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, FrozenCounter UnnamedParameter2);
   public static bool WriteTarget(in FrozenCounter value, WSeq</*size_t*/int> buff)
   {
 	return Group21Var10.Write(ConvertVandTruncate<Group21Var10, FrozenCounter>.Apply(value), buff);

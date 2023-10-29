@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ser4cpp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -209,7 +210,7 @@ public class LinkContext
 
 	// --- helpers for formatting user data messages ---
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ser4cpp::rseq_t FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in ser4cpp::rseq_t tpdu);
+//	ser4cpp::RSeq FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in ser4cpp::RSeq tpdu);
 
 	// --- Helpers for queueing frames ---
 	public void QueueAck(ushort destination)
@@ -252,7 +253,7 @@ public class LinkContext
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void QueueTransmit(in ser4cpp::rseq_t buffer, bool primary);
+//	void QueueTransmit(in ser4cpp::RSeq buffer, bool primary);
 
 	// --- public members ----
 
@@ -355,8 +356,8 @@ public class LinkContext
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	bool OnFrame(in LinkHeaderFields header, in ser4cpp::rseq_t userdata);
-	public bool TryPendingTx(ser4cpp.Settable<RSeq</*size_t*/int>> pending, bool primary)
+//	bool OnFrame(in LinkHeaderFields header, in ser4cpp::RSeq userdata);
+	public bool TryPendingTx(ser4cpp.Settable<RSeq/*<size_t>*/> pending, bool primary)
 	{
 		if (this.txMode == LinkTransmitMode.Idle && pending.is_set())
 		{
@@ -375,8 +376,8 @@ public class LinkContext
 	public ser4cpp.StaticBuffer<LPDU_MAX_FRAME_SIZE> priTxBuffer = new ser4cpp.StaticBuffer<LPDU_MAX_FRAME_SIZE>();
 	public ser4cpp.StaticBuffer<LPDU_HEADER_SIZE> secTxBuffer = new ser4cpp.StaticBuffer<LPDU_HEADER_SIZE>();
 
-	public ser4cpp.Settable<ser4cpp.rseq_t> pendingPriTx = new ser4cpp.Settable<ser4cpp.rseq_t>();
-	public ser4cpp.Settable<ser4cpp.rseq_t> pendingSecTx = new ser4cpp.Settable<ser4cpp.rseq_t>();
+	public ser4cpp.Settable<ser4cpp.RSeq> pendingPriTx = new ser4cpp.Settable<ser4cpp.RSeq>();
+	public ser4cpp.Settable<ser4cpp.RSeq> pendingSecTx = new ser4cpp.Settable<ser4cpp.RSeq>();
 
 	public Logger logger = new Logger();
 	public readonly LinkLayerConfig config = new LinkLayerConfig();

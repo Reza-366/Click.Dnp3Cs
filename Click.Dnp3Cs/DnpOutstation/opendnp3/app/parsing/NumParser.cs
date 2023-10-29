@@ -51,7 +51,7 @@ namespace opendnp3
 public class NumParser
 {
 	// a function that consumes bytes from a buffer and returns a ushort count
-	private delegate ushort ReadFun(RSeq</*size_t*/int> buffer);
+	private delegate ushort ReadFun(RSeq/*<size_t>*/ buffer);
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: byte NumBytes() const
@@ -61,8 +61,8 @@ public class NumParser
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ParseResult ParseCount(RSeq</*size_t*/int>& buffer, ushort& count, Logger* pLogger) const
-	public ParseResult ParseCount(RSeq</*size_t*/int> buffer, ushort count, Logger pLogger)
+//ORIGINAL LINE: ParseResult ParseCount(RSeq/*<size_t>*/& buffer, ushort& count, Logger* pLogger) const
+	public ParseResult ParseCount(RSeq/*<size_t>*/ buffer, ushort count, Logger pLogger)
 	{
 		if (this.Read(ref count, buffer))
 		{
@@ -90,8 +90,8 @@ public class NumParser
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ParseResult ParseRange(RSeq</*size_t*/int>& buffer, Range& range, Logger* pLogger) const
-	public ParseResult ParseRange(RSeq</*size_t*/int> buffer, Range range, Logger pLogger)
+//ORIGINAL LINE: ParseResult ParseRange(RSeq/*<size_t>*/& buffer, Range& range, Logger* pLogger) const
+	public ParseResult ParseRange(RSeq/*<size_t>*/ buffer, Range range, Logger pLogger)
 	{
 		if (buffer.length() < (2 * (/*size_t*/int)size))
 		{
@@ -126,8 +126,8 @@ public class NumParser
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ushort ReadNum(RSeq</*size_t*/int>& buffer) const
-	public ushort ReadNum(RSeq</*size_t*/int> buffer)
+//ORIGINAL LINE: ushort ReadNum(RSeq/*<size_t>*/& buffer) const
+	public ushort ReadNum(RSeq/*<size_t>*/ buffer)
 	{
 		return pReadFun(buffer);
 	}
@@ -145,8 +145,8 @@ public class NumParser
 	// read the number, consuming from the buffer
 	// return true if there is enough bytes, false otherwise
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: bool Read(ushort& num, RSeq</*size_t*/int>& buffer) const
-	private bool Read(ref ushort num, RSeq</*size_t*/int> buffer)
+//ORIGINAL LINE: bool Read(ushort& num, RSeq/*<size_t>*/& buffer) const
+	private bool Read(ref ushort num, RSeq/*<size_t>*/ buffer)
 	{
 		if (buffer.length() < size)
 		{
@@ -157,14 +157,14 @@ public class NumParser
 		return true;
 	}
 
-	private static ushort ReadOneByte(RSeq</*size_t*/int> buffer)
+	private static ushort ReadOneByte(RSeq/*<size_t>*/ buffer)
 	{
 		byte result = 0;
 		ser4cpp.UInt8.read_from(buffer, ref result);
 		return new byte(result);
 	}
 
-	private static ushort ReadTwoBytes(RSeq</*size_t*/int> buffer)
+	private static ushort ReadTwoBytes(RSeq/*<size_t>*/ buffer)
 	{
 		ushort result = 0;
 		ser4cpp.Globals.Bit16<ushort, 0, 1>.read_from(buffer, result);

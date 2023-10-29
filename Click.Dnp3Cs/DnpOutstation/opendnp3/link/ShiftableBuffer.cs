@@ -77,10 +77,10 @@ public class ShiftableBuffer
 
 	/// @return Pointer to the next byte to be read in the buffer
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: RSeq</*size_t*/int> ReadBuffer() const
-	public RSeq</*size_t*/int> ReadBuffer()
+//ORIGINAL LINE: RSeq/*<size_t>*/ ReadBuffer() const
+	public RSeq/*<size_t>*/ ReadBuffer()
 	{
-		return RSeq</*size_t*/int>(pBuffer + readPos, NumBytesRead());
+		return RSeq/*<size_t>*/(pBuffer + readPos, NumBytesRead());
 	}
 
 	/// Signal that some bytes don't have to be stored any longer. They'll be recovered during the next shift operation.

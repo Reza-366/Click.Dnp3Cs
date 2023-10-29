@@ -4,14 +4,14 @@
 	public class MContext
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void OnParsedHeader(in ser4cpp.rseq_t UnnamedParameter, in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public void OnParsedHeader(in ser4cpp.RSeq UnnamedParameter, in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			// Note: this looks silly, but OnParsedHeader() is virtual and can be overriden to do SA
 			this.ProcessAPDU(header, objects);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void ProcessAPDU(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public void ProcessAPDU(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			switch (header.function)
 			{
@@ -34,7 +34,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void ProcessUnsolicitedResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public void ProcessUnsolicitedResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			if (!header.control.UNS)
 			{
@@ -57,14 +57,14 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void ProcessResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public void ProcessResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			this.tstate = this.OnResponseEvent(header, objects);
 			this.ProcessIIN(header.IIN); // TODO - should we process IIN bits for unexpected responses?
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void Transmit(in ser4cpp.rseq_t data)
+		public void Transmit(in ser4cpp.RSeq data)
 		{
 			logging.ParseAndLogRequestTx(this.logger, data);
 			Debug.Assert(!this.isSending);
@@ -73,7 +73,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public MContext.TaskState OnResponseEvent(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public MContext.TaskState OnResponseEvent(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			switch (tstate)
 			{
@@ -92,7 +92,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public MContext.TaskState OnResponse_WaitForResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public MContext.TaskState OnResponse_WaitForResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			if (header.control.SEQ != this.solSeq)
 			{

@@ -57,28 +57,28 @@ public class LinkFrame : StaticOnly
 	////////////////////////////////////////////////
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatAck(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatAck(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatNack(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatNack(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatNotSupported(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatNotSupported(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger);
 
 	////////////////////////////////////////////////
 	//	Functions for formatting outgoing Pri to Sec frames
 	////////////////////////////////////////////////
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatTestLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatTestLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatResetLinkStates(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatResetLinkStates(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatRequestLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatRequestLinkStatus(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatConfirmedUserData(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, RSeq</*size_t*/int> user_data, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatConfirmedUserData(WSeq</*size_t*/int> buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, RSeq/*<size_t>*/ user_data, Logger pLogger);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatUnconfirmedUserData(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, RSeq</*size_t*/int> user_data, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatUnconfirmedUserData(WSeq</*size_t*/int> buffer, bool aIsMaster, ushort aDest, ushort aSrc, RSeq/*<size_t>*/ user_data, Logger pLogger);
 
 	////////////////////////////////////////////////
 	//	Reusable static formatting functions to any buffer
@@ -177,7 +177,7 @@ public class LinkFrame : StaticOnly
 
 	/** Write 10 header bytes to to buffer including 0x0564, all fields, and CRC */
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static RSeq</*size_t*/int> FormatHeader(WSeq</*size_t*/int> buffer, byte aDataLength, bool aIsMaster, bool aFcb, bool aFcvDfc, LinkFunction aFuncCode, ushort aDest, ushort aSrc, Logger pLogger);
+//	static RSeq/*<size_t>*/ FormatHeader(WSeq</*size_t*/int> buffer, byte aDataLength, bool aIsMaster, bool aFcb, bool aFcvDfc, LinkFunction aFuncCode, ushort aDest, ushort aSrc, Logger pLogger);
 }
 
 } // namespace opendnp3

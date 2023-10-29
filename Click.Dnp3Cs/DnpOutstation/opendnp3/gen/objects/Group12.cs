@@ -107,7 +107,7 @@ public partial class Group12Var1
   {
 	  return 11;
   }
-  public static bool Read(rseq_t buffer, Group12Var1 output)
+  public static bool Read(RSeq buffer, Group12Var1 output)
   {
 	return LittleEndian.read(buffer, output.code, output.count, output.onTime, output.offTime, output.status);
   }
@@ -121,7 +121,7 @@ public partial class Group12Var1
   public uint offTime = new uint();
   public byte status = new byte();
 
-  public static bool ReadTarget(rseq_t buff, ref ControlRelayOutputBlock output)
+  public static bool ReadTarget(RSeq buff, ref ControlRelayOutputBlock output)
   {
 	Group12Var1 value = new Group12Var1();
 	if (Read(buff, value))
@@ -211,7 +211,7 @@ public partial class Group12Var1
 	  return 11;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group12Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group12Var1 UnnamedParameter2);
   public static bool Write(in Group12Var1 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.code, arg.count, arg.onTime, arg.offTime, arg.status);
@@ -224,7 +224,7 @@ public partial class Group12Var1
   public byte status = new byte();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, ControlRelayOutputBlock UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, ControlRelayOutputBlock UnnamedParameter2);
   public static bool WriteTarget(in ControlRelayOutputBlock value, WSeq</*size_t*/int> buff)
   {
 	return Group12Var1.Write(ConvertGroup12Var1.Apply(value), buff);

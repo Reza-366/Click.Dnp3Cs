@@ -69,7 +69,7 @@ public sealed class TCPSocketChannel : IAsyncChannel
 	//    socket.async_read_some(asio::buffer(dest, dest.length()), this->executor->wrap(callback));
 	}
 
-	protected override void BeginWriteImpl(in RSeq</*size_t*/int> buffer)
+	protected override void BeginWriteImpl(in RSeq/*<size_t>*/ buffer)
 	{
 	//    auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
 	//

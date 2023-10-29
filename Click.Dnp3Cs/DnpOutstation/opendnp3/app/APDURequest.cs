@@ -61,7 +61,7 @@ public class APDURequest : APDUWrapper
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static APDUEquality Compare(in ser4cpp::rseq_t lhs, in ser4cpp::rseq_t rhs);
+//	static APDUEquality Compare(in ser4cpp::RSeq lhs, in ser4cpp::RSeq rhs);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
 //	APDURequest();

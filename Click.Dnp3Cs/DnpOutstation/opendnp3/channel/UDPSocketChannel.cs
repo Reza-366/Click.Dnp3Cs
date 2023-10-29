@@ -101,7 +101,7 @@ public class UDPSocketChannel //final : public IAsyncChannel
 	//    socket.async_receive(asio::buffer(dest, dest.length()), this->executor->wrap(callback));
 	}
 
-	protected void BeginWriteImpl(in RSeq</*size_t*/int> buffer)
+	protected void BeginWriteImpl(in RSeq/*<size_t>*/ buffer)
 	{
 	//    auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
 	//

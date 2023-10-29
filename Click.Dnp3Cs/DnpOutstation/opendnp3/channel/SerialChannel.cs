@@ -95,7 +95,7 @@ public sealed class SerialChannel //: public IAsyncChannel //REZA
 	//    port.async_read_some(asio::buffer(buffer, buffer.length()), this->executor->wrap(callback)); // REZA
 	}
 
-	private void BeginWriteImpl(in RSeq</*size_t*/int> buffer)
+	private void BeginWriteImpl(in RSeq/*<size_t>*/ buffer)
 	{
 	  //  auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
 		//async_write(port, asio::buffer(buffer, buffer.length()), this->executor->wrap(callback)); //REZA

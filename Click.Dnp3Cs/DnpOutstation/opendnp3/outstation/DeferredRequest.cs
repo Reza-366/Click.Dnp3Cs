@@ -117,7 +117,7 @@ public class DeferredRequest : Uncopyable
 	private bool isSet;
 	private Addresses addresses = new Addresses();
 	private APDUHeader header = new APDUHeader();
-	private ser4cpp.rseq_t objects = new ser4cpp.rseq_t();
+	private ser4cpp.RSeq objects = new ser4cpp.RSeq();
 	private ser4cpp.Buffer buffer = new ser4cpp.Buffer();
 }
 

@@ -95,7 +95,7 @@ public class Group51Var1
 	  return 6;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group51Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group51Var1 UnnamedParameter2);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
 //  static bool Write(in Group51Var1 UnnamedParameter, WSeq</*size_t*/int> UnnamedParameter2);
 
@@ -123,7 +123,7 @@ public class Group51Var2
 	  return 6;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group51Var2 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group51Var2 UnnamedParameter2);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
 //  static bool Write(in Group51Var2 UnnamedParameter, WSeq</*size_t*/int> UnnamedParameter2);
 

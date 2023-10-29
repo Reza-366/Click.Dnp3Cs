@@ -417,7 +417,7 @@ public class LinkLayerParser
 	{
 		uint len = header.GetLength() - opendnp3.Globals.LPDU_MIN_LENGTH;
 		LinkFrame.ReadUserData(buffer.ReadBuffer() + opendnp3.Globals.LPDU_HEADER_SIZE, rxBuffer, new uint(len));
-		userData = RSeq</*size_t*/int>(rxBuffer, len);
+		userData = RSeq/*<size_t>*/(rxBuffer, len);
 	}
 
 	private Logger logger = new Logger();
@@ -427,7 +427,7 @@ public class LinkLayerParser
 
 	private State state;
 	private /*size_t*/int frameSize = new /*size_t*/int();
-	private RSeq</*size_t*/int> userData = new RSeq</*size_t*/int>();
+	private RSeq/*<size_t>*/ userData = new RSeq/*<size_t>*/();
 
 	// buffer where received data is written
 	private byte[] rxBuffer = Arrays.InitializeWithDefaultInstances<byte>(LPDU_MAX_FRAME_SIZE);

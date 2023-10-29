@@ -66,7 +66,7 @@ public abstract class IAsyncChannel : Uncopyable
 		}
 	}
 
-	public bool BeginWrite(in RSeq</*size_t*/int> buffer)
+	public bool BeginWrite(in RSeq/*<size_t>*/ buffer)
 	{
 		Debug.Assert(callbacks);
 		if (this.CanWrite())
@@ -167,7 +167,7 @@ public abstract class IAsyncChannel : Uncopyable
 	private bool writing = false;
 
 	private abstract void BeginReadImpl(WSeq</*size_t*/int> buffer);
-	private abstract void BeginWriteImpl(in RSeq</*size_t*/int> buffer);
+	private abstract void BeginWriteImpl(in RSeq/*<size_t>*/ buffer);
 	private abstract void ShutdownImpl();
 }
 

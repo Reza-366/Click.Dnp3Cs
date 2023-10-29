@@ -161,7 +161,7 @@ public sealed class RestartOperationTask : IMasterTask, IAPDUHandler
 	private TimeDuration duration = new TimeDuration();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	override IMasterTask::ResponseResult ProcessResponse(in APDUResponseHeader header, in RSeq</*size_t*/int> objects);
+//	override IMasterTask::ResponseResult ProcessResponse(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects);
 
 	private override void OnTaskComplete(TaskCompletion result, Timestamp now)
 	{

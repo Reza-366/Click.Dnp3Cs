@@ -65,7 +65,7 @@ public class LinkContextPars : ILinkContextPars
 
 	// --- helpers for formatting user data messages ---
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ser4cpp::rseq_t FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in ser4cpp::rseq_t tpdu);
+//	ser4cpp::RSeq FormatPrimaryBufferWithUnconfirmed(in Addresses addr, in ser4cpp::RSeq tpdu);
 
 	// --- Helpers for queueing frames ---
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
@@ -76,7 +76,7 @@ public class LinkContextPars : ILinkContextPars
 //	void QueueRequestLinkStatus(ushort destination);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	void QueueTransmit(in ser4cpp::rseq_t buffer, bool primary);
+//	void QueueTransmit(in ser4cpp::RSeq buffer, bool primary);
 
 	// --- public members ----
 
@@ -101,16 +101,16 @@ public class LinkContextPars : ILinkContextPars
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
 //	void CompleteKeepAlive();
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	bool OnFrame(in LinkHeaderFields header, in ser4cpp::rseq_t userdata);
+//	bool OnFrame(in LinkHeaderFields header, in ser4cpp::RSeq userdata);
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	bool TryPendingTx(ser4cpp::Settable<ser4cpp::rseq_t> pending, bool primary);
+//	bool TryPendingTx(ser4cpp::Settable<ser4cpp::RSeq> pending, bool primary);
 
 	// buffers used for primary and secondary requests
 	//ser4cpp::StaticBuffer<LPDU_MAX_FRAME_SIZE> priTxBuffer;
 	//ser4cpp::StaticBuffer<LPDU_HEADER_SIZE> secTxBuffer;
 
-	//ser4cpp::Settable<ser4cpp::rseq_t> pendingPriTx;
-	//ser4cpp::Settable<ser4cpp::rseq_t> pendingSecTx;
+	//ser4cpp::Settable<ser4cpp::RSeq> pendingPriTx;
+	//ser4cpp::Settable<ser4cpp::RSeq> pendingSecTx;
 
 	//Logger logger;
 	//const LinkLayerConfig config;

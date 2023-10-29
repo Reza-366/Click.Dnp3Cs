@@ -166,11 +166,11 @@ public static class LinkSession : ILinkTx, IChannelCallbacks, IFrameSink, IResou
 
 	// ILinkTx
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	sealed void BeginTransmit(in RSeq</*size_t*/int> buffer, ILinkSession session);
+//	sealed void BeginTransmit(in RSeq/*<size_t>*/ buffer, ILinkSession session);
 
 	// IFrameSink
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	sealed bool OnFrame(in LinkHeaderFields header, in RSeq</*size_t*/int> userdata);
+//	sealed bool OnFrame(in LinkHeaderFields header, in RSeq/*<size_t>*/ userdata);
 
 	// ISessionAcceptor
 	private IMasterSession AcceptSession(in string loggerid, ISOEHandler SOEHandler, IMasterApplication application, in MasterStackConfig config)

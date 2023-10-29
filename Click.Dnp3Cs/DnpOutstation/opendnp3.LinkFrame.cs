@@ -4,53 +4,53 @@
 	public class LinkFrame
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatAck(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatAck(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, aIsRcvBuffFull, LinkFunction.SEC_ACK, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatNack(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatNack(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, aIsRcvBuffFull, LinkFunction.SEC_NACK, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, aIsRcvBuffFull, LinkFunction.SEC_LINK_STATUS, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatNotSupported(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatNotSupported(ser4cpp.wseq_t buffer, bool aIsMaster, bool aIsRcvBuffFull, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, aIsRcvBuffFull, LinkFunction.SEC_NOT_SUPPORTED, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatResetLinkStates(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatResetLinkStates(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, false, LinkFunction.PRI_RESET_LINK_STATES, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatRequestLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatRequestLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, false, false, LinkFunction.PRI_REQUEST_LINK_STATUS, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatTestLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatTestLinkStatus(ser4cpp.wseq_t buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			return FormatHeader(buffer, 0, aIsMaster, aFcb, true, LinkFunction.PRI_TEST_LINK_STATES, aDest, aSrc, pLogger);
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatConfirmedUserData(ser4cpp.wseq_t buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, ser4cpp.rseq_t user_data, Logger pLogger)
+		public ser4cpp.RSeq FormatConfirmedUserData(ser4cpp.wseq_t buffer, bool aIsMaster, bool aFcb, ushort aDest, ushort aSrc, ser4cpp.RSeq user_data, Logger pLogger)
 		{
 			if (user_data.length() > LPDU_MAX_USER_DATA_SIZE)
 			{
-				return ser4cpp.rseq_t.empty();
+				return ser4cpp.RSeq.empty();
 			}
         
 			var userDataSize = CalcUserDataSize(user_data.length());
@@ -62,11 +62,11 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatUnconfirmedUserData(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, ser4cpp.rseq_t user_data, Logger pLogger)
+		public ser4cpp.RSeq FormatUnconfirmedUserData(ser4cpp.wseq_t buffer, bool aIsMaster, ushort aDest, ushort aSrc, ser4cpp.RSeq user_data, Logger pLogger)
 		{
 			if (user_data.length() > LPDU_MAX_USER_DATA_SIZE)
 			{
-				return ser4cpp.rseq_t.empty();
+				return ser4cpp.RSeq.empty();
 			}
         
 			var userDataSize = CalcUserDataSize(user_data.length());
@@ -78,11 +78,11 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.rseq_t FormatHeader(ser4cpp.wseq_t buffer, byte aDataLength, bool aIsMaster, bool aFcb, bool aFcvDfc, LinkFunction aFuncCode, ushort aDest, ushort aSrc, Logger pLogger)
+		public ser4cpp.RSeq FormatHeader(ser4cpp.wseq_t buffer, byte aDataLength, bool aIsMaster, bool aFcb, bool aFcvDfc, LinkFunction aFuncCode, ushort aDest, ushort aSrc, Logger pLogger)
 		{
 			if (buffer.length() < LPDU_HEADER_SIZE)
 			{
-				return ser4cpp.rseq_t.empty();
+				return ser4cpp.RSeq.empty();
 			}
         
 			LinkHeader header = new LinkHeader(aDataLength + LPDU_MIN_LENGTH, aSrc, aDest, aIsMaster, aFcvDfc, aFcb, aFuncCode);

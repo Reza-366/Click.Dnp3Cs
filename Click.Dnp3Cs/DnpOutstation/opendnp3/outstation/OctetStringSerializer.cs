@@ -62,7 +62,7 @@ public class OctetStringSerializer : DNP3Serializer<OctetString>
 			return false;
 		}
 		var value_buffer = value.ToBuffer();
-		RSeq</*size_t*/int> slice = new RSeq</*size_t*/int>(value_buffer.data, value_buffer.length);
+		RSeq/*<size_t>*/ slice = new RSeq/*<size_t>*/(value_buffer.data, value_buffer.length);
 		buffer.copy_from(slice);
 		return true;
 	}

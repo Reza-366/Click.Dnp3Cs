@@ -65,7 +65,7 @@ public class ObjectHeader
 //ORIGINAL LINE: class ObjectHeaderParser : private StaticOnly
 public class ObjectHeaderParser : StaticOnly
 {
-	public static ParseResult ParseObjectHeader(ObjectHeader header, RSeq</*size_t*/int> buffer, Logger pLogger)
+	public static ParseResult ParseObjectHeader(ObjectHeader header, RSeq/*<size_t>*/ buffer, Logger pLogger)
 	{
 		if (buffer.length() < 3)
 		{
@@ -85,9 +85,9 @@ public class ObjectHeaderParser : StaticOnly
 
 	// Provides stateless inspection of the first object header, provided that it exists
 	// return false on failure (e.g. < 3 bytes)
-	public static bool ReadFirstGroupVariation(in RSeq</*size_t*/int> objects, ref GroupVariation gv)
+	public static bool ReadFirstGroupVariation(in RSeq/*<size_t>*/ objects, ref GroupVariation gv)
 	{
-		RSeq</*size_t*/int> copy = new RSeq</*size_t*/int>(objects);
+		RSeq/*<size_t>*/ copy = new RSeq/*<size_t>*/(objects);
 		ObjectHeader oheader = new ObjectHeader();
 		if (ObjectHeaderParser.ParseObjectHeader(oheader, copy, null) != ParseResult.OK)
 		{

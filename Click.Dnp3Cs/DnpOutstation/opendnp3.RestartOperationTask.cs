@@ -4,7 +4,7 @@
 	public class RestartOperationTask
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+		public IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 		{
 			if (!(ValidateSingleResponse(header) && ValidateInternalIndications(header)))
 			{

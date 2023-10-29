@@ -119,12 +119,12 @@ public class SerialTimeSyncTask : IMasterTask
 		return true;
 	}
 
-	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.rseq_t objects)
+	private override IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.RSeq objects)
 	{
 		return (delay < 0) ? OnResponseDelayMeas(response, objects) : OnResponseWriteTime(response, objects);
 	}
 
-	private IMasterTask.ResponseResult OnResponseDelayMeas(in APDUResponseHeader response, in ser4cpp.rseq_t objects)
+	private IMasterTask.ResponseResult OnResponseDelayMeas(in APDUResponseHeader response, in ser4cpp.RSeq objects)
 	{
 		if (ValidateSingleResponse(response))
 		{
@@ -158,7 +158,7 @@ public class SerialTimeSyncTask : IMasterTask
 		}
 	}
 
-	private IMasterTask.ResponseResult OnResponseWriteTime(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+	private IMasterTask.ResponseResult OnResponseWriteTime(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 	{
 		return ValidateNullResponse(header, objects) ? ResponseResult.OK_FINAL : ResponseResult.ERROR_BAD_RESPONSE;
 	}

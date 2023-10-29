@@ -23,31 +23,34 @@ namespace ser4cpp
 
         public static RSeq empty()
         {
-            return new RSeq(null, 0);
+            return new RSeq(null);
         }
 
-        public RSeq() 
+        public RSeq()
             : base(0)
-        {}
+        { }
 
-        public RSeq(byte[] buffer, int length)
-            :base(length)
+        public RSeq(byte[] buffer)
+            : base(buffer.Length)
         {
-            this.buffer_ = buffer;
+            this._buffer = buffer;
         }
 
         public void make_empty()
         {
-            this.buffer_ = null;
-            bitArray = new BitArray(0);
+            this._buffer = null;
+            _bitArray = new BitArray(0);
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: RSeq take(L count) const
         public RSeq take(int count)
         {
-            return new RSeq(this.buffer_, (count < this.length()) ? count : this.length());
+            //return new RSeq(this.buffer_, (count < this.length()) ? count : this.length());
+            return new RSeq(this._buffer.Take(count).ToArray());
         }
+
+        public byte[] Array { get { return _buffer.ToArray(); } }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: RSeq skip(L count) const
@@ -74,12 +77,19 @@ namespace ser4cpp
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: bool equals(const RSeq& rhs) const
-        public bool equals(in RSeq rhs)
+
+        public byte this[int index]
         {
-            return this.bitArray.Equals(rhs.bitArray);
+            get { return _buffer[index]; }
+            set { _buffer[index] = value; }
         }
 
-        protected byte[] buffer_ = null;
+        public bool equals(in RSeq rhs)
+        {
+            return this._bitArray.Equals(rhs._bitArray);
+        }
+
+        protected byte[] _buffer = null;
     }
 
 }

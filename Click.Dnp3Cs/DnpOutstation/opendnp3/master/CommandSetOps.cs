@@ -112,7 +112,7 @@ public sealed class CommandSetOps : IAPDUHandler, Uncopyable
 	 * @return true if every object in every header was correctly selected, false otherwise
 	 */
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static SelectResult ProcessSelectResponse(CommandSet set, in RSeq</*size_t*/int> headers, Logger logger);
+//	static SelectResult ProcessSelectResponse(CommandSet set, in RSeq/*<size_t>*/ headers, Logger logger);
 
 	/**
 	 * parses a response to an operate (or DO), applying each received header to the command set
@@ -120,7 +120,7 @@ public sealed class CommandSetOps : IAPDUHandler, Uncopyable
 	 * @return true if parsing was successful, the results are left in the set
 	 */
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static OperateResult ProcessOperateResponse(CommandSet set, in RSeq</*size_t*/int> headers, Logger logger);
+//	static OperateResult ProcessOperateResponse(CommandSet set, in RSeq/*<size_t>*/ headers, Logger logger);
 
 	private override bool IsAllowed(uint headerCount, GroupVariation gv, QualifierCode qc)
 	{

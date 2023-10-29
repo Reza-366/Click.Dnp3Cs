@@ -43,7 +43,7 @@ public class TxBuffer
 		return new opendnp3.APDUResponse(response);
 	}
 
-	public void Record(in AppControlField control, in RSeq</*size_t*/int> view)
+	public void Record(in AppControlField control, in RSeq/*<size_t>*/ view)
 	{
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this->control = control;
@@ -54,10 +54,10 @@ public class TxBuffer
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: const RSeq</*size_t*/int>& GetLastResponse() const
-	public RSeq</*size_t*/int> GetLastResponse()
+//ORIGINAL LINE: const RSeq/*<size_t>*/& GetLastResponse() const
+	public RSeq/*<size_t>*/ GetLastResponse()
 	{
-		return new RSeq</*size_t*/int>(lastResponse);
+		return new RSeq/*<size_t>*/(lastResponse);
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
@@ -69,7 +69,7 @@ public class TxBuffer
 		return new opendnp3.AppControlField(control);
 	}
 
-	private RSeq</*size_t*/int> lastResponse = new RSeq</*size_t*/int>();
+	private RSeq/*<size_t>*/ lastResponse = new RSeq/*<size_t>*/();
 	private AppControlField control = new AppControlField();
 
 	private ser4cpp.Buffer buffer = new ser4cpp.Buffer();

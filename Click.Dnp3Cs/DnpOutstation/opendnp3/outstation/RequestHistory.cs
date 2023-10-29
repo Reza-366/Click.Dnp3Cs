@@ -70,7 +70,7 @@ public class RequestHistory
 		hasLast = false;
 	}
 
-	public void RecordLastProcessedRequest(in APDUHeader header, in RSeq</*size_t*/int> objects)
+	public void RecordLastProcessedRequest(in APDUHeader header, in RSeq/*<size_t>*/ objects)
 	{
 		hasLast = true;
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
@@ -90,15 +90,15 @@ public class RequestHistory
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: bool EqualsLastObjects(const RSeq</*size_t*/int>& objects) const
-	public bool EqualsLastObjects(in RSeq</*size_t*/int> objects)
+//ORIGINAL LINE: bool EqualsLastObjects(const RSeq/*<size_t>*/& objects) const
+	public bool EqualsLastObjects(in RSeq/*<size_t>*/ objects)
 	{
 		return hasLast && (lastObjectsLength == objects.length()) && (lastDigest == CRC.CalcCrc(objects));
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: bool FullyEqualsLastRequest(const APDUHeader& header, const RSeq</*size_t*/int>& objects) const
-	public bool FullyEqualsLastRequest(in APDUHeader header, in RSeq</*size_t*/int> objects)
+//ORIGINAL LINE: bool FullyEqualsLastRequest(const APDUHeader& header, const RSeq/*<size_t>*/& objects) const
+	public bool FullyEqualsLastRequest(in APDUHeader header, in RSeq/*<size_t>*/ objects)
 	{
 		return lastHeader.Equals(header) && EqualsLastObjects(objects);
 	}

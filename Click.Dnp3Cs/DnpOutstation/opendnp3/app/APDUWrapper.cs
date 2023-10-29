@@ -119,8 +119,8 @@ public class APDUWrapper
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ser4cpp::rseq_t ToRSeq() const
-	public ser4cpp.rseq_t ToRSeq()
+//ORIGINAL LINE: ser4cpp::RSeq ToRSeq() const
+	public ser4cpp.RSeq ToRSeq()
 	{
 		return buffer.@readonly().take(this.Size());
 	}

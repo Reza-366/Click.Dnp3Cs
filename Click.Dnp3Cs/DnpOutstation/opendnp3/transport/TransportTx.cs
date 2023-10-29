@@ -88,11 +88,11 @@ public sealed class TransportTx : ITransportSegment
 		return this.message.payload.length() > 0;
 	}
 
-	public override ser4cpp.rseq_t GetSegment()
+	public override ser4cpp.RSeq GetSegment()
 	{
 		if (txSegment.is_set())
 		{
-			return new ser4cpp.rseq_t(txSegment.get());
+			return new ser4cpp.RSeq(txSegment.get());
 		}
 
 		/*size_t*/int numToSend = (this.message.payload.length() < opendnp3.Globals.MAX_TPDU_PAYLOAD) ? this.message.payload.length() : opendnp3.Globals.MAX_TPDU_PAYLOAD;
@@ -117,7 +117,7 @@ public sealed class TransportTx : ITransportSegment
 
 		var segment = tpduBuffer.as_seq(numToSend + 1);
 		txSegment.set(segment);
-		return new rseq_t(segment);
+		return new RSeq(segment);
 	}
 
 	public override bool Advance()
@@ -141,7 +141,7 @@ public sealed class TransportTx : ITransportSegment
 
 	private Message message = new Message();
 
-	private ser4cpp.Settable<ser4cpp.rseq_t> txSegment = new ser4cpp.Settable<ser4cpp.rseq_t>();
+	private ser4cpp.Settable<ser4cpp.RSeq> txSegment = new ser4cpp.Settable<ser4cpp.RSeq>();
 
 	// Static buffer where we store tpdus that are being transmitted
 	private ser4cpp.StaticBuffer<MAX_TPDU_LENGTH> tpduBuffer = new ser4cpp.StaticBuffer<MAX_TPDU_LENGTH>();

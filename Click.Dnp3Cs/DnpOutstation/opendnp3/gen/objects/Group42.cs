@@ -104,7 +104,7 @@ public partial class Group42Var1
   {
 	  return 5;
   }
-  public static bool Read(rseq_t buffer, Group42Var1 output)
+  public static bool Read(RSeq buffer, Group42Var1 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -115,7 +115,7 @@ public partial class Group42Var1
   public byte flags = new byte();
   public int value = new int();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var1 value = new Group42Var1();
 	if (Read(buff, value))
@@ -158,7 +158,7 @@ public partial class Group42Var2
   {
 	  return 3;
   }
-  public static bool Read(rseq_t buffer, Group42Var2 output)
+  public static bool Read(RSeq buffer, Group42Var2 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -169,7 +169,7 @@ public partial class Group42Var2
   public byte flags = new byte();
   public Int16 value = new Int16();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var2 value = new Group42Var2();
 	if (Read(buff, value))
@@ -213,7 +213,7 @@ public partial class Group42Var3
   {
 	  return 11;
   }
-  public static bool Read(rseq_t buffer, Group42Var3 output)
+  public static bool Read(RSeq buffer, Group42Var3 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -225,7 +225,7 @@ public partial class Group42Var3
   public int value = new int();
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var3 value = new Group42Var3();
 	if (Read(buff, value))
@@ -271,7 +271,7 @@ public partial class Group42Var4
   {
 	  return 9;
   }
-  public static bool Read(rseq_t buffer, Group42Var4 output)
+  public static bool Read(RSeq buffer, Group42Var4 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -283,7 +283,7 @@ public partial class Group42Var4
   public Int16 value = new Int16();
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var4 value = new Group42Var4();
 	if (Read(buff, value))
@@ -328,7 +328,7 @@ public partial class Group42Var5
   {
 	  return 5;
   }
-  public static bool Read(rseq_t buffer, Group42Var5 output)
+  public static bool Read(RSeq buffer, Group42Var5 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -339,7 +339,7 @@ public partial class Group42Var5
   public byte flags = new byte();
   public float value;
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var5 value = new Group42Var5();
 	if (Read(buff, value))
@@ -382,7 +382,7 @@ public partial class Group42Var6
   {
 	  return 9;
   }
-  public static bool Read(rseq_t buffer, Group42Var6 output)
+  public static bool Read(RSeq buffer, Group42Var6 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -393,7 +393,7 @@ public partial class Group42Var6
   public byte flags = new byte();
   public double value;
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var6 value = new Group42Var6();
 	if (Read(buff, value))
@@ -437,7 +437,7 @@ public partial class Group42Var7
   {
 	  return 11;
   }
-  public static bool Read(rseq_t buffer, Group42Var7 output)
+  public static bool Read(RSeq buffer, Group42Var7 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -449,7 +449,7 @@ public partial class Group42Var7
   public float value;
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var7 value = new Group42Var7();
 	if (Read(buff, value))
@@ -495,7 +495,7 @@ public partial class Group42Var8
   {
 	  return 15;
   }
-  public static bool Read(rseq_t buffer, Group42Var8 output)
+  public static bool Read(RSeq buffer, Group42Var8 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value, output.time);
   }
@@ -507,7 +507,7 @@ public partial class Group42Var8
   public double value;
   public DNPTime time = new DNPTime();
 
-  public static bool ReadTarget(rseq_t buff, ref AnalogOutputStatus output)
+  public static bool ReadTarget(RSeq buff, ref AnalogOutputStatus output)
   {
 	Group42Var8 value = new Group42Var8();
 	if (Read(buff, value))
@@ -599,7 +599,7 @@ public partial class Group42Var1
 	  return 5;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var1 UnnamedParameter2);
   public static bool Write(in Group42Var1 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -609,7 +609,7 @@ public partial class Group42Var1
   public int value = new int();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var1.Write(ConvertQVRangeCheck<Group42Var1, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -637,7 +637,7 @@ public partial class Group42Var2
 	  return 3;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var2 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var2 UnnamedParameter2);
   public static bool Write(in Group42Var2 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -647,7 +647,7 @@ public partial class Group42Var2
   public Int16 value = new Int16();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var2.Write(ConvertQVRangeCheck<Group42Var2, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -675,7 +675,7 @@ public partial class Group42Var3
 	  return 11;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var3 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var3 UnnamedParameter2);
   public static bool Write(in Group42Var3 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -686,7 +686,7 @@ public partial class Group42Var3
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var3.Write(ConvertQVTRangeCheck<Group42Var3, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -714,7 +714,7 @@ public partial class Group42Var4
 	  return 9;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var4 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var4 UnnamedParameter2);
   public static bool Write(in Group42Var4 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -725,7 +725,7 @@ public partial class Group42Var4
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var4.Write(ConvertQVTRangeCheck<Group42Var4, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -753,7 +753,7 @@ public partial class Group42Var5
 	  return 5;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var5 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var5 UnnamedParameter2);
   public static bool Write(in Group42Var5 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -763,7 +763,7 @@ public partial class Group42Var5
   public float value;
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var5.Write(ConvertQVRangeCheck<Group42Var5, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -791,7 +791,7 @@ public partial class Group42Var6
 	  return 9;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var6 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var6 UnnamedParameter2);
   public static bool Write(in Group42Var6 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -801,7 +801,7 @@ public partial class Group42Var6
   public double value;
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var6.Write(ConvertQV<Group42Var6, AnalogOutputStatus>.Apply(value), buff);
@@ -829,7 +829,7 @@ public partial class Group42Var7
 	  return 11;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var7 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var7 UnnamedParameter2);
   public static bool Write(in Group42Var7 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -840,7 +840,7 @@ public partial class Group42Var7
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var7.Write(ConvertQVTRangeCheck<Group42Var7, AnalogOutputStatus, 0x20>.Apply(value), buff);
@@ -868,7 +868,7 @@ public partial class Group42Var8
 	  return 15;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group42Var8 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group42Var8 UnnamedParameter2);
   public static bool Write(in Group42Var8 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value, arg.time);
@@ -879,7 +879,7 @@ public partial class Group42Var8
   public DNPTime time = new DNPTime();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, AnalogOutputStatus UnnamedParameter2);
   public static bool WriteTarget(in AnalogOutputStatus value, WSeq</*size_t*/int> buff)
   {
 	return Group42Var8.Write(ConvertQVT<Group42Var8, AnalogOutputStatus>.Apply(value), buff);

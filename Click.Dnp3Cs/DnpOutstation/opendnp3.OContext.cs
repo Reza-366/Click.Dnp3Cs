@@ -4,7 +4,7 @@
 	public class OContext
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public void BeginTx(ushort destination, in ser4cpp.rseq_t message)
+		public void BeginTx(ushort destination, in ser4cpp.RSeq message)
 		{
 			logging.ParseAndLogResponseTx(this.logger, message);
 			this.isTransmitting = true;
@@ -26,7 +26,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleNonReadResponse(in APDUHeader header, in ser4cpp.rseq_t objects, HeaderWriter writer)
+		public IINField HandleNonReadResponse(in APDUHeader header, in ser4cpp.RSeq objects, HeaderWriter writer)
 		{
 			switch (header.function)
 			{
@@ -62,7 +62,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public ser4cpp.Pair<IINField, AppControlField> HandleRead(in ser4cpp.rseq_t objects, HeaderWriter writer)
+		public ser4cpp.Pair<IINField, AppControlField> HandleRead(in ser4cpp.RSeq objects, HeaderWriter writer)
 		{
 			this.rspContext.Reset();
 			this.eventBuffer.Unselect(); // always un-select any previously selected points when we start a new read request
@@ -81,7 +81,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleWrite(in ser4cpp.rseq_t objects)
+		public IINField HandleWrite(in ser4cpp.RSeq objects)
 		{
 			WriteHandler handler = new WriteHandler(this.application, this.time, this.sol.seq.num, new Timestamp(), this.staticIIN);
 			var result = APDUParser.Parse(objects, handler, this.logger);
@@ -89,7 +89,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleDirectOperate(in ser4cpp.rseq_t objects, OperateType opType, HeaderWriter pWriter)
+		public IINField HandleDirectOperate(in ser4cpp.RSeq objects, OperateType opType, HeaderWriter pWriter)
 		{
 			// since we're echoing, make sure there's enough size before beginning
 			if (pWriter != null && (objects.length() > pWriter.Remaining()))
@@ -112,7 +112,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleSelect(in ser4cpp.rseq_t objects, HeaderWriter writer)
+		public IINField HandleSelect(in ser4cpp.RSeq objects, HeaderWriter writer)
 		{
 			// since we're echoing, make sure there's enough size before beginning
 			if (objects.length() > writer.Remaining())
@@ -147,7 +147,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleOperate(in ser4cpp.rseq_t objects, HeaderWriter writer)
+		public IINField HandleOperate(in ser4cpp.RSeq objects, HeaderWriter writer)
 		{
 			// since we're echoing, make sure there's enough size before beginning
 			if (objects.length() > writer.Remaining())
@@ -182,7 +182,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleDelayMeasure(in ser4cpp.rseq_t objects, HeaderWriter writer)
+		public IINField HandleDelayMeasure(in ser4cpp.RSeq objects, HeaderWriter writer)
 		{
 			if (objects.is_empty())
 			{
@@ -199,7 +199,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleRestart(in ser4cpp.rseq_t objects, bool isWarmRestart, HeaderWriter pWriter)
+		public IINField HandleRestart(in ser4cpp.RSeq objects, bool isWarmRestart, HeaderWriter pWriter)
 		{
 			if (objects.is_not_empty())
 			{
@@ -242,7 +242,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleAssignClass(in ser4cpp.rseq_t objects)
+		public IINField HandleAssignClass(in ser4cpp.RSeq objects)
 		{
 			if (this.application.SupportsAssignClass())
 			{
@@ -255,7 +255,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleDisableUnsolicited(in ser4cpp.rseq_t objects, HeaderWriter UnnamedParameter)
+		public IINField HandleDisableUnsolicited(in ser4cpp.RSeq objects, HeaderWriter UnnamedParameter)
 		{
 			ClassBasedRequestHandler handler = new ClassBasedRequestHandler();
 			var result = APDUParser.Parse(objects, handler, this.logger);
@@ -271,7 +271,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleEnableUnsolicited(in ser4cpp.rseq_t objects, HeaderWriter UnnamedParameter)
+		public IINField HandleEnableUnsolicited(in ser4cpp.RSeq objects, HeaderWriter UnnamedParameter)
 		{
 			ClassBasedRequestHandler handler = new ClassBasedRequestHandler();
 			var result = APDUParser.Parse(objects, handler, this.logger);
@@ -288,7 +288,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleCommandWithConstant(in ser4cpp.rseq_t objects, HeaderWriter writer, CommandStatus status)
+		public IINField HandleCommandWithConstant(in ser4cpp.RSeq objects, HeaderWriter writer, CommandStatus status)
 		{
 			ConstantCommandAction constant = new ConstantCommandAction(status);
 			CommandResponseHandler handler = new CommandResponseHandler(this.@params.maxControlsPerRequest, constant, writer);
@@ -299,7 +299,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleFreeze(in ser4cpp.rseq_t objects)
+		public IINField HandleFreeze(in ser4cpp.RSeq objects)
 		{
 			FreezeRequestHandler handler = new FreezeRequestHandler(false, database);
 			var result = APDUParser.Parse(objects, handler, this.logger, ParserSettings.NoContents());
@@ -309,7 +309,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IINField HandleFreezeAndClear(in ser4cpp.rseq_t objects)
+		public IINField HandleFreezeAndClear(in ser4cpp.RSeq objects)
 		{
 			FreezeRequestHandler handler = new FreezeRequestHandler(true, database);
 			var result = APDUParser.Parse(objects, handler, this.logger, ParserSettings.NoContents());

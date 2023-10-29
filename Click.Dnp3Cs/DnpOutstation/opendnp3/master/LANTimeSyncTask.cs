@@ -121,13 +121,13 @@ public class LANTimeSyncTask : IMasterTask
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	override sealed ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp::rseq_t objects);
+//	override sealed ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp::RSeq objects);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ResponseResult OnResponseRecordCurrentTime(in APDUResponseHeader response, in ser4cpp::rseq_t objects);
+//	ResponseResult OnResponseRecordCurrentTime(in APDUResponseHeader response, in ser4cpp::RSeq objects);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ResponseResult OnResponseWriteTime(in APDUResponseHeader header, in ser4cpp::rseq_t objects);
+//	ResponseResult OnResponseWriteTime(in APDUResponseHeader header, in ser4cpp::RSeq objects);
 
 	private override void Initialize()
 	{

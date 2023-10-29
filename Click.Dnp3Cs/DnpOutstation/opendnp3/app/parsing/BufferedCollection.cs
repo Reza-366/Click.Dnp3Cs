@@ -32,7 +32,7 @@ namespace opendnp3
 //ORIGINAL LINE: template<class T, class ReadFunc>
 public class BufferedCollection <T, ReadFunc> : ICollection<T>
 {
-	public BufferedCollection(in RSeq</*size_t*/int> buffer, /*size_t*/int count, in ReadFunc readFunc)
+	public BufferedCollection(in RSeq/*<size_t>*/ buffer, /*size_t*/int count, in ReadFunc readFunc)
 	{
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this.buffer = buffer;
@@ -54,7 +54,7 @@ public class BufferedCollection <T, ReadFunc> : ICollection<T>
 //ORIGINAL LINE: virtual void Foreach(IVisitor<T>& visitor) const final
 	public sealed override void Foreach(IVisitor<T> visitor)
 	{
-		RSeq</*size_t*/int> copy = new RSeq</*size_t*/int>(buffer);
+		RSeq/*<size_t>*/ copy = new RSeq/*<size_t>*/(buffer);
 
 		for (uint pos = 0; pos < COUNT; ++pos)
 		{
@@ -62,7 +62,7 @@ public class BufferedCollection <T, ReadFunc> : ICollection<T>
 		}
 	}
 
-	private RSeq</*size_t*/int> buffer = new RSeq</*size_t*/int>();
+	private RSeq/*<size_t>*/ buffer = new RSeq/*<size_t>*/();
 	private readonly /*size_t*/int COUNT = new /*size_t*/int();
 	private ReadFunc readFunc = default(ReadFunc);
 }

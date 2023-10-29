@@ -51,14 +51,14 @@ namespace opendnp3
 //ORIGINAL LINE: class APDUParser : private StaticOnly
 public class APDUParser : StaticOnly
 {
-	public static ParseResult Parse(in ser4cpp.rseq_t buffer, IAPDUHandler handler, Logger logger, ParserSettings settings = ParserSettings.Default())
+	public static ParseResult Parse(in ser4cpp.RSeq buffer, IAPDUHandler handler, Logger logger, ParserSettings settings = ParserSettings.Default())
 	{
 //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
 //ORIGINAL LINE: return Parse(buffer, handler, &logger, settings);
 		return Parse(buffer, handler, logger, new opendnp3.ParserSettings(settings));
 	}
 
-	public static ParseResult Parse(in ser4cpp.rseq_t buffer, IAPDUHandler handler, Logger pLogger, ParserSettings settings = ParserSettings.Default())
+	public static ParseResult Parse(in ser4cpp.RSeq buffer, IAPDUHandler handler, Logger pLogger, ParserSettings settings = ParserSettings.Default())
 	{
 		// do two state parsing process with logging and white-listing first but no handling on the first pass
 		var result = ParseSinglePass(buffer, pLogger, null, handler, settings);
@@ -66,15 +66,15 @@ public class APDUParser : StaticOnly
 		return (result == ParseResult.OK) ? ParseSinglePass(buffer, null, handler, null, settings) : result;
 	}
 
-	public static ParseResult ParseAndLogAll(in ser4cpp.rseq_t buffer, Logger pLogger, ParserSettings settings = ParserSettings.Default())
+	public static ParseResult ParseAndLogAll(in ser4cpp.RSeq buffer, Logger pLogger, ParserSettings settings = ParserSettings.Default())
 	{
 		return ParseSinglePass(buffer, pLogger, null, null, settings);
 	}
 
-	public static ParseResult ParseSinglePass(in ser4cpp.rseq_t buffer, Logger pLogger, IAPDUHandler pHandler, IWhiteList pWhiteList, in ParserSettings settings)
+	public static ParseResult ParseSinglePass(in ser4cpp.RSeq buffer, Logger pLogger, IAPDUHandler pHandler, IWhiteList pWhiteList, in ParserSettings settings)
 	{
 		uint count = 0;
-		ser4cpp.rseq_t copy = new ser4cpp.rseq_t(buffer);
+		ser4cpp.RSeq copy = new ser4cpp.RSeq(buffer);
 		while (copy.length() > 0)
 		{
 			var result = ParseHeader(copy, pLogger, new uint(count), settings, pHandler, pWhiteList);
@@ -93,9 +93,9 @@ public class APDUParser : StaticOnly
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static ParseResult ParseHeaders(in ser4cpp::rseq_t buffer, Logger pLogger, in ParserSettings settings, IAPDUHandler pHandler);
+//	static ParseResult ParseHeaders(in ser4cpp::RSeq buffer, Logger pLogger, in ParserSettings settings, IAPDUHandler pHandler);
 
-	private static ParseResult ParseHeader(ser4cpp.rseq_t buffer, Logger pLogger, uint count, in ParserSettings settings, IAPDUHandler pHandler, IWhiteList pWhiteList)
+	private static ParseResult ParseHeader(ser4cpp.RSeq buffer, Logger pLogger, uint count, in ParserSettings settings, IAPDUHandler pHandler, IWhiteList pWhiteList)
 	{
 		ObjectHeader header = new ObjectHeader();
 		var result = ObjectHeaderParser.ParseObjectHeader(header, buffer, pLogger);
@@ -135,7 +135,7 @@ public class APDUParser : StaticOnly
 		return APDUParser.ParseQualifier(buffer, pLogger, new HeaderRecord(GV, header.qualifier, count), settings, pHandler);
 	}
 
-	private static ParseResult ParseQualifier(ser4cpp.rseq_t buffer, Logger pLogger, in HeaderRecord record, in ParserSettings settings, IAPDUHandler pHandler)
+	private static ParseResult ParseQualifier(ser4cpp.RSeq buffer, Logger pLogger, in HeaderRecord record, in ParserSettings settings, IAPDUHandler pHandler)
 	{
 		switch (record.GetQualifierCode())
 		{
@@ -191,7 +191,7 @@ public class APDUParser : StaticOnly
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static ParseResult ParseCountOfIndices(ser4cpp::rseq_t buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler);
+//	static ParseResult ParseCountOfIndices(ser4cpp::RSeq buffer, in HeaderRecord record, in NumParser numparser, ushort count, Logger pLogger, IAPDUHandler pHandler);
 }
 
 } // namespace opendnp3

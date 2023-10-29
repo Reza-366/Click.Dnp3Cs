@@ -285,7 +285,7 @@ public sealed class LoggingHandler : IAPDUHandler
 		var logItem = (in Indexed<OctetString> item) =>
 		{
 			var buffer = item.value.ToBuffer();
-			var slice = ser4cpp.rseq_t(buffer.data, buffer.length);
+			var slice = ser4cpp.RSeq(buffer.data, buffer.length);
 			if (logger.is_enabled(opendnp3.flags.Globals.APP_OBJECT_RX))
 			{
 				string message_buffer_some_name_no_conflict = new string(new char[opendnp3.Globals.max_log_entry_size]);

@@ -4,7 +4,7 @@
 	public class CommandSetOps
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public CommandSetOps.SelectResult ProcessSelectResponse(CommandSet set, in ser4cpp.rseq_t headers, Logger logger)
+		public CommandSetOps.SelectResult ProcessSelectResponse(CommandSet set, in ser4cpp.RSeq headers, Logger logger)
 		{
 			CommandSetOps handler = new CommandSetOps(Mode.Select, set);
 			var result = APDUParser.Parse(headers, handler, logger);
@@ -22,7 +22,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public CommandSetOps.OperateResult ProcessOperateResponse(CommandSet set, in ser4cpp.rseq_t headers, Logger logger)
+		public CommandSetOps.OperateResult ProcessOperateResponse(CommandSet set, in ser4cpp.RSeq headers, Logger logger)
 		{
 			CommandSetOps handler = new CommandSetOps(Mode.Operate, set);
 			return (APDUParser.Parse(headers, handler, logger) == ParseResult.OK) ? OperateResult.OK : OperateResult.FAIL_PARSE;

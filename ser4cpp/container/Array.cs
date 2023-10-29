@@ -41,83 +41,83 @@ namespace ser4cpp
  */
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<class T, class W>
-public class Array <T> : HasLength, System.IDisposable
-{
+//public class Array <T> : HasLength, System.IDisposable
+//{
 
-	public Array(int size)
-			:base(size)
-	{
-		this.buffer = Arrays.InitializeWithDefaultInstances<T>(size);
-	}
+//	public Array(int size)
+//			:base(size)
+//	{
+//		this.buffer = Arrays.InitializeWithDefaultInstances<T>(size);
+//	}
 
-	public Array()
-			:base(0)
-	{
-		this.buffer = null;
-	}
+//	public Array()
+//			:base(0)
+//	{
+//		this.buffer = null;
+//	}
 
-	public Array(in Array copy)
-			:base(copy.Length)
-	{
-		this.buffer = Arrays.InitializeWithDefaultInstances<T>(copy.Length);
-		for (int i = 0; i < copy.Length; ++i)
-		{
-			buffer[i] = copy.buffer[i];
-		}
-	}
+//	public Array(in Array copy)
+//			:base(copy.Length)
+//	{
+//		this.buffer = Arrays.InitializeWithDefaultInstances<T>(copy.Length);
+//		for (int i = 0; i < copy.Length; ++i)
+//		{
+//			buffer[i] = copy.buffer[i];
+//		}
+//	}
 
-	public virtual void Dispose()
-	{
-		Arrays.DeleteArray(buffer);
-	}
+//	public virtual void Dispose()
+//	{
+//		Arrays.DeleteArray(buffer);
+//	}
 
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: ArrayView<T, W> to_view() const
-	public ArrayView<T> to_view()
-	{
-		return ArrayView<T>(buffer, this.length());
-	}
+////C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+////ORIGINAL LINE: ArrayView<T, W> to_view() const
+//	public ArrayView<T> to_view()
+//	{
+//		return ArrayView<T>(buffer, this.length());
+//	}
 
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: inline bool contains(W index) const
-	public bool contains(int index)
-	{
-		return index < this.length();
-	}
+////C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+////ORIGINAL LINE: inline bool contains(W index) const
+//	public bool contains(int index)
+//	{
+//		return index < this.length();
+//	}
 
-	public T this[int index]
-	{
-		get
-		{
-			Debug.Assert(index < this.length());
-			return buffer[index];
-		}
-		set
-		{
-			buffer[index] = value;
-		}
-	}
+//	public T this[int index]
+//	{
+//		get
+//		{
+//			Debug.Assert(index < this.length());
+//			return buffer[index];
+//		}
+//		set
+//		{
+//			buffer[index] = value;
+//		}
+//	}
 
-//C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: const T& operator [](W index) const
-	public T this[int index]
-	{
-		get
-		{
-			Debug.Assert(index < this.length());
-			return buffer[index];
-		}
-		set
-		{
-			buffer[index] = value;
-		}
-	}
+//////C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
+//////ORIGINAL LINE: const T& operator [](W index) const
+////	public T this[int index]
+////	{
+////		get
+////		{
+////			Debug.Assert(index < this.length());
+////			return buffer[index];
+////		}
+////		set
+////		{
+////			buffer[index] = value;
+////		}
+////	}
 
-	protected T[] buffer;
+//	protected T[] buffer;
 
-//C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
-//	Array& operator =(const Array&) = delete;
-}
+////C++ TO C# CONVERTER TASK: C# has no equivalent to ' = delete':
+////	Array& operator =(const Array&) = delete;
+//}
 
 } // namespace ser4cpp
 

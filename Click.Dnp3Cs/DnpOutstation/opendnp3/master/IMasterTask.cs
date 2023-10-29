@@ -157,7 +157,7 @@ public abstract class IMasterTask : Uncopyable
 	/**
 	 * Handler for responses
 	 */
-	public IMasterTask.ResponseResult OnResponse(in APDUResponseHeader response, in ser4cpp.rseq_t objects, Timestamp now)
+	public IMasterTask.ResponseResult OnResponse(in APDUResponseHeader response, in ser4cpp.RSeq objects, Timestamp now)
 	{
 		var result = this.ProcessResponse(response, objects);
 
@@ -260,7 +260,7 @@ public abstract class IMasterTask : Uncopyable
 	{
 	}
 
-	protected abstract ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.rseq_t objects);
+	protected abstract ResponseResult ProcessResponse(in APDUResponseHeader response, in ser4cpp.RSeq objects);
 
 	protected void CompleteTask(TaskCompletion result, Timestamp now)
 	{
@@ -353,12 +353,12 @@ public abstract class IMasterTask : Uncopyable
 		return false;
 	}
 
-	protected bool ValidateNullResponse(in APDUResponseHeader header, in ser4cpp.rseq_t objects)
+	protected bool ValidateNullResponse(in APDUResponseHeader header, in ser4cpp.RSeq objects)
 	{
 		return ValidateSingleResponse(header) && ValidateNoObjects(objects) && ValidateInternalIndications(header);
 	}
 
-	protected bool ValidateNoObjects(in ser4cpp.rseq_t objects)
+	protected bool ValidateNoObjects(in ser4cpp.RSeq objects)
 	{
 		if (objects.is_empty())
 		{

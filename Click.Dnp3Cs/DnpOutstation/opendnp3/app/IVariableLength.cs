@@ -50,7 +50,7 @@ public abstract class IVariableLength : System.IDisposable
 	public abstract bool Write(WSeq</*size_t*/int> dest);
 
 	// attempt to read the object from the input buffer
-	public abstract bool Read(in RSeq</*size_t*/int> input);
+	public abstract bool Read(in RSeq/*<size_t>*/ input);
 }
 
 } // namespace opendnp3

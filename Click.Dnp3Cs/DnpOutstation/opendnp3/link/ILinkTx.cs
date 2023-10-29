@@ -40,7 +40,7 @@ public abstract class ILinkTx : System.IDisposable
 	/**
 	 * Begin transmission of a frame. Callback happens OFF the call stack (via executor)
 	 */
-	public abstract void BeginTransmit(in RSeq</*size_t*/int> buffer, ILinkSession context);
+	public abstract void BeginTransmit(in RSeq/*<size_t>*/ buffer, ILinkSession context);
 }
 
 } // namespace opendnp3

@@ -36,26 +36,26 @@ namespace ser4cpp
     //ORIGINAL LINE: template <class L>
     public class HasLength
     {
-        protected BitArray bitArray= new BitArray(0);
+        protected BitArray _bitArray= new BitArray(0);
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: inline L length() const
         public int length()
         {
-            return bitArray.Length;
+            return _bitArray.Length;
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: inline bool is_empty() const
         public bool is_empty()
         {
-            return bitArray.Length == 0;
+            return _bitArray.Length == 0;
         }
 
         //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
         //ORIGINAL LINE: inline bool is_not_empty() const
         public bool is_not_empty()
         {
-            return bitArray.Length != 0;
+            return _bitArray.Length != 0;
         }
 
         protected HasLength()
@@ -65,8 +65,9 @@ namespace ser4cpp
         protected HasLength(int length)
         {
             //this.m_length = length;
-            bitArray = new BitArray(length);
+            _bitArray = new BitArray(length);
         }
+        
 
         //protected int m_length = 0;
     }

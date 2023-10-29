@@ -37,125 +37,125 @@ using System.Collections.Generic;
 namespace ser4cpp
 {
 
-public class HexConversions
-{
-	public static char to_hex_char(char c)
-	{
-		return (c > 9) ? ('A' + (c - 10)) : ('0' + c);
-	}
+    public class HexConversions
+    {
+        public static char to_hex_char(char c)
+        {
+            return (char)((c > 9) ? ('A' + (c - 10)) : ('0' + c));
+        }
 
-	public static string byte_to_hex(byte b)
-	{
-		std::ostringstream oss = new std::ostringstream();
-		oss << HexConversions.to_hex_char((b & 0xf0) >> 4) << HexConversions.to_hex_char(b & 0xf);
-		return oss.str();
-	}
+        public static string byte_to_hex(byte b)
+        {
+            string oss = string.Empty;
+            oss += HexConversions.to_hex_char((char)((b & 0xf0) >> 4)) + HexConversions.to_hex_char((char)(b & 0xf));
+            return oss;
+        }
 
-	public static string to_hex(byte[] buffer, /*size_t*/int length, bool spaced = false)
-	{
-		std::ostringstream oss = new std::ostringstream();
-		/*size_t*/int last = length - 1;
-		for (/*size_t*/int i = 0; i < length; i++)
-		{
-			char c = buffer[i];
-			oss << HexConversions.to_hex_char((c & 0xf0) >> 4) << HexConversions.to_hex_char(c & 0xf);
-			if (spaced && i != last)
-			{
-				oss << " ";
-			}
-		}
-		return oss.str();
-	}
+        public static string to_hex(byte[] buffer, /*size_t*/int length, bool spaced = false)
+        {
+            string oss = string.Empty;
+            int last = length - 1;
+            for (int i = 0; i < length; i++)
+            {
+                char c = Convert.ToChar(buffer[i]);
+                oss += HexConversions.to_hex_char(Convert.ToChar((c & 0xf0) >> 4)) + HexConversions.to_hex_char(Convert.ToChar(c & 0xf));
+                if (spaced && i != last)
+                {
+                    oss += " ";
+                }
+            }
+            return oss;
+        }
 
-	public static string to_hex(in RSeq buffer, bool spaced = true)
-	{
-		return to_hex(buffer, buffer.length(), spaced);
-	}
+        public static string to_hex(in RSeq buffer, bool spaced = true)
+        {
+            return to_hex(buffer.Array, buffer.length(), spaced);
+        }
 
-	public static string append_hex(List<string> segments)
-	{
-		std::ostringstream oss = new std::ostringstream();
+        public static string append_hex(List<string> segments)
+        {
+            string oss = string.Empty;
 
-		foreach (var str in segments)
-		{
-			oss << str;
-		}
+            foreach (var str in segments)
+            {
+                oss += str;
+            }
 
-		return to_hex(from_hex(oss.str()).as_rslice());
-	}
+            return to_hex(from_hex(oss).as_rslice());
+        }
 
-	public static string repeat_hex(byte @byte, ushort count, bool spaced = true)
-	{
-		Buffer buffer = new Buffer(count);
-		buffer.as_wslice().set_all_to(@byte);
-		return to_hex(buffer.as_rslice(), spaced);
-	}
+        public static string repeat_hex(byte @byte, ushort count, bool spaced = true)
+        {
+            Buffer buffer = new Buffer(count);
+            buffer.as_wslice().set_all_to(@byte);
+            return to_hex(buffer.as_rslice(), spaced);
+        }
 
-	public static string increment_hex(byte start, ushort count, bool spaced = true)
-	{
-		Buffer buffer = new Buffer(count);
+        public static string increment_hex(byte start, ushort count, bool spaced = true)
+        {
+            Buffer buffer = new Buffer(count);
 
-		for (ushort i = 0; i < count; ++i)
-		{
-			buffer.as_wslice [i] = start;
-			++start;
-		}
+            for (ushort i = 0; i < count; ++i)
+            {
+                buffer[i] = start;
+                ++start;
+            }
 
-		return to_hex(buffer.as_rslice(), spaced);
-	}
+            return to_hex(buffer.as_rslice(), spaced);
+        }
 
-	public static Buffer from_hex(in string hex)
-	{
-		// create a copy of the string without space
-		string copy = HexConversions.remove_spaces(hex);
+        public static Buffer from_hex(in string hex)
+        {
+            // create a copy of the string without space
+            string copy = HexConversions.remove_spaces(hex);
 
-		//annoying when you accidentally put an 'O' instead of zero '0'
-		if (copy.IndexOfAny((Convert.ToString("oO")).ToCharArray()) != -1)
-		{
-		   // throw std::invalid_argument("Sequence contains 'o' or 'O'"); //REZA
-		}
+            //annoying when you accidentally put an 'O' instead of zero '0'
+            if (copy.IndexOfAny((Convert.ToString("oO")).ToCharArray()) != -1)
+            {
+                // throw std::invalid_argument("Sequence contains 'o' or 'O'"); //REZA
+            }
 
-		if (copy.Length % 2 != 0)
-		{
-		   // throw std::invalid_argument(hex); //REZA
-		}
+            if (copy.Length % 2 != 0)
+            {
+                // throw std::invalid_argument(hex); //REZA
+            }
 
-		var num_bytes = copy.Length / 2;
+            var num_bytes = copy.Length / 2;
+            var buffer = new Buffer(num_bytes);
 
-		var buffer = std::make_unique<Buffer>(num_bytes);
+            for (/*size_t*/int index = 0, pos = 0; pos < copy.Length; ++index, pos += 2)
+            {
+                uint val = new uint();
+                string ss = string.Empty;
+                //ss += std::hex << copy.Substring(pos, 2);
+                //if ((ss >> val).fail())
+                //{
+                //   // throw std::invalid_argument(hex); //REZA
+                //}
+                buffer[index] = (byte)val;
+            }
 
-		for (/*size_t*/int index = 0, pos = 0; pos < copy.Length; ++index, pos += 2)
-		{
-			uint val = new uint();
-			std::stringstream ss = new std::stringstream();
-			ss << std::hex << copy.Substring(pos, 2);
-			if ((ss >> val).fail())
-			{
-			   // throw std::invalid_argument(hex); //REZA
-			}
-			buffer.as_wslice [index] = (byte)val;
-		}
+            return buffer;
+        }
 
-		return buffer;
-	}
+        private static void remove_spaces_in_place(string hex)
+        {
+            /*size_t*/
+            int pos = hex.IndexOfAny((Convert.ToString(' ')).ToCharArray());
+            if (pos != -1)
+            {
+                hex = hex.Remove(pos, 1).Insert(pos, "");
+                remove_spaces_in_place(hex);
+            }
+        }
 
-	private static void remove_spaces_in_place(string hex)
-	{
-		/*size_t*/int pos = hex.IndexOfAny((Convert.ToString(' ')).ToCharArray());
-		if (pos != -1)
-		{
-			hex = hex.Remove(pos, 1).Insert(pos, "");
-			remove_spaces_in_place(hex);
-		}
-	}
-
-	private static string remove_spaces(in string hex)
-	{
-		string copy = hex;
-		remove_spaces_in_place(copy);
-		return copy;
-	}
-}
+        private static string remove_spaces(in string hex)
+        {
+            string copy = hex;
+            remove_spaces_in_place(copy);
+            return copy;
+        }
+    }
 
 }
 

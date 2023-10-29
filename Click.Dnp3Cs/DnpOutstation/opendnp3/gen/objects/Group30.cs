@@ -104,7 +104,7 @@ public partial class Group30Var1
   {
 	  return 5;
   }
-  public static bool Read(rseq_t buffer, Group30Var1 output)
+  public static bool Read(RSeq buffer, Group30Var1 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -115,7 +115,7 @@ public partial class Group30Var1
   public byte flags = new byte();
   public int value = new int();
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var1 value = new Group30Var1();
 	if (Read(buff, value))
@@ -159,7 +159,7 @@ public partial class Group30Var2
   {
 	  return 3;
   }
-  public static bool Read(rseq_t buffer, Group30Var2 output)
+  public static bool Read(RSeq buffer, Group30Var2 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -170,7 +170,7 @@ public partial class Group30Var2
   public byte flags = new byte();
   public Int16 value = new Int16();
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var2 value = new Group30Var2();
 	if (Read(buff, value))
@@ -213,7 +213,7 @@ public partial class Group30Var3
   {
 	  return 4;
   }
-  public static bool Read(rseq_t buffer, Group30Var3 output)
+  public static bool Read(RSeq buffer, Group30Var3 output)
   {
 	return LittleEndian.read(buffer, output.value);
   }
@@ -223,7 +223,7 @@ public partial class Group30Var3
 
   public int value = new int();
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var3 value = new Group30Var3();
 	if (Read(buff, value))
@@ -266,7 +266,7 @@ public partial class Group30Var4
   {
 	  return 2;
   }
-  public static bool Read(rseq_t buffer, Group30Var4 output)
+  public static bool Read(RSeq buffer, Group30Var4 output)
   {
 	return LittleEndian.read(buffer, output.value);
   }
@@ -276,7 +276,7 @@ public partial class Group30Var4
 
   public Int16 value = new Int16();
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var4 value = new Group30Var4();
 	if (Read(buff, value))
@@ -320,7 +320,7 @@ public partial class Group30Var5
   {
 	  return 5;
   }
-  public static bool Read(rseq_t buffer, Group30Var5 output)
+  public static bool Read(RSeq buffer, Group30Var5 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -331,7 +331,7 @@ public partial class Group30Var5
   public byte flags = new byte();
   public float value;
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var5 value = new Group30Var5();
 	if (Read(buff, value))
@@ -375,7 +375,7 @@ public partial class Group30Var6
   {
 	  return 9;
   }
-  public static bool Read(rseq_t buffer, Group30Var6 output)
+  public static bool Read(RSeq buffer, Group30Var6 output)
   {
 	return LittleEndian.read(buffer, output.flags, output.value);
   }
@@ -386,7 +386,7 @@ public partial class Group30Var6
   public byte flags = new byte();
   public double value;
 
-  public static bool ReadTarget(rseq_t buff, ref Analog output)
+  public static bool ReadTarget(RSeq buff, ref Analog output)
   {
 	Group30Var6 value = new Group30Var6();
 	if (Read(buff, value))
@@ -477,7 +477,7 @@ public partial class Group30Var1
 	  return 5;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var1 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var1 UnnamedParameter2);
   public static bool Write(in Group30Var1 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -487,7 +487,7 @@ public partial class Group30Var1
   public int value = new int();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var1.Write(ConvertQVRangeCheck<Group30Var1, Analog, 0x20>.Apply(value), buff);
@@ -516,7 +516,7 @@ public partial class Group30Var2
 	  return 3;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var2 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var2 UnnamedParameter2);
   public static bool Write(in Group30Var2 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -526,7 +526,7 @@ public partial class Group30Var2
   public Int16 value = new Int16();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var2.Write(ConvertQVRangeCheck<Group30Var2, Analog, 0x20>.Apply(value), buff);
@@ -555,7 +555,7 @@ public partial class Group30Var3
 	  return 4;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var3 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var3 UnnamedParameter2);
   public static bool Write(in Group30Var3 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.value);
@@ -564,7 +564,7 @@ public partial class Group30Var3
   public int value = new int();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var3.Write(ConvertVRangeCheck<Group30Var3, Analog>.Apply(value), buff);
@@ -593,7 +593,7 @@ public partial class Group30Var4
 	  return 2;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var4 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var4 UnnamedParameter2);
   public static bool Write(in Group30Var4 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.value);
@@ -602,7 +602,7 @@ public partial class Group30Var4
   public Int16 value = new Int16();
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var4.Write(ConvertVRangeCheck<Group30Var4, Analog>.Apply(value), buff);
@@ -631,7 +631,7 @@ public partial class Group30Var5
 	  return 5;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var5 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var5 UnnamedParameter2);
   public static bool Write(in Group30Var5 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -641,7 +641,7 @@ public partial class Group30Var5
   public float value;
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var5.Write(ConvertQVRangeCheck<Group30Var5, Analog, 0x20>.Apply(value), buff);
@@ -670,7 +670,7 @@ public partial class Group30Var6
 	  return 9;
   }
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool Read(RSeq</*size_t*/int> UnnamedParameter, Group30Var6 UnnamedParameter2);
+//  static bool Read(RSeq/*<size_t>*/ UnnamedParameter, Group30Var6 UnnamedParameter2);
   public static bool Write(in Group30Var6 arg, WSeq</*size_t*/int> buffer)
   {
 	return LittleEndian.write(buffer, arg.flags, arg.value);
@@ -680,7 +680,7 @@ public partial class Group30Var6
   public double value;
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//  static bool ReadTarget(RSeq</*size_t*/int> UnnamedParameter, Analog UnnamedParameter2);
+//  static bool ReadTarget(RSeq/*<size_t>*/ UnnamedParameter, Analog UnnamedParameter2);
   public static bool WriteTarget(in Analog value, WSeq</*size_t*/int> buff)
   {
 	return Group30Var6.Write(ConvertQV<Group30Var6, Analog>.Apply(value), buff);

@@ -40,7 +40,7 @@ public class UInt48Type
 	{
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this.representation = value;
-		this.representation.CopyFrom(value);
+		this.representation=(value);
 	}
 
 	public UInt48Type()
@@ -59,7 +59,7 @@ public class UInt48Type
 //ORIGINAL LINE: ulong Get() const
 	public ulong Get()
 	{
-		return new ulong(representation);
+		return  representation;
 	}
 
 	private ulong representation = new ulong();

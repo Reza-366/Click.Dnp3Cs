@@ -44,7 +44,7 @@ public abstract class ITransportSegment : System.IDisposable
 	public abstract bool HasValue();
 
 	// Read the current segment with a specified max size
-	public abstract RSeq</*size_t*/int> GetSegment();
+	public abstract RSeq/*<size_t>*/ GetSegment();
 
 	// move to the next segment, true if more segments available
 	public abstract bool Advance();

@@ -69,10 +69,10 @@ public abstract class PollTaskBase : IMasterTask
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	override sealed ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp::rseq_t objects);
+//	override sealed ResponseResult ProcessResponse(in APDUResponseHeader header, in ser4cpp::RSeq objects);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	ResponseResult ProcessMeasurements(in APDUResponseHeader header, in ser4cpp::rseq_t objects);
+//	ResponseResult ProcessMeasurements(in APDUResponseHeader header, in ser4cpp::RSeq objects);
 
 	protected override void Initialize()
 	{

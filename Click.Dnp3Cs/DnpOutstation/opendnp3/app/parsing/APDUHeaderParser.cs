@@ -58,9 +58,9 @@ public class APDUHeaderParser : StaticOnly
 	{
 		public readonly bool success;
 		public readonly T header = default(T);
-		public readonly RSeq</*size_t*/int> objects = new RSeq</*size_t*/int>();
+		public readonly RSeq/*<size_t>*/ objects = new RSeq/*<size_t>*/();
 
-		public static Result Ok(in T header, in RSeq</*size_t*/int> objects)
+		public static Result Ok(in T header, in RSeq/*<size_t>*/ objects)
 		{
 			return new Result(header, objects);
 		}
@@ -70,7 +70,7 @@ public class APDUHeaderParser : StaticOnly
 			return new Result();
 		}
 
-		private Result(in T header, in RSeq</*size_t*/int> objects)
+		private Result(in T header, in RSeq/*<size_t>*/ objects)
 		{
 			this.success = true;
 			this.header = header;
@@ -86,10 +86,10 @@ public class APDUHeaderParser : StaticOnly
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static Result<APDUHeader> ParseRequest(in RSeq</*size_t*/int> apdu, Logger logger = null);
+//	static Result<APDUHeader> ParseRequest(in RSeq/*<size_t>*/ apdu, Logger logger = null);
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	static Result<APDUResponseHeader> ParseResponse(in RSeq</*size_t*/int> apdu, Logger logger = null);
+//	static Result<APDUResponseHeader> ParseResponse(in RSeq/*<size_t>*/ apdu, Logger logger = null);
 }
 
 } // namespace opendnp3

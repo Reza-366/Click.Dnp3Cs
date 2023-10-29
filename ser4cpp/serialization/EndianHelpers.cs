@@ -46,19 +46,19 @@ namespace serializers
 public class EndianHelpers : StaticOnly
 {
 
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
-//ORIGINAL LINE: template <class T, typename... Args>
-	public static bool read<T>(RSeq input, T value, Args ... args)
-	{
-		return ser4cpp.serializers.Globals.read_one(input, value) && read(input, args...);
-	}
+////C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
+////ORIGINAL LINE: template <class T, typename... Args>
+//	public static bool read<T>(RSeq input, T value, Args ... args)
+//	{
+//		return ser4cpp.serializers.Globals.read_one(input, value) && read(input, args...);
+//	}
 
-//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
-//ORIGINAL LINE: template <class T, typename... Args>
-	public static bool write<T>(WSeq dest, in T value, in Args ... args)
-	{
-		return ser4cpp.serializers.Globals.write_one(dest, value) && write(dest, args...);
-	}
+////C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
+////ORIGINAL LINE: template <class T, typename... Args>
+//	public static bool write<T>(WSeq dest, in T value, in Args ... args)
+//	{
+//		return ser4cpp.serializers.Globals.write_one(dest, value) && write(dest, args...);
+//	}
 
 	private static bool read(RSeq input)
 	{

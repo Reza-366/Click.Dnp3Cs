@@ -35,7 +35,7 @@ public class PrefixFields : StaticOnly
 #if false
 		//C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 		//ORIGINAL LINE: template<typename... Args>
-		public static bool Read(ser4cpp.rseq_t input, Args ... fields)
+		public static bool Read(ser4cpp.RSeq input, Args ... fields)
 	{
 		if (input.length() < (sizeof...(Args) * ser4cpp.Globals.Bit16<ushort, 0, 1>.size))
 		{
@@ -87,14 +87,14 @@ public class PrefixFields : StaticOnly
 
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 //ORIGINAL LINE: template<typename... Args>
-	public static bool LengthFitsInUInt16(in ser4cpp.rseq_t arg1, Args ... fields)
+	public static bool LengthFitsInUInt16(in ser4cpp.RSeq arg1, Args ... fields)
 	{
 		return (arg1.length() <= ushort.MaxValue) && LengthFitsInUInt16(fields...);
 	}
 
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 //ORIGINAL LINE: template<typename... Args>
-	private static /*size_t*/int SumSizes(in ser4cpp.rseq_t arg1, Args ... fields)
+	private static /*size_t*/int SumSizes(in ser4cpp.RSeq arg1, Args ... fields)
 	{
 		return arg1.length() + SumSizes(fields...);
 	}
@@ -112,20 +112,20 @@ public class PrefixFields : StaticOnly
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 //ORIGINAL LINE: template<typename... Args>
 //C++ TO C# CONVERTER TASK: Pointer arithmetic is detected on the parameter 'pLength', so pointers on this parameter are left unchanged:
-	private static void ReadFields(ser4cpp.rseq_t input, ushort * pLength, ref ser4cpp.rseq_t output, Args ... fields)
+	private static void ReadFields(ser4cpp.RSeq input, ushort * pLength, ref ser4cpp.RSeq output, Args ... fields)
 	{
 		output = input.take(*pLength);
 		input.advance(*pLength);
 		ReadFields(input, ++pLength, fields...);
 	}
 
-	private static void ReadFields(ser4cpp.rseq_t input, ushort pLength)
+	private static void ReadFields(ser4cpp.RSeq input, ushort pLength)
 	{
 	}
 
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 //ORIGINAL LINE: template<typename... Args>
-	private static void WriteLengths(ser4cpp.wseq_t dest, in ser4cpp.rseq_t arg1, Args ... fields)
+	private static void WriteLengths(ser4cpp.wseq_t dest, in ser4cpp.RSeq arg1, Args ... fields)
 	{
 		ser4cpp.Globals.Bit16<ushort, 0, 1>.write_to(dest, (ushort)arg1.length());
 		WriteLengths(dest, fields...);
@@ -137,7 +137,7 @@ public class PrefixFields : StaticOnly
 
 //C++ TO C# CONVERTER TASK: There is no equivalent in C# to C++ variadic templates:
 //ORIGINAL LINE: template<typename... Args>
-	private static void WriteFields(ser4cpp.wseq_t dest, in ser4cpp.rseq_t arg1, Args ... fields)
+	private static void WriteFields(ser4cpp.wseq_t dest, in ser4cpp.RSeq arg1, Args ... fields)
 	{
 		dest.copy_from(arg1);
 		WriteFields(dest, fields...);

@@ -32,7 +32,7 @@ namespace opendnp3
 //ORIGINAL LINE: template<class T>
 public class Serializer <T>
 {
-	public delegate bool read_func_t(RSeq</*size_t*/int> buffer, T output);
+	public delegate bool read_func_t(RSeq/*<size_t>*/ buffer, T output);
 	public delegate bool write_func_t(in T value, WSeq</*size_t*/int> buffer);
 
 //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
@@ -61,8 +61,8 @@ public class Serializer <T>
 	 * reads the value and advances the read buffer
 	 */
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: bool read(RSeq</*size_t*/int>& buffer, T& output) const
-	public bool read(RSeq</*size_t*/int> buffer, T output)
+//ORIGINAL LINE: bool read(RSeq/*<size_t>*/& buffer, T& output) const
+	public bool read(RSeq/*<size_t>*/ buffer, T output)
 	{
 		return read_func(buffer, output);
 	}

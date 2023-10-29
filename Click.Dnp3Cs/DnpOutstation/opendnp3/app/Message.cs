@@ -33,7 +33,7 @@ public class Message
 //C++ TO C# CONVERTER TASK: C# has no equivalent to ' = default':
 //	Message() = default;
 
-	public Message(in Addresses addresses, in RSeq</*size_t*/int> payload)
+	public Message(in Addresses addresses, in RSeq/*<size_t>*/ payload)
 	{
 		this.addresses = new opendnp3.Addresses(addresses);
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
@@ -42,7 +42,7 @@ public class Message
 	}
 
 	public Addresses addresses = new Addresses();
-	public RSeq</*size_t*/int> payload = new RSeq</*size_t*/int>();
+	public RSeq/*<size_t>*/ payload = new RSeq/*<size_t>*/();
 }
 
 } // namespace opendnp3

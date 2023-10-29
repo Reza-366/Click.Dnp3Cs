@@ -4,7 +4,7 @@
 	public class PollTaskBase
 	{
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in RSeq</*size_t*/int> objects)
+		public IMasterTask.ResponseResult ProcessResponse(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects)
 		{
 			if (header.control.FIR)
 			{
@@ -37,7 +37,7 @@
 		}
 
 //C++ TO C# CONVERTER WARNING: The original C++ declaration of the following method implementation was not found:
-		public IMasterTask.ResponseResult ProcessMeasurements(in APDUResponseHeader header, in RSeq</*size_t*/int> objects)
+		public IMasterTask.ResponseResult ProcessMeasurements(in APDUResponseHeader header, in RSeq/*<size_t>*/ objects)
 		{
 			++rxCount;
         

@@ -478,7 +478,6 @@
     <Compile Include="DnpOutstation\opendnp3\util\Uncopyable.cs" />
     <Compile Include="DnpOutstation\opendnp3\util\UTCTimestamp.cs" />
     <Compile Include="DnpOutstation\ParsOutstation.cs" />
-    <Compile Include="DnpOutstation\size_t.cs" />
     <Compile Include="DnpOutstation\TangibleArrays.cs" />
     <Compile Include="DnpOutstation\TangibleStringFunctions.cs" />
     <Compile Include="Form1.cs">
