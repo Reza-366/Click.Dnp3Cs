@@ -41,10 +41,16 @@ public sealed class Timer
 {
         public Timer()
         { }
-         
+
+        public Timer(Timer timer1)
+        {
+            this.timer1 = timer1;
+        }
+
 
         //private std::weak_ptr<ITimer> timer = new std::weak_ptr<ITimer>();
         private ITimer timer ;
+        private Timer timer1;
     }
 
 }

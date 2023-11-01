@@ -43,51 +43,51 @@ namespace opendnp3
             byte @byte = buffer[byteNumber];
             /*size_t*/
             int bitshift = 2 * (index % 4);
-            return DoubleBitSpec.from_type((@byte >> bitshift) & 0x03);
+            return DoubleBitSpec.from_type(Convert.ToByte((@byte >> bitshift) & 0x03));
         }
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly BinaryInfo.event_variation_t DefaultEventVariation = EventBinaryVariation.Group2Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly BinaryInfo.static_variation_t DefaultStaticVariation = StaticBinaryVariation.Group1Var2;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly EventBinaryVariation DefaultEventVariation = EventBinaryVariation.Group2Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly StaticBinaryVariation DefaultStaticVariation = StaticBinaryVariation.Group1Var2;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly DoubleBitBinaryInfo.event_variation_t DefaultEventVariation = EventDoubleBinaryVariation.Group4Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly DoubleBitBinaryInfo.static_variation_t DefaultStaticVariation = StaticDoubleBinaryVariation.Group3Var2;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly EventDoubleBinaryVariation DefaultEventVariation = EventDoubleBinaryVariation.Group4Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly StaticDoubleBinaryVariation DefaultStaticVariation = StaticDoubleBinaryVariation.Group3Var2;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly BinaryOutputStatusInfo.event_variation_t DefaultEventVariation = EventBinaryOutputStatusVariation.Group11Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly BinaryOutputStatusInfo.static_variation_t DefaultStaticVariation = StaticBinaryOutputStatusVariation.Group10Var2;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly EventBinaryOutputStatusVariation DefaultEventVariation = EventBinaryOutputStatusVariation.Group11Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly StaticBinaryOutputStatusVariation DefaultStaticVariation = StaticBinaryOutputStatusVariation.Group10Var2;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly AnalogInfo.event_variation_t DefaultEventVariation = EventAnalogVariation.Group32Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly AnalogInfo.static_variation_t DefaultStaticVariation = StaticAnalogVariation.Group30Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly AnalogInfo.event_variation_t DefaultEventVariation = EventAnalogVariation.Group32Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly AnalogInfo.static_variation_t DefaultStaticVariation = StaticAnalogVariation.Group30Var1;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly CounterInfo.event_variation_t DefaultEventVariation = EventCounterVariation.Group22Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly CounterInfo.static_variation_t DefaultStaticVariation = StaticCounterVariation.Group20Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly CounterInfo.event_variation_t DefaultEventVariation = EventCounterVariation.Group22Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly CounterInfo.static_variation_t DefaultStaticVariation = StaticCounterVariation.Group20Var1;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly FrozenCounterInfo.event_variation_t DefaultEventVariation = EventFrozenCounterVariation.Group23Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly FrozenCounterInfo.static_variation_t DefaultStaticVariation = StaticFrozenCounterVariation.Group21Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly FrozenCounterInfo.event_variation_t DefaultEventVariation = EventFrozenCounterVariation.Group23Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly FrozenCounterInfo.static_variation_t DefaultStaticVariation = StaticFrozenCounterVariation.Group21Var1;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly AnalogOutputStatusInfo.event_variation_t DefaultEventVariation = EventAnalogOutputStatusVariation.Group42Var1;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly AnalogOutputStatusInfo.static_variation_t DefaultStaticVariation = StaticAnalogOutputStatusVariation.Group40Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly AnalogOutputStatusInfo.event_variation_t DefaultEventVariation = EventAnalogOutputStatusVariation.Group42Var1;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly AnalogOutputStatusInfo.static_variation_t DefaultStaticVariation = StaticAnalogOutputStatusVariation.Group40Var1;
 
-        //C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly OctetStringInfo.event_variation_t DefaultEventVariation = EventOctetStringVariation.Group111Var0;
-        //C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
-        public static readonly OctetStringInfo.static_variation_t DefaultStaticVariation = StaticOctetStringVariation.Group110Var0;
+        ////C++ TO C# CONVERTER TASK: The typedef 'event_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly OctetStringInfo.event_variation_t DefaultEventVariation = EventOctetStringVariation.Group111Var0;
+        ////C++ TO C# CONVERTER TASK: The typedef 'static_variation_t' was defined in multiple preprocessor conditionals and cannot be replaced in-line:
+        //public static readonly OctetStringInfo.static_variation_t DefaultStaticVariation = StaticOctetStringVariation.Group110Var0;
 
         // Serial port configuration functions "free" to keep the classes simple.
-        public static bool Configure(in SerialSettings settings, asio.serial_port port, std::error_code ec)
+        public static bool Configure(in SerialSettings settings, asio.serial_port port, int ec)
         {
 
             //     Set all the various options
@@ -139,7 +139,7 @@ namespace opendnp3
                     break;
             }
 
-            return asio.serial_port_base.stop_bits(t);
+            return (asio.serial_port_base.stop_bits)(t);
         }
 
         public static asio.serial_port_base.flow_control ConvertFlow(FlowControl flowType)
@@ -161,17 +161,17 @@ namespace opendnp3
                     break;
             }
 
-            return asio.serial_port_base.flow_control(t);
+            return (asio.serial_port_base.flow_control)(t);
         }
 
         public static asio.serial_port_base.character_size ConvertDataBits(int aDataBits)
         {
-            return asio.serial_port_base.character_size((uint)aDataBits);
+            return (asio.serial_port_base.character_size)((uint)aDataBits);
         }
 
         public static asio.serial_port_base.baud_rate ConvertBaud(int aBaud)
         {
-            return asio.serial_port_base.baud_rate((uint)aBaud);
+            return (asio.serial_port_base.baud_rate)((uint)aBaud);
         }
 
         public static asio.serial_port_base.parity ConvertParity(Parity parity)
@@ -190,7 +190,7 @@ namespace opendnp3
                     break;
             }
 
-            return asio.serial_port_base.parity(t);
+            return (asio.serial_port_base.parity)(t);
         }
 
         public static bool HasAbsoluteTime(GroupVariation gv)
@@ -526,7 +526,7 @@ namespace opendnp3
             return "UNKNOWN";
         }
 
-        public static HeaderBuilderT ConvertToLambda(in List<Header> headers)
+        public static HeaderBuilderT ConvertToLambda(List<Header> headers)
         {
             //C++ TO C# CONVERTER TASK: Only lambdas having all locals passed by reference can be converted to C#:
             //ORIGINAL LINE: return [headers](HeaderWriter& writer)->bool
@@ -544,68 +544,71 @@ namespace opendnp3
             };
         }
 
-        public static std::ostream operator <<(std::ostream os, in ResponseInfo info)
+        public static string operato (string os, in ResponseInfo info)
         {
-            os << "unsolicited: " << info.unsolicited << " fir: " << info.fir << " fin: " << info.fin;
+            os += "unsolicited: " + info.unsolicited + " fir: " + info.fir + " fin: " + info.fin;
             return os;
         }
 
-        public static IINField select_indices<Spec>(StaticDataMap<Spec> map, in ICollection<ushort> indices, Spec.static_variation_t variation)
-        {
-            var missing_index = false;
-            //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
-            var select = (ushort index) =>
-            {
-                if (!map.select(new ushort(index), new Spec.static_variation_t(variation)))
-                {
-                    missing_index = true;
-                }
-            };
-            indices.ForeachItem(select);
 
-            return missing_index ? new IINField(IINBit.PARAM_ERROR) : IINField.Empty();
-        }
+        //public static IINField select_indices<Spec>(StaticDataMap<Spec> map, ICollection<ushort> indices, Spec.static_variation_t variation)
+        //{
+        //    var missing_index = false;
+        //    //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
+        //    var select = (ushort index) =>
+        //    {
+        //        if (!map.select(new ushort(index), new Spec.static_variation_t(variation)))
+        //        {
+        //            missing_index = true;
+        //        }
+        //    };
+        //    indices.ForeachItem(select);
 
-        //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
-        //ORIGINAL LINE: template<class Spec>
-        public static IINField select_indices<Spec>(StaticDataMap<Spec> map, in ICollection<ushort> indices)
-        {
-            var missing_index = false;
-            //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
-            var select = (ushort index) =>
-            {
-                if (!map.select(new ushort(index)))
-                {
-                    missing_index = true;
-                }
-            };
-            indices.ForeachItem(select);
-
-            return missing_index ? new IINField(IINBit.PARAM_ERROR) : IINField.Empty();
-        }
+        //    return missing_index ? new IINField(IINBit.PARAM_ERROR) : IINField.Empty();
+        //}
 
         //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
         //ORIGINAL LINE: template<class Spec>
-        public static bool load_type<Spec>(StaticDataMap<Spec> map, HeaderWriter writer)
-        {
-            while (true)
-            {
-                var iter = map.begin();
+        //public static IINField select_indices<Spec>(StaticDataMap<Spec> map, in ICollection<ushort> indices)
+        //{
+        //    var missing_index = false;
+        //    //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
+        //    var select = (ushort index) =>
+        //    {
+        //        if (!map.select(new ushort(index)))
+        //        {
+        //            missing_index = true;
+        //        }
+        //    };
+        //    indices.ForeachItem(select);
 
-                if (iter == map.end())
-                {
-                    // there is no data left to write
-                    return true;
-                }
+        //    return missing_index ? new IINField(IINBit.PARAM_ERROR) : IINField.Empty();
+        //}
 
-                if (!StaticWriters.get(iter.second.variation)(map, writer))
-                {
-                    // the APDU is full
-                    return false;
-                }
-            }
-        }
+        //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
+        //ORIGINAL LINE: template<class Spec>
+        //public static bool load_type<Spec>(StaticDataMap<Spec> map, HeaderWriter writer)
+        //{
+        //    while (true)
+        //    {
+        //        var iter = map.begin();
+
+        //        if (iter == map.end())
+        //        {
+        //            // there is no data left to write
+        //            return true;
+        //        }
+
+        //        if (!StaticWriters.get(iter.second.variation)(map, writer))
+        //        {
+        //            // the APDU is full
+        //            return false;
+        //        }
+        //    }
+        //}
+
         public static void initialize<T>(SortedDictionary<ushort, T> map, ushort count)
+            where T : new()
         {
             for (ushort i = 0; i < count; ++i)
             {
@@ -618,9 +621,7 @@ namespace opendnp3
             switch (result)
             {
                 case (ParseResult.OK):
-                    //C++ TO C# CONVERTER TASK: The following line was determined to contain a copy constructor call - this should be verified and a copy constructor should be created:
-                    //ORIGINAL LINE: return IINField::Empty();
-                    return new opendnp3.IINField(IINField.Empty());
+                    return IINField.Empty();
                 case (ParseResult.UNKNOWN_OBJECT):
                     return new IINField(IINBit.OBJECT_UNKNOWN);
                 default:

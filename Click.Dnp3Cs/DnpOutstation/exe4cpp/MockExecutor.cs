@@ -60,8 +60,10 @@ public sealed class MockExecutor : IExecutor
 		{
 			source.cancel(this);
 		}
+			
 
-		public override TimeSpan expires_at()
+
+		public  TimeSpan expires_at()
 		{
 			return new TimeSpan(this.time.Ticks);
 		}
@@ -83,12 +85,13 @@ public sealed class MockExecutor : IExecutor
 		return new exe4cpp.Timer(start(current_time + delay, action));
 	}
 
-	public override Timer start(in TimeSpan time, in action_t action)
-	{
-		var timer = new MockTimer(this, time, action);
-		this.timers.Add(timer);
-		return Timer{timer};
-	}
+	//public override Timer start(in TimeSpan time, in action_t action)
+	//{
+	//	var timer = new MockTimer(this, time, action);
+	//	this.timers.Add(timer);
+	//		//return  new exe4cpp.Timer(){ timer};
+	//		return new Timer();
+	//}
 
 	public override void post(in action_t action)
 	{

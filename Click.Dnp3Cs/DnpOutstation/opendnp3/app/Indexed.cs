@@ -38,14 +38,12 @@ public class Indexed <T>
 	public Indexed(in T value_, ushort index_)
 	{
 		this.value = value_;
-//C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
-//ORIGINAL LINE: this.index = index_;
-		this.index.CopyFrom(index_);
+		this.index =index_;
 	}
 
 	public Indexed()
 	{
-		this.value = new default(T);
+		this.value =  default(T);
 		this.index = 0;
 	}
 
