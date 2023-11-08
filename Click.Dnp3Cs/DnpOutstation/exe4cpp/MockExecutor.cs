@@ -152,7 +152,7 @@ public sealed class MockExecutor : IExecutor
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
-//ORIGINAL LINE: steady_time_t next_timer_expiration_abs() const
+//ORIGINAL LINE: /*steady_time_t*/ DateTime next_timer_expiration_abs() const
 	public DateTime next_timer_expiration_abs()
 	{
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':

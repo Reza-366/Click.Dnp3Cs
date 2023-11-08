@@ -80,7 +80,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 
 //
 //    typedef std::function<void(
-//        const std::shared_ptr<exe4cpp::StrandExecutor>& executor, asio::ip::udp::socket, const std::error_code& ec)>
+//        const std::shared_ptr<exe4cpp::StrandExecutor>& executor, asio::ip::udp::socket, const /*std::error_code*/ int& ec)>
 //        connect_callback_t;
 //    static std::shared_ptr<UDPClient> Create(const Logger& logger,
 //                                             const std::shared_ptr<exe4cpp::StrandExecutor>& executor)
@@ -101,7 +101,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 	//        return false;
 	//    }
 	//
-	//    std::error_code ec;
+	//    /*std::error_code*/ int ec;
 	//    socket.cancel(ec);
 	//    resolver.cancel();
 	//    this->canceled = true;
@@ -119,7 +119,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 	//
 	//    this->connecting = true;
 	//
-	//    std::error_code ec;
+	//    /*std::error_code*/ int ec;
 	//    SocketHelpers::BindToLocalAddress<asio::ip::udp>(localEndpoint.address, localEndpoint.port, this->socket, ec);
 	//
 	//    if (ec)
@@ -133,7 +133,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 	//    if (ec)
 	//    {
 	//        // Try DNS resolution instead
-	//        auto cb = [self, callback](const std::error_code& ec, asio::ip::udp::resolver::iterator endpoints) {
+	//        auto cb = [self, callback](const /*std::error_code*/ int& ec, asio::ip::udp::resolver::iterator endpoints) {
 	//            self->HandleResolveResult(callback, endpoints, ec);
 	//        };
 	//
@@ -147,7 +147,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 	//    }
 	//
 	//    asio::ip::udp::endpoint asioRemoteEndpoint(address, remoteEndpoint.port);
-	//    auto cb = [self, callback](const std::error_code& ec) {
+	//    auto cb = [self, callback](const /*std::error_code*/ int& ec) {
 	//        self->connecting = false;
 	//        if (!self->canceled)
 	//        {
@@ -164,14 +164,14 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 //    void HandleResolveResult();
 //    void HandleResolveResult(const connect_callback_t& callback,
 //                             const asio::ip::udp::resolver::iterator& endpoints,
-						  //   const std::error_code& ec);
+						  //   const /*std::error_code*/ int& ec);
 
-	//bool PostConnectError(const connect_callback_t& callback, const std::error_code& ec);
+	//bool PostConnectError(const connect_callback_t& callback, const /*std::error_code*/ int& ec);
 
 	//void UDPClient::HandleResolveResult()
 	//void UDPClient::HandleResolveResult(const connect_callback_t& callback,
 	//                                    const asio::ip::udp::resolver::iterator& endpoints,
-	//                                    const std::error_code& ec)
+	//                                    const /*std::error_code*/ int& ec)
 	//{
 	//    if (ec)
 	//    {
@@ -180,7 +180,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 	//    else
 	//    {
 	//        // attempt a connection to each endpoint in the iterator until we connect
-	//        auto cb = [self = shared_from_this(), callback](const std::error_code& ec,
+	//        auto cb = [self = shared_from_this(), callback](const /*std::error_code*/ int& ec,
 	//                                                        asio::ip::udp::resolver::iterator endpoints) {
 	//            self->connecting = false;
 	//            if (!self->canceled)
@@ -195,7 +195,7 @@ public class UDPClient //final : public std::enable_shared_from_this<UDPClient>,
 
 	private bool PostConnectError()
 	{
-	//bool PostConnectError(const connect_callback_t& callback, const std::error_code& ec)
+	//bool PostConnectError(const connect_callback_t& callback, const /*std::error_code*/ int& ec)
 	//    auto cb = [self = shared_from_this(), ec, callback]() {
 	//        self->connecting = false;
 	//        if (!self->canceled)

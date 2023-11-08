@@ -42,7 +42,7 @@ public abstract class ITimer : System.IDisposable
 //	virtual ~ITimer() = default;
 
 	public abstract void cancel();
-	public abstract steady_time_t expires_at();
+	public abstract /*steady_time_t*/ DateTime expires_at();
 }
 
 }

@@ -34,8 +34,8 @@ public abstract class IChannelCallbacks : System.IDisposable
 	{
 	}
 
-	public abstract void OnReadComplete(in std::error_code ec, /*size_t*/int num);
-	public abstract void OnWriteComplete(in std::error_code ec, /*size_t*/int num);
+	public abstract void OnReadComplete(in /*std::error_code*/ int ec, /*size_t*/int num);
+	public abstract void OnWriteComplete(in /*std::error_code*/ int ec, /*size_t*/int num);
 }
 
 } // namespace opendnp3

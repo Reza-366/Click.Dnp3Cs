@@ -99,14 +99,14 @@ namespace exe4cpp
 			return new exe4cpp.Timer(rrr);
 		}
 
-		public override Timer start(in steady_time_t expiration, in action_t action)
+		public override Timer start(in /*steady_time_t*/ DateTime expiration, in action_t action)
 		{
 			//        const auto timer = AsioTimer::create(this->io_service);
 			//
 			//        timer->impl.expires_at(expiration);
 
 					// neither this executor nor the timer can be deleted while the timer is still active
-					//        auto callback = [timer, action, self = shared_from_this()](const std::error_code & ec)
+					//        auto callback = [timer, action, self = shared_from_this()](const /*std::error_code*/ int & ec)
 					//        {
 					//            if (!ec)   // an error indicate timer was canceled
 					//            {
@@ -135,7 +135,7 @@ namespace exe4cpp
 			//strand.post(callback);
 		}
 
-		public override steady_time_t get_time()
+		public override /*steady_time_t*/ DateTime get_time()
 		{
 			return std::chrono.steady_clock.now();
 		}

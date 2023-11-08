@@ -63,15 +63,15 @@ public sealed class AsioTimer : exe4cpp.ITimer
 
 	public override void cancel()
 	{
-		std::error_code ec = new std::error_code();
-	   impl.cancel(new std::error_code(ec));
+		/*std::error_code*/ int ec = new /*std::error_code*/ int();
+	   impl.cancel(new /*std::error_code*/ int(ec));
 	}
 
-	public override steady_time_t expires_at()
+	public override /*steady_time_t*/ DateTime expires_at()
 	{
 //        return impl.expires_at();
-		steady_time_t rrr = new steady_time_t();
-		return new steady_time_t(rrr);
+		/*steady_time_t*/ DateTime rrr = new /*steady_time_t*/ DateTime();
+		return new /*steady_time_t*/ DateTime(rrr);
 	}
 
 	private readonly asio.io_service io_service;

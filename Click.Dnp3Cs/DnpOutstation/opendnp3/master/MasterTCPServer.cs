@@ -60,9 +60,9 @@ public class MasterTCPServer //final : public TCPServer
 //                    const IPEndpoint& endpoint,
 //                    std::shared_ptr<IListenCallbacks> callbacks,
 //                    std::shared_ptr<ResourceManager> manager,
-//                    std::error_code& ec);
+//                    /*std::error_code*/ int& ec);
 
-	public static MasterTCPServer Create(in Logger logger, in IPEndpoint endpoint, IListenCallbacks callbacks, ResourceManager manager, std::error_code ec)
+	public static MasterTCPServer Create(in Logger logger, in IPEndpoint endpoint, IListenCallbacks callbacks, ResourceManager manager, /*std::error_code*/ int ec)
 	{
 //        auto server = std::make_shared<MasterTCPServer>(logger, executor, endpoint, callbacks, manager, ec);
 //
@@ -96,7 +96,7 @@ public class MasterTCPServer //final : public TCPServer
 	//                                 const IPEndpoint& endpoint,
 	//                                 std::shared_ptr<IListenCallbacks> callbacks,
 	//                                 std::shared_ptr<ResourceManager> manager),
-	//                                 std::error_code& ec)
+	//                                 /*std::error_code*/ int& ec)
 	//    : TCPServer(logger,  endpoint, ec), callbacks(std::move(callbacks)), manager(std::move(manager))
 	//{
 	//}

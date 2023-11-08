@@ -87,7 +87,7 @@ public sealed class SerialIOHandler : IOHandler
 	{
 		//auto port = std::make_shared<SerialChannel>(executor);
 
-		//std::error_code ec;
+		///*std::error_code*/ int ec;
 		//port->Open(settings, ec);
 
 		//if (ec)

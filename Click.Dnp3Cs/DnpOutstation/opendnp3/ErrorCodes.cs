@@ -60,7 +60,7 @@ public sealed class DNP3Error : System.Exception
 	{
 	}
 
-	public DNP3Error(Error err, std::error_code ec) : base(ErrorSpec.to_string(err) + ": " + ec.message())
+	public DNP3Error(Error err, /*std::error_code*/ int ec) : base(ErrorSpec.to_string(err) + ": " + ec.message())
 	{
 	}
 }

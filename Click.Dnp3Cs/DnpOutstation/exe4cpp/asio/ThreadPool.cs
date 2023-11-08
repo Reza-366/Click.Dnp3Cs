@@ -52,9 +52,9 @@ namespace exe4cpp
 }
 
 //C++ TO C# CONVERTER TASK: The following statement was not recognized, possibly due to an unrecognized macro:
-		infinite_timer.expires_at(std::chrono.steady_clock.time_point.max());
+		infinite_timer.expires_at(DateTime.max());
 //C++ TO C# CONVERTER TASK: The following statement was not recognized, possibly due to an unrecognized macro:
-		infinite_timer.async_wait((in std::error_code UnnamedParameter) =>
+		infinite_timer.async_wait((in /*std::error_code*/ int UnnamedParameter) =>
 		{
 		});
 

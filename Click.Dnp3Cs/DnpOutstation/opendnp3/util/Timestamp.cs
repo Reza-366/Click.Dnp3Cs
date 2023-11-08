@@ -57,20 +57,20 @@ public class Timestamp
 
 	public static Timestamp Max()
 	{
-		return new Timestamp(std::chrono.steady_clock.time_point.max());
+		return new Timestamp(DateTime.max());
 	}
 
 	public static Timestamp Min()
 	{
-		return new Timestamp(std::chrono.steady_clock.time_point.min());
+		return new Timestamp(DateTime.min());
 	}
 
 	public Timestamp()
 	{
-		this.value = std::chrono.steady_clock.time_point.min();
+		this.value = DateTime.min();
 	}
 
-	public Timestamp(std::chrono.steady_clock.time_point value)
+	public Timestamp(DateTime value)
 	{
 //C++ TO C# CONVERTER TASK: The following line was determined to be a copy assignment (rather than a reference assignment) - this should be verified and a 'CopyFrom' method should be created:
 //ORIGINAL LINE: this.value = value;
@@ -81,14 +81,14 @@ public class Timestamp
 //ORIGINAL LINE: bool IsMax() const
 	public bool IsMax()
 	{
-		return value == std::chrono.steady_clock.time_point.max();
+		return value == DateTime.max();
 	}
 
 //C++ TO C# CONVERTER WARNING: 'const' methods are not available in C#:
 //ORIGINAL LINE: bool IsMin() const
 	public bool IsMin()
 	{
-		return value == std::chrono.steady_clock.time_point.min();
+		return value == DateTime.min();
 	}
 
 	// overflow capped to maximum value
@@ -96,7 +96,7 @@ public class Timestamp
 //ORIGINAL LINE: Timestamp operator +(const TimeDuration& duration) const
 	public static Timestamp operator + (Timestamp ImpliedObject, in TimeDuration duration)
 	{
-		var maximum = std::chrono.steady_clock.time_point.max() - ImpliedObject.value;
+		var maximum = DateTime.max() - ImpliedObject.value;
 
 		return duration.value >= maximum ? Timestamp.Max() : new Timestamp(ImpliedObject.value + duration.value);
 	}
@@ -115,7 +115,7 @@ public class Timestamp
 //ORIGINAL LINE: Timestamp operator -(const TimeDuration& duration) const
 	public static Timestamp operator - (Timestamp ImpliedObject, in TimeDuration duration)
 	{
-		var maximum = ImpliedObject.value - std::chrono.steady_clock.time_point.min();
+		var maximum = ImpliedObject.value - DateTime.min();
 
 		return duration.value >= maximum ? Timestamp.Min() : new Timestamp(ImpliedObject.value - duration.value);
 	}
@@ -179,7 +179,7 @@ public class Timestamp
 		return ImpliedObject.value >= other.value;
 	}
 
-	public std::chrono.steady_clock.time_point value = new std::chrono.steady_clock.time_point();
+	public DateTime value = new DateTime();
 }
 
 } // namespace opendnp3

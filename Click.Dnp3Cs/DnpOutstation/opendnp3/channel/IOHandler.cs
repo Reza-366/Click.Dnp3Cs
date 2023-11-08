@@ -266,7 +266,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 
 	// ------ Implement IChannelCallbacks -----
 
-	protected override void OnReadComplete(in std::error_code ec, /*size_t*/int num)
+	protected override void OnReadComplete(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 		if (ec != null)
 		{
@@ -292,7 +292,7 @@ public abstract class IOHandler : IFrameSink, IChannelCallbacks
 		}
 	}
 
-	protected override void OnWriteComplete(in std::error_code ec, /*size_t*/int num)
+	protected override void OnWriteComplete(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 
 		if (ec != null)

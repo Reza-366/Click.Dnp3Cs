@@ -44,7 +44,7 @@ public abstract class ISteadyTimeSource : System.IDisposable
         //	virtual ~ISteadyTimeSource() = default;
 
         /// @return a non-absolute timestamp for the monotonic time source
-        //public abstract steady_time_t get_time();
+        //public abstract /*steady_time_t*/ DateTime get_time();
         public abstract DateTime get_time();
     }
 

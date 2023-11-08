@@ -122,8 +122,8 @@ public sealed class TCPClientIOHandler : IOHandler
 
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
 //C++ TO C# CONVERTER TASK: Only lambdas having all locals passed by reference can be converted to C#:
-//ORIGINAL LINE: auto cb = [=, self = this](asio::ip::tcp::socket socket, const std::error_code& ec)->void
-		var cb = (asio.ip.tcp.socket socket, in std::error_code ec) =>
+//ORIGINAL LINE: auto cb = [=, self = this](asio::ip::tcp::socket socket, const /*std::error_code*/ int& ec)->void
+		var cb = (asio.ip.tcp.socket socket, in /*std::error_code*/ int ec) =>
 		{
 			if (ec != null)
 			{

@@ -72,7 +72,7 @@ public class UDPSocketChannel //final : public IAsyncChannel
 
 	protected void BeginReadImpl(WSeq</*size_t*/int> dest)
 	{
-	//    auto callback = [this](const std::error_code& ec, /*size_t*/int num) {
+	//    auto callback = [this](const /*std::error_code*/ int& ec, /*size_t*/int num) {
 	//        if(!this->first_successful_read && this->num_first_read_retries < MAX_FIRST_READ_RETRIES)
 	//        {
 	//            if(ec)
@@ -81,7 +81,7 @@ public class UDPSocketChannel //final : public IAsyncChannel
 	//                FORMAT_LOG_BLOCK(this->logger, flags::DBG, "UDP ignoring initial errors (%d of %d)", this->num_first_read_retries + 1, MAX_FIRST_READ_RETRIES);
 	//
 	//                // We ignore failed reads until we get a successful one
-	//                const auto no_ec = std::error_code{};
+	//                const auto no_ec = /*std::error_code*/ int{};
 	//                this->OnReadCallback(no_ec, num);
 	//
 	//                // Avoid infinite loop
@@ -103,14 +103,14 @@ public class UDPSocketChannel //final : public IAsyncChannel
 
 	protected void BeginWriteImpl(in RSeq/*<size_t>*/ buffer)
 	{
-	//    auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
+	//    auto callback = [this](const /*std::error_code*/ int& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
 	//
 	//    socket.async_send(asio::buffer(buffer, buffer.length()), this->executor->wrap(callback));
 	}
 
 	protected void ShutdownImpl()
 	{
-	//    std::error_code ec;
+	//    /*std::error_code*/ int ec;
 	//    socket.shutdown(asio::socket_base::shutdown_type::shutdown_both, ec);
 	//    socket.close(ec);
 	}

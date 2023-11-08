@@ -69,7 +69,7 @@ public sealed class BasicExecutor : exe4cpp.IExecutor
 		return new exe4cpp.Timer(this.start(this.get_time() + duration, action));
 	}
 
-	public override Timer start(in steady_time_t expiration, in action_t action)
+	public override Timer start(in /*steady_time_t*/ DateTime expiration, in action_t action)
 	{
 		var timer = AsioTimer.create(this.io_service);
 
@@ -78,8 +78,8 @@ public sealed class BasicExecutor : exe4cpp.IExecutor
 		// neither the executor nor the timer can be deleted while the timer is still active
 //C++ TO C# CONVERTER TASK: Lambda expressions cannot be assigned to 'var':
 //C++ TO C# CONVERTER TASK: Only lambdas having all locals passed by reference can be converted to C#:
-//ORIGINAL LINE: auto callback = [timer, action, self = this](const std::error_code & ec)
-		var callback = (in std::error_code ec) =>
+//ORIGINAL LINE: auto callback = [timer, action, self = this](const /*std::error_code*/ int & ec)
+		var callback = (in /*std::error_code*/ int ec) =>
 		{
 			if (ec == null) // an error indicate timer was canceled
 			{
@@ -98,7 +98,7 @@ public sealed class BasicExecutor : exe4cpp.IExecutor
 		action();
 	}
 
-	public override steady_time_t get_time()
+	public override /*steady_time_t*/ DateTime get_time()
 	{
 		return std::chrono.steady_clock.now();
 	}

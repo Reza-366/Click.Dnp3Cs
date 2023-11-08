@@ -104,7 +104,7 @@ public class DNP3ManagerImpl : Uncopyable
 	public IChannel AddTCPServer(in string id, in LogLevels levels, ServerAcceptMode mode, in IPEndpoint endpoint, IChannelListener listener)
 	{
 	//    auto create = [&]() -> std::shared_ptr<IChannel> {
-	//        std::error_code ec;
+	//        /*std::error_code*/ int ec;
 	//        auto clogger = this->logger.detach(id, levels);
 	//        auto executor = exe4cpp::StrandExecutor::create(this->io);
 	//        auto iohandler = TCPServerIOHandler::Create(clogger, mode, listener, executor, endpoint, ec);
@@ -198,7 +198,7 @@ public class DNP3ManagerImpl : Uncopyable
 
 	//#ifdef OPENDNP3_USE_TLS
 	//    auto create = [&]() -> std::shared_ptr<IChannel> {
-	//        std::error_code ec;
+	//        /*std::error_code*/ int ec;
 	//        auto clogger = this->logger.detach(id, levels);
 	//        auto executor = exe4cpp::StrandExecutor::create(this->io);
 	//        auto iohandler = TLSServerIOHandler::Create(clogger, mode, listener, executor, endpoint, config, ec);
@@ -228,7 +228,7 @@ public class DNP3ManagerImpl : Uncopyable
 	public IListener CreateListener(string loggerid, in LogLevels levels, in IPEndpoint endpoint, IListenCallbacks callbacks)
 	{
 	//    auto create = [&]() -> std::shared_ptr<IListener> {
-	//        std::error_code ec;
+	//        /*std::error_code*/ int ec;
 	//        auto server
 	//            = MasterTCPServer::Create(this->logger.detach(loggerid, levels),
 	//            							exe4cpp::StrandExecutor::create(this->io),
@@ -259,7 +259,7 @@ public class DNP3ManagerImpl : Uncopyable
 	//#ifdef OPENDNP3_USE_TLS
 	//
 	//    auto create = [&]() -> std::shared_ptr<IListener> {
-	//        std::error_code ec;
+	//        /*std::error_code*/ int ec;
 	//        auto server
 	//            = MasterTLSServer::Create(this->logger.detach(loggerid, levels), exe4cpp::StrandExecutor::create(this->io),
 	//                                      endpoint, config, callbacks, this->resources, ec);

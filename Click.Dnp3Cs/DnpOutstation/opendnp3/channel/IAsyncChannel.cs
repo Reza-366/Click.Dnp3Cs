@@ -122,7 +122,7 @@ public abstract class IAsyncChannel : Uncopyable
 
 	//const std::shared_ptr<exe4cpp::StrandExecutor> executor;
 
-	protected void OnReadCallback(in std::error_code ec, /*size_t*/int num)
+	protected void OnReadCallback(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 		this.reading = false;
 		if (this.callbacks != null && !is_shutting_down)
@@ -131,7 +131,7 @@ public abstract class IAsyncChannel : Uncopyable
 		}
 	}
 
-	protected void OnWriteCallback(in std::error_code ec, /*size_t*/int num)
+	protected void OnWriteCallback(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 		this.writing = false;
 		if (this.callbacks != null && !is_shutting_down)

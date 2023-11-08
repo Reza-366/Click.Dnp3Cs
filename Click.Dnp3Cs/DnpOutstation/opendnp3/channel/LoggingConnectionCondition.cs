@@ -60,7 +60,7 @@ public class LoggingConnectionCondition
 
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<typename Iterator>
-	public Iterator functorMethod<Iterator>(in std::error_code ec, Iterator next)
+	public Iterator functorMethod<Iterator>(in /*std::error_code*/ int ec, Iterator next)
 	{
 		if (ec != null)
 		{

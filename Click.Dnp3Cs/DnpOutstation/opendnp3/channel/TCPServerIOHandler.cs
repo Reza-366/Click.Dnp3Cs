@@ -61,7 +61,7 @@ public class TCPServerIOHandler //final : public IOHandler
 //        Server(const Logger& logger,
 //               const std::shared_ptr<exe4cpp::StrandExecutor>& executor,
 //               const IPEndpoint& endpoint,
-//               std::error_code& ec)
+//               /*std::error_code*/ int& ec)
 //            : TCPServer(logger, executor, endpoint, ec)
 //        {
 //        }
@@ -82,13 +82,13 @@ public class TCPServerIOHandler //final : public IOHandler
 //                              asio::ip::tcp::socket) final;
 	}
 
-	public static TCPServerIOHandler Create(in Logger logger, ServerAcceptMode accept_mode, IChannelListener listener, in IPEndpoint endpoint, std::error_code ec)
+	public static TCPServerIOHandler Create(in Logger logger, ServerAcceptMode accept_mode, IChannelListener listener, in IPEndpoint endpoint, /*std::error_code*/ int ec)
 	{
 		return new TCPServerIOHandler(logger, accept_mode, listener, endpoint, ec);
 	}
 
 //C++ TO C# CONVERTER TASK: The implementation of the following method could not be found:
-//	TCPServerIOHandler(in Logger logger, ServerAcceptMode accept_mode, IChannelListener listener, IPEndpoint endpoint, std::error_code ec);
+//	TCPServerIOHandler(in Logger logger, ServerAcceptMode accept_mode, IChannelListener listener, IPEndpoint endpoint, /*std::error_code*/ int ec);
 
 
 	//void TCPServerIOHandler::Server::AcceptConnection(ulong sessionid,
@@ -103,7 +103,7 @@ public class TCPServerIOHandler //final : public IOHandler
 	//                                       const std::shared_ptr<IChannelListener>& listener,
 	//                                       std::shared_ptr<exe4cpp::StrandExecutor> executor,
 	//                                       IPEndpoint endpoint,
-	//                                       std::error_code& ec)
+	//                                       /*std::error_code*/ int& ec)
 	//    : IOHandler(logger, mode == ServerAcceptMode::CloseExisting, listener),
 	//      executor(std::move(executor)),
 	//      endpoint(std::move(endpoint)),
@@ -133,7 +133,7 @@ public class TCPServerIOHandler //final : public IOHandler
 	//    }
 	//    else
 	//    {
-	//        std::error_code ec;
+	//        /*std::error_code*/ int ec;
 	//        this->server = std::make_shared<Server>(this->logger, this->executor, this->endpoint, ec);
 	//
 	//        if (ec)

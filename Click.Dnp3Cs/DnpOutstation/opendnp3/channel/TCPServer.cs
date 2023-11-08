@@ -59,7 +59,7 @@ namespace opendnp3
 public abstract class TCPServer //: public std::enable_shared_from_this<TCPServer>, public IListener, private Uncopyable
 {
 
-	public TCPServer(in Logger logger, in IPEndpoint endpoint, std::error_code ec)
+	public TCPServer(in Logger logger, in IPEndpoint endpoint, /*std::error_code*/ int ec)
 		 // executor(executor),
 		 // endpoint(asio::ip::tcp::v4(), endpoint.port), //REZA
 		 // acceptor(*executor->get_context()),
@@ -78,7 +78,7 @@ public abstract class TCPServer //: public std::enable_shared_from_this<TCPServe
 	//
 	//    this->isShutdown = true;
 	//
-	//    std::error_code ec;
+	//    /*std::error_code*/ int ec;
 	//    this->acceptor.close(ec);
 	//
 	//    if (ec)
@@ -98,7 +98,7 @@ public abstract class TCPServer //: public std::enable_shared_from_this<TCPServe
 	{
 		//REZA
 	//    // this ensures that the TCPListener is never deleted during an active callback
-	//    auto callback = [self = shared_from_this()](std::error_code ec) {
+	//    auto callback = [self = shared_from_this()](/*std::error_code*/ int ec) {
 	//        if (ec)
 	//        {
 	//            SIMPLE_LOG_BLOCK(self->logger, flags::INFO, ec.message().c_str());
@@ -141,7 +141,7 @@ public abstract class TCPServer //: public std::enable_shared_from_this<TCPServe
 	//std::shared_ptr<exe4cpp::StrandExecutor> executor;
 
 
-	private void Configure(in string adapter, std::error_code ec)
+	private void Configure(in string adapter, /*std::error_code*/ int ec)
 	{
 		//REZA
 	//    auto address = asio::ip::address::from_string(adapter, ec);

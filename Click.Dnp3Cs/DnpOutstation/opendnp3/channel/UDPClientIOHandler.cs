@@ -118,7 +118,7 @@ public sealed class UDPClientIOHandler : IOHandler
 	//    }
 	//
 	//    auto cb = [=, self = shared_from_this()](const std::shared_ptr<exe4cpp::StrandExecutor>& executor,
-	//                                             asio::ip::udp::socket socket, const std::error_code& ec) -> void {
+	//                                             asio::ip::udp::socket socket, const /*std::error_code*/ int& ec) -> void {
 	//        if (ec)
 	//        {
 	//            FORMAT_LOG_BLOCK(this->logger, flags::WARN, "Error opening UDP socket: %s", ec.message().c_str());

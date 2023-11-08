@@ -814,13 +814,14 @@ namespace opendnp3
                     return false;
                 }
             }
-
             return true;
         }
+
         public static BufferedCollection<T, ReadFunc> CreateBufferedCollection<T, ReadFunc>(in RSeq/*<size_t>*/ buffer, /*size_t*/int count, in ReadFunc readFunc)
         {
             return BufferedCollection<T, ReadFunc>(buffer, count, readFunc);
         }
+
         public static TransformedCollection<T, U, Transform> Map<T, U, Transform>(in ICollection<T> input, Transform transform)
         {
             return TransformedCollection<T, U, Transform>(input, transform);

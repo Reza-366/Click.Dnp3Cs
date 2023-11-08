@@ -14,8 +14,9 @@ namespace asio
 			public address()
 			{
 			}
-			public static address from_string(string str, std::error_code ec)
+			public static address from_string(string str, int ec)
 			{
+				return new address();
 			}
 			public void Dispose()
 			{

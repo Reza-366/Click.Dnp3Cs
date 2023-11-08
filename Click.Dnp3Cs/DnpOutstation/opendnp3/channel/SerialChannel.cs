@@ -61,9 +61,9 @@ public sealed class SerialChannel //: public IAsyncChannel //REZA
 		//: IAsyncChannel(), port() //REZA
 	}
 
-	public bool Open(in SerialSettings settings, ref std::error_code ec)
+	public bool Open(in SerialSettings settings, ref /*std::error_code*/ int ec)
 	{
-		port.open(settings.deviceName, new std::error_code(ec));
+		port.open(settings.deviceName, new /*std::error_code*/ int(ec));
 		if (ec != null)
 		{
 			return false;
@@ -91,24 +91,24 @@ public sealed class SerialChannel //: public IAsyncChannel //REZA
 
 	private void BeginReadImpl(WSeq</*size_t*/int> buffer)
 	{
-	//    auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnReadCallback(ec, num); };
+	//    auto callback = [this](const /*std::error_code*/ int& ec, /*size_t*/int num) { this->OnReadCallback(ec, num); };
 	//    port.async_read_some(asio::buffer(buffer, buffer.length()), this->executor->wrap(callback)); // REZA
 	}
 
 	private void BeginWriteImpl(in RSeq/*<size_t>*/ buffer)
 	{
-	  //  auto callback = [this](const std::error_code& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
+	  //  auto callback = [this](const /*std::error_code*/ int& ec, /*size_t*/int num) { this->OnWriteCallback(ec, num); };
 		//async_write(port, asio::buffer(buffer, buffer.length()), this->executor->wrap(callback)); //REZA
 	}
 
 	private void ShutdownImpl()
 	{
-		std::error_code ec = new std::error_code();
+		/*std::error_code*/ int ec = new /*std::error_code*/ int();
 #if USE_FLOCK
 		/* Explicitly unlock serial device handler before exiting.*/
 		flock(port.native_handle(), LOCK_UN);
 #endif
-		port.close(new std::error_code(ec));
+		port.close(new /*std::error_code*/ int(ec));
 	}
 
 	private asio.serial_port port = new asio.serial_port();

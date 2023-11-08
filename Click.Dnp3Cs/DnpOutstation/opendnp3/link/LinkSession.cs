@@ -129,7 +129,7 @@ public static class LinkSession : ILinkTx, IChannelCallbacks, IFrameSink, IResou
 	}
 
 	// IChannelCallbacks
-	private override void OnReadComplete(in std::error_code ec, /*size_t*/int num)
+	private override void OnReadComplete(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 		if (ec != null)
 		{
@@ -147,7 +147,7 @@ public static class LinkSession : ILinkTx, IChannelCallbacks, IFrameSink, IResou
 		}
 	}
 
-	private override void OnWriteComplete(in std::error_code ec, /*size_t*/int num)
+	private override void OnWriteComplete(in /*std::error_code*/ int ec, /*size_t*/int num)
 	{
 		if (ec != null)
 		{

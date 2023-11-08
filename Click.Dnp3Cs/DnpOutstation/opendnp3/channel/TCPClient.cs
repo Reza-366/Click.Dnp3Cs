@@ -78,7 +78,7 @@ namespace opendnp3
 public sealed class TCPClient : Uncopyable
 {
 
-	public delegate void connect_callback_t(in std::error_code ec);
+	public delegate void connect_callback_t(in /*std::error_code*/ int ec);
 
 	public static TCPClient Create(in Logger logger, in string adapter)
 	{
@@ -98,7 +98,7 @@ public sealed class TCPClient : Uncopyable
 			return false;
 		}
 
-		std::error_code ec = new std::error_code();
+		/*std::error_code*/ int ec = new /*std::error_code*/ int();
 	//    socket.cancel(ec);
 	//    resolver.cancel();
 		this.canceled = true;
@@ -112,7 +112,7 @@ public sealed class TCPClient : Uncopyable
 	//
 	//    this->connecting = true;
 	//
-	//    std::error_code ec;
+	//    /*std::error_code*/ int ec;
 	//    SocketHelpers::BindToLocalAddress<asio::ip::tcp>(this->adapter, 0, this->socket, ec);
 	//
 	//    if (ec)
@@ -125,7 +125,7 @@ public sealed class TCPClient : Uncopyable
 	//    if (ec)
 	//    {
 	//        // Try DNS resolution instead
-	//        auto cb = [self, callback](const std::error_code& ec, asio::ip::tcp::resolver::iterator endpoints) {
+	//        auto cb = [self, callback](const /*std::error_code*/ int& ec, asio::ip::tcp::resolver::iterator endpoints) {
 	//            self->HandleResolveResult(callback, endpoints, ec);
 	//        };
 	//
@@ -138,7 +138,7 @@ public sealed class TCPClient : Uncopyable
 	//    }
 	//
 	//    asio::ip::tcp::endpoint remoteEndpoint(address, remote.port);
-	//    auto cb = [self, callback](const std::error_code& ec) {
+	//    auto cb = [self, callback](const /*std::error_code*/ int& ec) {
 	//        self->connecting = false;
 	//        if (!self->canceled)
 	//        {
@@ -151,7 +151,7 @@ public sealed class TCPClient : Uncopyable
 		return true;
 	}
 
-	private void HandleResolveResult(in connect_callback_t callback, in std::error_code ec)
+	private void HandleResolveResult(in connect_callback_t callback, in /*std::error_code*/ int ec)
 	{
 	//    if (ec)
 	//    {
@@ -160,7 +160,7 @@ public sealed class TCPClient : Uncopyable
 	//    else
 	//    {
 	//        // attempt a connection to each endpoint in the iterator until we connect
-	//        auto cb = [self = shared_from_this(), callback](const std::error_code& ec,
+	//        auto cb = [self = shared_from_this(), callback](const /*std::error_code*/ int& ec,
 	//                                                        //asio::ip::tcp::resolver::iterator endpoints //reza
 	//														) {
 	//            self->connecting = false;
@@ -174,7 +174,7 @@ public sealed class TCPClient : Uncopyable
 	//    }
 	}
 
-	private bool PostConnectError(in connect_callback_t callback, in std::error_code ec)
+	private bool PostConnectError(in connect_callback_t callback, in /*std::error_code*/ int ec)
 	{
 	//    auto cb = [self = shared_from_this(), ec, callback]() {
 	//        self->connecting = false;

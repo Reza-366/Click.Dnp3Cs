@@ -29,18 +29,18 @@ public class basic_waitable_timer <_Tp> : System.IDisposable
 	public virtual void Dispose()
 	{
 	}
-	public std::chrono.steady_clock.time_point expires_at()
+	public DateTime expires_at()
 	{
-		std::chrono.steady_clock.time_point t = new std::chrono.steady_clock.time_point();
-		return new std::chrono.steady_clock.time_point(t);
+		DateTime t = new DateTime();
+		return new DateTime();
 	}
 
-	public std::chrono.steady_clock.time_point expires_at(std::chrono.steady_clock.time_point time)
+	public DateTime expires_at(DateTime time)
 	{
-		return new std::chrono.steady_clock.time_point(time);
+		return new DateTime();
 	}
 //	void cancel(){}
-	public void cancel(std::error_code ec)
+	public void cancel(/*std::error_code*/ int ec)
 	{
 	}
 

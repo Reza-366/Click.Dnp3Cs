@@ -56,7 +56,7 @@ public abstract class IExecutor : ISteadyTimeSource
         public abstract Timer start(in TimeSpan duration, in action_t action);
 
         /// @return start a new timer based on an absolute timestamp of the steady clock
-        //public abstract Timer start(in steady_time_t expiration, in action_t action);
+        //public abstract Timer start(in /*steady_time_t*/ DateTime expiration, in action_t action);
         public abstract Timer start(in DateTime expiration, in action_t action);
 
         /// @return Thread-safe way to post an event to be handled asynchronously

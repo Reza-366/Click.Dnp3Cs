@@ -41,7 +41,7 @@ public class SocketHelpers : StaticOnly
 	 */
 //C++ TO C# CONVERTER WARNING: The original C++ template specifier was replaced with a C# generic specifier, which may not produce the same behavior:
 //ORIGINAL LINE: template<typename proto_t, typename socket_t>
-	public static void BindToLocalAddress<proto_t, socket_t>(in string address, ushort port, socket_t socket, std::error_code ec)
+	public static void BindToLocalAddress<proto_t, socket_t>(in string address, ushort port, socket_t socket, /*std::error_code*/ int ec)
 	{
 //        typename proto_t::endpoint endpoint;
 //        auto string = address.empty() ? "0.0.0.0" : address;
